@@ -53,7 +53,7 @@ export const colors = {
         $700: '#B51427',
         $800: '#AA1023',
     },
-    redCold: {
+    redSoft: {
         $100: '#FD6E7F',
         $200: '#EC5769',
         $300: '#E74F61',
@@ -83,7 +83,7 @@ export const colors = {
         $700: '#00A05F',
         $800: '#00965A',
     },
-    greenCold: {
+    greenSoft: {
         $100: '#52DAA1',
         $200: '#3BD794',
         $300: '#2FCF8B',
@@ -227,7 +227,14 @@ export const transitions = {
     default: '0.3s',
 };
 
-export const breakpoints = ['576px', '768px', '992px', '1200px'];
+export const breakpoints = [
+    '576px',
+    '768px',
+    '992px',
+    '1200px',
+    '1400px',
+    '1920px',
+];
 
 export const borderWidths = [0, 1];
 

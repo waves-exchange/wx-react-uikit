@@ -4,6 +4,7 @@ import {
     darkThemeColors,
     fontSizes,
     fontWeights,
+    lightThemeColors,
     lineHeights,
     radii,
     shadows,
@@ -31,7 +32,7 @@ export const darkTheme = {
 };
 
 export const lightTheme = {
-    colors: { ...darkThemeColors },
+    colors: { ...lightThemeColors },
     ...common,
 };
 

@@ -10,21 +10,13 @@ const stories = storiesOf('Button', module);
 
 stories.add('simple', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Flex flexDirection="row" p={16} bg="#171C2B">
+        <Flex flexDirection="row" p={16} bg="main.$700">
             <Flex flexDirection="column" mr={16}>
                 <Box color="standard.$0" as="h1">
                     ExtraLarge
                 </Box>
                 <Button mb={16} variant="primary" variantSize="extraLarge">
                     Primary
-                </Button>
-                <Button
-                    mb={16}
-                    variant="danger"
-                    variantSize="extraLarge"
-                    isFlexCenter={true}
-                >
-                    Secondary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="extraLarge">
                     Action
@@ -38,9 +30,6 @@ stories.add('simple', () => (
                 <Button mb={16} variant="primary" variantSize="large">
                     Primary
                 </Button>
-                <Button mb={16} variant="danger" variantSize="large">
-                    Secondary
-                </Button>
                 <Button mb={16} variant="transparent" variantSize="large">
                     Action
                 </Button>
@@ -52,9 +41,6 @@ stories.add('simple', () => (
                 </Box>
                 <Button mb={16} variant="primary" variantSize="medium">
                     Primary
-                </Button>
-                <Button mb={16} variant="danger" variantSize="medium">
-                    Secondary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="medium">
                     Action
@@ -68,9 +54,6 @@ stories.add('simple', () => (
                 <Button mb={16} variant="primary" variantSize="small">
                     Primary
                 </Button>
-                <Button mb={16} variant="danger" variantSize="small">
-                    Secondary
-                </Button>
                 <Button mb={16} variant="transparent" variantSize="small">
                     Action
                 </Button>
@@ -81,7 +64,7 @@ stories.add('simple', () => (
 
 stories.add('disabled', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Flex flexDirection="row" p={16} bg="#171C2B">
+        <Flex flexDirection="row" p={16} bg="main.$700">
             <Flex flexDirection="column" mr={16}>
                 <Box color="standard.$0" as="h1">
                     ExtraLarge
@@ -93,14 +76,6 @@ stories.add('disabled', () => (
                     disabled={true}
                 >
                     Primary
-                </Button>
-                <Button
-                    mb={16}
-                    variant="danger"
-                    variantSize="extraLarge"
-                    disabled={true}
-                >
-                    Secondary
                 </Button>
                 <Button
                     mb={16}
@@ -126,14 +101,6 @@ stories.add('disabled', () => (
                 </Button>
                 <Button
                     mb={16}
-                    variant="danger"
-                    variantSize="large"
-                    disabled={true}
-                >
-                    Secondary
-                </Button>
-                <Button
-                    mb={16}
                     variant="transparent"
                     variantSize="large"
                     disabled={true}
@@ -156,14 +123,6 @@ stories.add('disabled', () => (
                 </Button>
                 <Button
                     mb={16}
-                    variant="danger"
-                    variantSize="medium"
-                    disabled={true}
-                >
-                    Secondary
-                </Button>
-                <Button
-                    mb={16}
                     variant="transparent"
                     variantSize="medium"
                     disabled={true}
@@ -183,14 +142,6 @@ stories.add('disabled', () => (
                     disabled={true}
                 >
                     Primary
-                </Button>
-                <Button
-                    mb={16}
-                    variant="danger"
-                    variantSize="small"
-                    disabled={true}
-                >
-                    Secondary
                 </Button>
                 <Button
                     mb={16}

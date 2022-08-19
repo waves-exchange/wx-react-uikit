@@ -5,7 +5,7 @@ export const variants = {
     },
     body2: {
         fontSize: '$14',
-        lineHeight: '$25',
+        lineHeight: '$24',
     },
     caption: {
         fontSize: '$12',
@@ -20,8 +20,8 @@ export const variants = {
         lineHeight: '$16',
     },
     footnote2: {
-        fontSize: '$11',
-        lineHeight: '$14',
+        fontSize: '$10',
+        lineHeight: '$16',
     },
     heading1: {
         fontSize: '$56',

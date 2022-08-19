@@ -49,7 +49,7 @@ stories.add('simple - light theme', () => (
 
 stories.add('simple - dark theme', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Box bg="#0F141E" color="secondary.$100" height="100vh">
+        <Box bg="main.$800" color="secondary.$100" height="100vh">
             <Box p="10px">
                 <Text>Body-1</Text>
             </Box>

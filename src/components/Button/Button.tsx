@@ -9,7 +9,6 @@ export type Variant = keyof typeof variants;
 export type VariantSize = keyof typeof variantSizes;
 
 type ButtonSpecificProps = {
-    isFlexCenter?: boolean;
     variant?: Variant;
     variantSize?: VariantSize;
 };

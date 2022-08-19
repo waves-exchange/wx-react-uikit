@@ -11,6 +11,7 @@
     "../src/**/*.test.tsx"
   ],
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "test-utils": ["./jest/test-utils.tsx"]

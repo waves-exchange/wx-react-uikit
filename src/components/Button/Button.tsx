@@ -1,8 +1,9 @@
-import styled from '@emotion/styled';
+import { Box, BoxAsElement, BoxProps } from '../Box/Box';
+import { variantSizes, variants } from './styles';
+
 import { ButtonHTMLAttributes } from 'react';
+import styled from '@emotion/styled';
 import { variant } from 'styled-system';
-import { Box, BoxProps, BoxAsElement } from '../Box/Box';
-import { variants, variantSizes } from './styles';
 
 export type Variant = keyof typeof variants;
 export type VariantSize = keyof typeof variantSizes;
@@ -41,4 +42,7 @@ Button.defaultProps = {
     border: 0,
     borderRadius: '$4',
     transition: 'default',
+    fontWeight: 500,
+    variant: 'primary',
+    variantSize: 'medium',
 };

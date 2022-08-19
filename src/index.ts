@@ -12,7 +12,7 @@ export * from './components/Button/Button';
 // export * from './components/DotLoader/DotLoader';
 // export * from './components/ExternalLink/ExternalLink';
 export * from './components/Flex/Flex';
-// export * from './components/Heading/Heading';
+export * from './components/Heading/Heading';
 export * from './components/Help/Help';
 // export * from './components/Icon/Icon';
 // export * from './components/IconButton/IconButton';

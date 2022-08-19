@@ -14,19 +14,19 @@ stories.add('simple - light theme', () => (
                 <Text>Body-1</Text>
             </Box>
             <Box p="10px">
-                <Text variant="body2">Body-2</Text>
+                <Text variant="bodySemiBold1">Body SemiBold-1</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="body2">Body 2</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="bodySemiBold2">Body SemiBold - 2</Text>
             </Box>
             <Box p="10px">
                 <Text variant="caption">Caption</Text>
             </Box>
             <Box p="10px">
                 <Text variant="line">Line</Text>
-            </Box>
-            <Box p="10px">
-                <Text variant="footnote1">Footnote-1</Text>
-            </Box>
-            <Box p="10px">
-                <Text variant="footnote2">Footnote-2</Text>
             </Box>
             <Box p="10px">
                 <Text variant="heading1">Heading-1</Text>
@@ -54,19 +54,19 @@ stories.add('simple - dark theme', () => (
                 <Text>Body-1</Text>
             </Box>
             <Box p="10px">
-                <Text variant="body2">Body-2</Text>
+                <Text variant="bodySemiBold1">Body SemiBold-1</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="body2">Body 2</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="bodySemiBold2">Body SemiBold - 2</Text>
             </Box>
             <Box p="10px">
                 <Text variant="caption">Caption</Text>
             </Box>
             <Box p="10px">
                 <Text variant="line">Line</Text>
-            </Box>
-            <Box p="10px">
-                <Text variant="footnote1">Footnote-1</Text>
-            </Box>
-            <Box p="10px">
-                <Text variant="footnote2">Footnote-2</Text>
             </Box>
             <Box p="10px">
                 <Text variant="heading1">Heading-1</Text>

@@ -3,23 +3,25 @@ export const variants = {
         fontSize: '$16',
         lineHeight: '$24',
     },
+    bodySemiBold1: {
+        fontSize: '$16',
+        lineHeight: '$24',
+        fontWeight: '$600',
+    },
     body2: {
         fontSize: '$14',
         lineHeight: '$24',
+    },
+    bodySemiBold2: {
+        fontSize: '$14',
+        lineHeight: '$24',
+        fontWeight: '$600',
     },
     caption: {
         fontSize: '$12',
         lineHeight: '$16',
     },
     line: {
-        fontSize: '$10',
-        lineHeight: '$16',
-    },
-    footnote1: {
-        fontSize: '$12',
-        lineHeight: '$16',
-    },
-    footnote2: {
         fontSize: '$10',
         lineHeight: '$16',
     },

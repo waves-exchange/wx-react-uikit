@@ -57,30 +57,7 @@ describe('Text - dark theme', () => {
         expect(text).toHaveStyleRule('font-size', fontSizes.$10);
         expect(text).toHaveStyleRule('line-height', lineHeights.$16);
     });
-    it('render - variant footnote1', () => {
-        const { getByTestId } = render(
-            <Text variant="footnote1" theme={darkTheme} data-testid="text">
-                Test Text
-            </Text>
-        );
-        const text = getByTestId('text');
 
-        expect(text).toHaveProperty('textContent', 'Test Text');
-        expect(text).toHaveStyleRule('font-size', fontSizes.$12);
-        expect(text).toHaveStyleRule('line-height', lineHeights.$16);
-    });
-    it('render - variant footnote2', () => {
-        const { getByTestId } = render(
-            <Text variant="footnote2" theme={darkTheme} data-testid="text">
-                Test Text
-            </Text>
-        );
-        const text = getByTestId('text');
-
-        expect(text).toHaveProperty('textContent', 'Test Text');
-        expect(text).toHaveStyleRule('font-size', fontSizes.$10);
-        expect(text).toHaveStyleRule('line-height', lineHeights.$16);
-    });
     it('render - variant heading1', () => {
         const { getByTestId } = render(
             <Text variant="heading1" theme={darkTheme} data-testid="text">

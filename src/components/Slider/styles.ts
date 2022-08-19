@@ -90,7 +90,7 @@ const legendLabelStyle: LegendLabelStyle = {
         position: 'relative',
     },
     textStyles: {
-        variant: 'footnote2',
+        variant: 'line',
         color: 'basic.$700',
         position: 'absolute',
         pt: 10,

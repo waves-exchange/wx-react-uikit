@@ -11,7 +11,7 @@ export * from './components/Button/Button';
 // export * from './components/DonutDiagram/DonutDiagram';
 // export * from './components/DotLoader/DotLoader';
 // export * from './components/ExternalLink/ExternalLink';
-// export * from './components/Flex/Flex';
+export * from './components/Flex/Flex';
 // export * from './components/Heading/Heading';
 export * from './components/Help/Help';
 // export * from './components/Icon/Icon';
@@ -25,7 +25,7 @@ export * from './components/FormattedInput/FormattedInput';
 // export * from './components/RadioGroup/RadioGroup';
 // export * from './components/RadioButtonGroup/RadioButtonGroup';
 // export * from './components/Switch/Switch';
-// export * from './components/Text/Text';
+export * from './components/Text/Text';
 // export * from './components/IconTransfer/IconTransfer';
 // export * from './components/PasswordComplexityIndicator/PasswordComplexityIndicator';
 // export * from './components/Spinner/Spinner';
@@ -83,4 +83,4 @@ export * from './themes/default';
 //types
 export * from './interface';
 //hooks
-export * from './hooks/useBoundedTooltip';
+// export * from './hooks/useBoundedTooltip';

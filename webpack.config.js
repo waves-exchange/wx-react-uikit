@@ -10,7 +10,7 @@ module.exports = (env, { mode }) => {
         entry: './src/index.ts',
         output: {
             path: path.resolve('./dist'),
-            filename: isProduction ? 'react-uikit.min.js' : 'react-uikit.js',
+            filename: isProduction ? 'wx-react-uikit.min.js' : 'wx-react-uikit.js',
             libraryTarget: 'umd',
             library: 'ReactUIKit'
         },

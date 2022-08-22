@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { Flex } from '../Flex/Flex';
-import { Copy } from '../Copy/Copy';
-import { Text } from '../Text/Text';
+
 import { BoxProps } from '../Box/Box';
+import { Copy } from '../Copy/Copy';
+import { Flex } from '../Flex/Flex';
+import { Text } from '../Text/Text';
 
 const getShortAddress = (address: string): string =>
     `${address.slice(0, 8)}***${address.slice(-8)}`;
@@ -41,7 +42,7 @@ export const AddressLabel: FC<Props> = ({
                 alignItems="flex-start"
             >
                 {name && (
-                    <Text variant="footnote1" color="basic.$500">
+                    <Text variant="caption" color="basic.$500">
                         {name}
                     </Text>
                 )}

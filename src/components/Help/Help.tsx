@@ -1,10 +1,11 @@
-import { NAMES_THEME, TThemeCustom } from '../../themes/default';
 import React, { FC, useCallback, useMemo } from 'react';
+import { fontSizes, lineHeights } from '../../themes/constants';
 
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
 import { Placement } from '@popperjs/core';
+import { TThemeCustom } from '../../themes/default';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { iconQuestion } from '../../icons/question';
 import { useTheme } from 'emotion-theming';
@@ -16,10 +17,10 @@ type HelpProps = {
     color?: string;
     contentBefore?: () => React.ReactElement | undefined;
     contentAfter?: () => React.ReactElement | undefined;
-    colorIcon?: string;
-    disabled?: boolean;
-    isOpen?: boolean;
-    disabledColor?: string;
+    colorHoverIcon?: string;
+    disabledIcon?: boolean;
+    isOpenContent?: boolean;
+    disabledColorIcon?: string;
     sizeIcon?: string;
     defaultColorIcon?: string;
 };
@@ -28,18 +29,21 @@ export const Help: FC<HelpProps> = ({
     align,
     direction = 'auto',
     maxWidth = '288px',
-    color = 'primary.$300',
+    color,
     contentBefore,
     contentAfter,
     children,
-    colorIcon,
-    disabledColor,
-    disabled = false,
-    isOpen = undefined,
-    defaultColorIcon = '#848E9F',
+    colorHoverIcon,
+    disabledColorIcon,
+    disabledIcon = false,
+    isOpenContent = undefined,
+    defaultColorIcon,
     sizeIcon = '16px',
 }) => {
     const theme = useTheme<TThemeCustom>();
+    const { help } = theme;
+
+    color = color || help.hover;
 
     const placement = useMemo<Placement>(() => {
         switch (align) {
@@ -74,8 +78,8 @@ export const Help: FC<HelpProps> = ({
                 borderRadius="$4"
                 borderColor={color}
                 borderWidth="4px"
-                fontSize="14px"
-                lineHeight="24px"
+                fontSize={fontSizes.$14}
+                lineHeight={lineHeights.$24}
                 sx={{
                     '[data-popper-placement^="top"] &': {
                         borderBottomStyle: 'solid',
@@ -96,27 +100,30 @@ export const Help: FC<HelpProps> = ({
         ),
         [children, color]
     );
-    const defaultDisableColorIcon = React.useMemo(() => {
-        return theme.name === NAMES_THEME.darkTheme ? 'main.$100' : 'main.$800';
-    }, [theme.name]);
 
-    const currentThemeOnHover = React.useMemo(() => {
-        const currentColor = disabled
-            ? disabledColor || defaultDisableColorIcon
-            : colorIcon || color;
+    const currentСolorOnHover = React.useMemo(() => {
+        const currentColor = disabledIcon
+            ? disabledColorIcon || help.disabled
+            : colorHoverIcon || color;
 
         return {
-            '#circle': {
-                stroke: currentColor,
-            },
-            '#figure': {
-                stroke: currentColor,
-            },
-            '#dot': {
-                fill: currentColor,
+            svg: {
+                color: currentColor,
             },
         };
-    }, [color, colorIcon, defaultDisableColorIcon, disabled, disabledColor]);
+    }, [color, colorHoverIcon, disabledColorIcon, disabledIcon, help.disabled]);
+
+    const currentColorIcon = React.useMemo(() => {
+        return disabledIcon
+            ? disabledColorIcon || help.disabled
+            : defaultColorIcon || help.active;
+    }, [
+        defaultColorIcon,
+        disabledColorIcon,
+        disabledIcon,
+        help.active,
+        help.disabled,
+    ]);
 
     return (
         <Tooltip
@@ -130,13 +137,13 @@ export const Help: FC<HelpProps> = ({
             showDelay={500}
             interactive={true}
             maxWidth={maxWidth}
-            isOpen={isOpen}
+            isOpen={isOpenContent}
         >
             <Flex
                 alignItems="center"
                 cursor="pointer"
                 sx={{
-                    ':hover': currentThemeOnHover,
+                    ':hover': currentСolorOnHover,
                     svg: {
                         fill: 'transparent',
                     },
@@ -146,14 +153,9 @@ export const Help: FC<HelpProps> = ({
                     <Box>{contentBefore()}</Box>
                 )}
                 <Icon
-                    icon={iconQuestion(
-                        disabled
-                            ? disabledColor || defaultDisableColorIcon
-                            : defaultColorIcon,
-                        Boolean(disabledColor || disabled),
-                        theme
-                    )}
+                    icon={iconQuestion}
                     size={sizeIcon}
+                    color={currentColorIcon}
                 />
                 {typeof contentAfter === 'function' && (
                     <Box>{contentAfter()}</Box>

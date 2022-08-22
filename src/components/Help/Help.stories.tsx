@@ -155,7 +155,11 @@ stories.add('Top Left CustomColor', () => (
             p="16px"
             backgroundColor="main.$800"
         >
-            <Help direction="top" align="right" color="#e9ac00">
+            <Help
+                direction="top"
+                align="right"
+                color={defaultTheme.colors.warning.$600}
+            >
                 {box}
             </Help>
         </Flex>
@@ -174,7 +178,12 @@ stories.add('Disabled - dark theme', () => (
             p="16px"
             backgroundColor="#000"
         >
-            <Help direction="top" align="right" disabled={true} isOpen={false}>
+            <Help
+                direction="top"
+                align="right"
+                disabledIcon={true}
+                isOpenContent={false}
+            >
                 {box}
             </Help>
         </Flex>
@@ -193,7 +202,12 @@ stories.add('Disabled - light theme', () => (
             p="16px"
             backgroundColor="#fff"
         >
-            <Help direction="top" align="right" disabled={true} isOpen={false}>
+            <Help
+                direction="top"
+                align="right"
+                disabledIcon={true}
+                isOpenContent={false}
+            >
                 {box}
             </Help>
         </Flex>
@@ -212,7 +226,7 @@ stories.add('Custom color Icon on hover', () => (
             p="16px"
             backgroundColor="#000"
         >
-            <Help direction="top" align="right" colorIcon="yellow">
+            <Help direction="top" align="right" colorHoverIcon="yellow">
                 {box}
             </Help>
         </Flex>
@@ -250,7 +264,7 @@ stories.add('Content help - light theme', () => (
             p="16px"
             backgroundColor="#fff"
         >
-            <Help direction="top" align="right" isOpen={true}>
+            <Help direction="top" align="right" isOpenContent={true}>
                 {box}
             </Help>
         </Flex>
@@ -269,7 +283,7 @@ stories.add('Content help - dark theme', () => (
             p="16px"
             backgroundColor="#000"
         >
-            <Help direction="top" align="right" isOpen={true}>
+            <Help direction="top" align="right" isOpenContent={true}>
                 {box}
             </Help>
         </Flex>

@@ -26,29 +26,30 @@ const common = {
     shadows,
 };
 
-export enum NAMES_THEME {
-    darkTheme = 'darkTheme',
-    lightTheme = 'lightTheme',
-}
-
-export type TNameTheme = NAMES_THEME.darkTheme | NAMES_THEME.lightTheme;
-
 export const darkTheme = {
     colors: { ...darkThemeColors },
     ...common,
-    name: NAMES_THEME.darkTheme,
+    help: {
+        active: darkThemeColors.basic.$400,
+        hover: darkThemeColors.primary.$300,
+        disabled: darkThemeColors.main.$100,
+    },
 };
 
 export const lightTheme = {
     colors: { ...lightThemeColors },
     ...common,
-    name: NAMES_THEME.lightTheme,
+    help: {
+        active: darkThemeColors.basic.$400,
+        hover: lightThemeColors.primary.$300,
+        disabled: lightThemeColors.main.$800,
+    },
 };
 
 export type TThemeCustom =
     | typeof darkTheme
     | (typeof lightTheme & {
-          name: TNameTheme;
+          help: { active: string; hover: string; disabled: string };
       });
 
 export const defaultTheme = { ...darkTheme };

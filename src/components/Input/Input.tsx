@@ -1,42 +1,54 @@
-import { InputHTMLAttributes } from 'react';
-import styled from '@emotion/styled';
-import { variant } from 'styled-system';
-import { TDefaultTheme } from '../../interface';
+import {
+    InputHTMLAttributes,
+    ReactElement,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import { Box } from '../Box/Box';
 import { InterpolationWithTheme } from '@emotion/core';
+import React from 'react';
+import { TDefaultTheme } from '../../interface';
+import { Text } from '../Text/Text';
+import styled from '@emotion/styled';
+import { variant } from 'styled-system';
 
 export const inputSizeVariants = {
     medium: {
-        fontSize: '$15',
+        fontSize: '$16',
         height: 'medium',
-        paddingLeft: '$20',
-        paddingRight: '$20',
+        paddingLeft: '$16',
+        paddingRight: '$16',
     },
     mediumWE: {
         fontSize: '$13',
         height: 'medium',
-        paddingLeft: 16,
-        paddingRight: 16,
     },
 };
 
 const defaultStyles = {
-    backgroundColor: 'basic.$900',
-    borderColor: 'main.$600',
+    backgroundColor: 'main.$300',
+    borderColor: 'main.$300',
     borderRadius: '$4',
     color: 'standard.$0',
+    '::placeholder': {
+        color: 'basic.$400',
+    },
     ':hover:not(:disabled)': {
-        borderColor: 'main.$200',
+        borderColor: 'basic.$800',
     },
     ':focus:not(:disabled)': {
         borderColor: 'primary.$300',
     },
     ':disabled': {
-        backgroundColor: 'main.$700',
+        backgroundColor: 'main.$600',
+        '::placeholder': {
+            color: 'main.$100',
+        },
     },
     '&[aria-invalid="true"]': {
         '&, &:hover, &:focus': {
-            borderColor: 'danger.$300',
+            borderColor: 'danger.$600',
         },
     },
 };
@@ -46,7 +58,7 @@ export const inputVariants = {
     defaultWE: {
         ...defaultStyles,
         '&[aria-checked="true"]': {
-            borderColor: 'green.$500',
+            borderColor: 'success.$500',
         },
     },
 };
@@ -61,7 +73,49 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     sx?: InterpolationWithTheme<TDefaultTheme>;
 };
 
-export const Input = styled(Box)<InputProps, TDefaultTheme>(
+type Input = (props: InputProps & { name?: string }) => ReactElement;
+export const Input: Input = ({ name, ...props }) => {
+    const [paddingRight, setPaddingRight] = useState(16);
+    const nameRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        Promise.resolve().then(() => {
+            if (nameRef.current) {
+                console.log(nameRef.current.clientWidth + 24);
+                setPaddingRight(nameRef.current.clientWidth + 24);
+            }
+        });
+    }, [name]);
+
+    return (
+        <Box position="relative">
+            <InputFC
+                {...props}
+                paddingRight={name ? `${paddingRight}px` : '16px'}
+            />
+            {name ? (
+                <Text
+                    fontSize="10px"
+                    lineHeight="16px"
+                    color={props.disabled ? 'main.$100' : 'basic.$400'}
+                    position="absolute"
+                    top="50%"
+                    right="16px"
+                    ref={nameRef}
+                    sx={{
+                        transform: 'translateY(-50%)',
+                        textTransform: 'uppercase',
+                    }}
+                >
+                    {name}
+                </Text>
+            ) : null}
+        </Box>
+    );
+};
+
+const InputFC = styled(Box)<InputProps, TDefaultTheme>(
     variant({
         prop: 'variantSize',
         variants: inputSizeVariants,
@@ -76,7 +130,7 @@ export const Input = styled(Box)<InputProps, TDefaultTheme>(
     }
 );
 
-Input.defaultProps = {
+InputFC.defaultProps = {
     as: 'input',
     border: 'solid 1px',
     width: '100%',

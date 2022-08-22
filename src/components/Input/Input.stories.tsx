@@ -1,9 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { ThemeProvider } from 'emotion-theming';
-import { defaultTheme } from '../../themes/default';
 import { Box } from '../Box/Box';
 import { Input } from './Input';
+import React from 'react';
+import { ThemeProvider } from 'emotion-theming';
+import { defaultTheme } from '../../themes/default';
+import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Input', module);
 
@@ -18,14 +18,25 @@ stories.add('simple', () => (
             <Box mb="$20">
                 <label>
                     Default
-                    <Input />
+                    <Input placeholder="Placeholder" />
+                </label>
+            </Box>
+
+            <Box mb="$20">
+                <label>
+                    With name
+                    <Input placeholder="Placeholder" name="name" />
                 </label>
             </Box>
 
             <Box mb="$20">
                 <label>
                     Disabled
-                    <Input disabled={true} />
+                    <Input
+                        disabled={true}
+                        placeholder="Placeholder"
+                        name="name"
+                    />
                 </label>
             </Box>
 

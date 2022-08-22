@@ -1,13 +1,13 @@
-import {
+import React, {
     InputHTMLAttributes,
     ReactElement,
+    forwardRef,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import { Box } from '../Box/Box';
 import { InterpolationWithTheme } from '@emotion/core';
-import React from 'react';
 import { TDefaultTheme } from '../../interface';
 import { Text } from '../Text/Text';
 import styled from '@emotion/styled';
@@ -74,47 +74,50 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 type Input = (props: InputProps & { name?: string }) => ReactElement;
-export const Input: Input = ({ name, ...props }) => {
-    const [paddingRight, setPaddingRight] = useState(16);
-    const nameRef = useRef<HTMLDivElement | null>(null);
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+    ({ name, ...props }, ref) => {
+        const [paddingRight, setPaddingRight] = useState(16);
+        const nameRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        Promise.resolve().then(() => {
-            if (nameRef.current) {
-                setPaddingRight(nameRef.current.clientWidth + 24);
-            }
-        });
-    }, [name]);
+        useEffect(() => {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            Promise.resolve().then(() => {
+                if (nameRef.current) {
+                    setPaddingRight(nameRef.current.clientWidth + 24);
+                }
+            });
+        }, [name]);
 
-    return (
-        <Box position="relative">
-            <InputFC
-                {...props}
-                paddingRight={name ? `${paddingRight}px` : '16px'}
-            />
-            {name ? (
-                <Text
-                    fontSize="10px"
-                    lineHeight="16px"
-                    color={props.disabled ? 'main.$100' : 'basic.$400'}
-                    position="absolute"
-                    top="50%"
-                    right="16px"
-                    ref={nameRef}
-                    sx={{
-                        transform: 'translateY(-50%)',
-                        textTransform: 'uppercase',
-                    }}
-                >
-                    {name}
-                </Text>
-            ) : null}
-        </Box>
-    );
-};
+        return (
+            <Box position="relative">
+                <InputFC
+                    {...props}
+                    paddingRight={name ? `${paddingRight}px` : '16px'}
+                    ref={ref}
+                />
+                {name ? (
+                    <Text
+                        fontSize="10px"
+                        lineHeight="16px"
+                        color={props.disabled ? 'main.$100' : 'basic.$400'}
+                        position="absolute"
+                        top="50%"
+                        right="16px"
+                        ref={nameRef}
+                        sx={{
+                            transform: 'translateY(-50%)',
+                            textTransform: 'uppercase',
+                        }}
+                    >
+                        {name}
+                    </Text>
+                ) : null}
+            </Box>
+        );
+    }
+);
 
-const InputFC = styled(Box)<InputProps, TDefaultTheme>(
+export const InputFC = styled(Box)<InputProps, TDefaultTheme>(
     variant({
         prop: 'variantSize',
         variants: inputSizeVariants,

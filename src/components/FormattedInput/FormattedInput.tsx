@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Input, InputProps } from '../Input/Input';
-import { getFormattedValue, parseFormattedValue, handleDots } from './helpers';
+import { getFormattedValue, handleDots, parseFormattedValue } from './helpers';
 
 type ChangeFunction = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
@@ -139,8 +139,9 @@ export class FormattedInput extends Component<
             return;
         }
 
-        const valueLength = event.target.value.split(formatSeparator).join('')
-            .length;
+        const valueLength = event.target.value
+            .split(formatSeparator)
+            .join('').length;
 
         if (lengthLimit && +valueLength > lengthLimit && !isBackspace) {
             return;

@@ -45,15 +45,7 @@ const defaultStyles = {
     },
 };
 
-export const inputVariants = {
-    default: defaultStyles,
-    defaultWE: {
-        ...defaultStyles,
-        '&[aria-checked="true"]': {
-            borderColor: 'success.$500',
-        },
-    },
-};
+export const inputVariants = { default: defaultStyles };
 
 export type InputSize = keyof typeof inputSizeVariants;
 export type InputVariant = keyof typeof inputVariants;

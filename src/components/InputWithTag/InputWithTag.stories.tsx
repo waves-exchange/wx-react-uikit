@@ -1,11 +1,11 @@
 import { Box } from '../Box/Box';
-import { Input } from './Input';
+import { InputWithTag } from './InputWithTag';
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import { defaultTheme } from '../../themes/default';
 import { storiesOf } from '@storybook/react';
 
-const stories = storiesOf('Input', module);
+const stories = storiesOf('InputWithTag', module);
 
 stories.add('simple', () => (
     <ThemeProvider theme={defaultTheme}>
@@ -17,33 +17,18 @@ stories.add('simple', () => (
         >
             <Box mb="$20">
                 <label>
-                    Default
-                    <Input placeholder="Placeholder" />
+                    WithTag
+                    <InputWithTag placeholder="Placeholder" tag="name" />
                 </label>
             </Box>
-
             <Box mb="$20">
                 <label>
                     Disabled
-                    <Input
-                        disabled={true}
+                    <InputWithTag
                         placeholder="Placeholder"
-                        name="name"
+                        tag="name"
+                        disabled={true}
                     />
-                </label>
-            </Box>
-
-            <Box mb="$20">
-                <label>
-                    Error
-                    <Input aria-invalid={true} />
-                </label>
-            </Box>
-
-            <Box mb="$20">
-                <label>
-                    Default Waves Exchange
-                    <Input variant="defaultWE" variantSize="mediumWE" />
                 </label>
             </Box>
         </Box>

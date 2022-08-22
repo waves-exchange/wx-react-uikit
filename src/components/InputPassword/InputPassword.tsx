@@ -3,7 +3,7 @@ import { Flex, TFlexProps } from '../Flex/Flex';
 import { iconEye } from '../../icons/eye';
 import { iconEyeActive } from '../../icons/eyeActive';
 import {
-    InputFC,
+    Input,
     InputProps,
     InputSize,
     inputSizeVariants,
@@ -25,7 +25,7 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
 
     return (
         <Flex position="relative">
-            <InputFC
+            <Input
                 id={id}
                 {...props}
                 type={show ? 'text' : 'password'}

@@ -1,10 +1,13 @@
-import { Placement } from '@popperjs/core';
+import { NAMES_THEME, TThemeCustom } from '../../themes/default';
 import React, { FC, useCallback, useMemo } from 'react';
-import { iconQuestion } from '../../icons/question';
+
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
+import { Placement } from '@popperjs/core';
 import { Tooltip } from '../Tooltip/Tooltip';
+import { iconQuestion } from '../../icons/question';
+import { useTheme } from 'emotion-theming';
 
 type HelpProps = {
     direction?: 'top' | 'bottom' | 'left' | 'right' | 'auto';
@@ -13,17 +16,31 @@ type HelpProps = {
     color?: string;
     contentBefore?: () => React.ReactElement | undefined;
     contentAfter?: () => React.ReactElement | undefined;
+    colorIcon?: string;
+    disabled?: boolean;
+    isOpen?: boolean;
+    disabledColor?: string;
+    sizeIcon?: string;
+    defaultColorIcon?: string;
 };
 
 export const Help: FC<HelpProps> = ({
     align,
     direction = 'auto',
-    maxWidth = '320px',
+    maxWidth = '288px',
     color = 'primary.$300',
     contentBefore,
     contentAfter,
     children,
+    colorIcon,
+    disabledColor,
+    disabled = false,
+    isOpen = undefined,
+    defaultColorIcon = '#848E9F',
+    sizeIcon = '16px',
 }) => {
+    const theme = useTheme<TThemeCustom>();
+
     const placement = useMemo<Placement>(() => {
         switch (align) {
             case 'left':
@@ -51,12 +68,14 @@ export const Help: FC<HelpProps> = ({
     const tooltipContentFactory = useCallback(
         () => (
             <Box
-                backgroundColor="main.$700"
-                color="basic.$300"
-                padding="12px 16px 16px 16px"
+                backgroundColor="main.$300"
+                color="basic.$400"
+                padding="9px 16px"
                 borderRadius="$4"
                 borderColor={color}
                 borderWidth="4px"
+                fontSize="14px"
+                lineHeight="24px"
                 sx={{
                     '[data-popper-placement^="top"] &': {
                         borderBottomStyle: 'solid',
@@ -77,11 +96,27 @@ export const Help: FC<HelpProps> = ({
         ),
         [children, color]
     );
+    const defaultDisableColorIcon = React.useMemo(() => {
+        return theme.name === NAMES_THEME.darkTheme ? 'main.$100' : 'main.$800';
+    }, [theme.name]);
 
-    const hasContentBefore = useMemo(
-        () => typeof contentBefore === 'function',
-        [contentBefore]
-    );
+    const currentThemeOnHover = React.useMemo(() => {
+        const currentColor = disabled
+            ? disabledColor || defaultDisableColorIcon
+            : colorIcon || color;
+
+        return {
+            '#circle': {
+                stroke: currentColor,
+            },
+            '#figure': {
+                stroke: currentColor,
+            },
+            '#dot': {
+                fill: currentColor,
+            },
+        };
+    }, [color, colorIcon, defaultDisableColorIcon, disabled, disabledColor]);
 
     return (
         <Tooltip
@@ -95,39 +130,31 @@ export const Help: FC<HelpProps> = ({
             showDelay={500}
             interactive={true}
             maxWidth={maxWidth}
+            isOpen={isOpen}
         >
             <Flex
                 alignItems="center"
                 cursor="pointer"
                 sx={{
-                    ':hover > div:nth-of-type(1)': {
-                        backgroundColor: hasContentBefore
-                            ? 'transparent'
-                            : color,
-                    },
-                    ':hover > div:nth-of-type(2)': {
-                        backgroundColor: hasContentBefore
-                            ? color
-                            : 'basic.$700',
+                    ':hover': currentThemeOnHover,
+                    svg: {
+                        fill: 'transparent',
                     },
                 }}
             >
                 {typeof contentBefore === 'function' && (
                     <Box>{contentBefore()}</Box>
                 )}
-                <Flex
-                    size="14px"
-                    borderRadius="circle"
-                    justifyContent="center"
-                    alignItems="center"
-                    backgroundColor="basic.$700"
-                >
-                    <Icon
-                        icon={iconQuestion}
-                        size="8px"
-                        color="standard.$1000"
-                    />
-                </Flex>
+                <Icon
+                    icon={iconQuestion(
+                        disabled
+                            ? disabledColor || defaultDisableColorIcon
+                            : defaultColorIcon,
+                        Boolean(disabledColor || disabled),
+                        theme
+                    )}
+                    size={sizeIcon}
+                />
                 {typeof contentAfter === 'function' && (
                     <Box>{contentAfter()}</Box>
                 )}

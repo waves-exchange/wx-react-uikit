@@ -59,4 +59,4 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
     );
 };
 
-InputPassword.defaultProps = InputFC.defaultProps;
+InputPassword.defaultProps = Input.defaultProps;

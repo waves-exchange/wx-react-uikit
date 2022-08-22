@@ -1,10 +1,12 @@
 import { Input, InputProps } from '../Input/Input';
-import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
 
-type InputWithTagProps = (props: InputProps & { tag: string }) => ReactElement;
-export const InputWithTag: InputWithTagProps = ({ tag, ...props }) => {
+export const InputWithTag: React.FC<InputProps & { tag: string }> = ({
+    tag,
+    ...props
+}) => {
     const [paddingRight, setPaddingRight] = useState(16);
     const tagRef = useRef<HTMLDivElement | null>(null);
 
@@ -40,3 +42,5 @@ export const InputWithTag: InputWithTagProps = ({ tag, ...props }) => {
         </Box>
     );
 };
+
+InputWithTag.defaultProps = Input.defaultProps;

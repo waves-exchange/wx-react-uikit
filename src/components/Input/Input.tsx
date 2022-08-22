@@ -82,7 +82,6 @@ export const Input: Input = ({ name, ...props }) => {
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         Promise.resolve().then(() => {
             if (nameRef.current) {
-                console.log(nameRef.current.clientWidth + 24);
                 setPaddingRight(nameRef.current.clientWidth + 24);
             }
         });

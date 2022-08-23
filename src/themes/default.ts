@@ -1,6 +1,7 @@
 import {
     borderWidths,
     breakpoints,
+    colors,
     darkThemeColors,
     fontSizes,
     fontWeights,
@@ -27,29 +28,27 @@ const common = {
 };
 
 export const darkTheme = {
-    colors: { ...darkThemeColors },
-    ...common,
-    help: {
-        active: darkThemeColors.basic.$400,
-        hover: darkThemeColors.primary.$300,
-        disabled: darkThemeColors.main.$100,
+    colors: {
+        ...darkThemeColors,
+        help: {
+            active: colors.mediumGrey.$400,
+            hover: colors.blue.$300,
+            disabled: colors.darkGrey.$100,
+        },
     },
+    ...common,
 };
 
 export const lightTheme = {
-    colors: { ...lightThemeColors },
-    ...common,
-    help: {
-        active: darkThemeColors.basic.$400,
-        hover: lightThemeColors.primary.$300,
-        disabled: lightThemeColors.main.$800,
+    colors: {
+        ...lightThemeColors,
+        help: {
+            active: colors.mediumGrey.$400,
+            hover: colors.blue.$300,
+            disabled: colors.lightGrey.$800,
+        },
     },
+    ...common,
 };
-
-export type TThemeCustom =
-    | typeof darkTheme
-    | (typeof lightTheme & {
-          help: { active: string; hover: string; disabled: string };
-      });
 
 export const defaultTheme = { ...darkTheme };

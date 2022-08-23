@@ -6,6 +6,7 @@ import { Help } from './Help';
 import React from 'react';
 import { Text } from '../Text/Text';
 import { ThemeProvider } from 'emotion-theming';
+import { colors } from '../../themes/constants';
 import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Help', module);
@@ -158,7 +159,7 @@ stories.add('Top Left CustomColor', () => (
             <Help
                 direction="top"
                 align="right"
-                color={defaultTheme.colors.warning.$600}
+                colors={{ hovered: colors.yellow.$600 }}
             >
                 {box}
             </Help>
@@ -181,7 +182,7 @@ stories.add('Disabled - dark theme', () => (
             <Help
                 direction="top"
                 align="right"
-                disabledIcon={true}
+                isDisabledIcon={true}
                 isOpenContent={false}
             >
                 {box}
@@ -205,7 +206,7 @@ stories.add('Disabled - light theme', () => (
             <Help
                 direction="top"
                 align="right"
-                disabledIcon={true}
+                isDisabledIcon={true}
                 isOpenContent={false}
             >
                 {box}
@@ -226,7 +227,7 @@ stories.add('Custom color Icon on hover', () => (
             p="16px"
             backgroundColor="#000"
         >
-            <Help direction="top" align="right" colorHoverIcon="yellow">
+            <Help direction="top" align="right" colors={{ hovered: 'yellow' }}>
                 {box}
             </Help>
         </Flex>
@@ -245,7 +246,7 @@ stories.add('Default custom color Icon', () => (
             p="16px"
             backgroundColor="#000"
         >
-            <Help direction="top" align="right" defaultColorIcon="red">
+            <Help direction="top" align="right" colors={{ active: 'red' }}>
                 {box}
             </Help>
         </Flex>

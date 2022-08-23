@@ -5,45 +5,40 @@ import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
 import { Placement } from '@popperjs/core';
-import { TThemeCustom } from '../../themes/default';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { iconQuestion } from '../../icons/question';
-import { useTheme } from 'emotion-theming';
 
 type HelpProps = {
     direction?: 'top' | 'bottom' | 'left' | 'right' | 'auto';
     align?: 'left' | 'center' | 'right' | 'auto';
     maxWidth?: string;
-    color?: string;
     contentBefore?: () => React.ReactElement | undefined;
     contentAfter?: () => React.ReactElement | undefined;
-    colorHoverIcon?: string;
-    disabledIcon?: boolean;
+    isDisabledIcon?: boolean;
     isOpenContent?: boolean;
-    disabledColorIcon?: string;
     sizeIcon?: string;
-    defaultColorIcon?: string;
+    colors?: {
+        active?: string;
+        hovered?: string;
+        disabled?: string;
+    };
 };
 
 export const Help: FC<HelpProps> = ({
     align,
     direction = 'auto',
     maxWidth = '288px',
-    color,
     contentBefore,
     contentAfter,
     children,
-    colorHoverIcon,
-    disabledColorIcon,
-    disabledIcon = false,
+    isDisabledIcon = false,
     isOpenContent = undefined,
-    defaultColorIcon,
     sizeIcon = '16px',
+    colors = {},
 }) => {
-    const theme = useTheme<TThemeCustom>();
-    const { help } = theme;
-
-    color = color || help.hover;
+    colors.hovered = colors.hovered || 'help.hover';
+    colors.active = colors.active || 'help.active';
+    colors.disabled = colors.disabled || 'help.disabled';
 
     const placement = useMemo<Placement>(() => {
         switch (align) {
@@ -76,7 +71,7 @@ export const Help: FC<HelpProps> = ({
                 color="basic.$400"
                 padding="9px 16px"
                 borderRadius="$4"
-                borderColor={color}
+                borderColor={colors.hovered}
                 borderWidth="4px"
                 fontSize={fontSizes.$14}
                 lineHeight={lineHeights.$24}
@@ -98,32 +93,22 @@ export const Help: FC<HelpProps> = ({
                 {children}
             </Box>
         ),
-        [children, color]
+        [children, colors]
     );
 
     const currentСolorOnHover = React.useMemo(() => {
-        const currentColor = disabledIcon
-            ? disabledColorIcon || help.disabled
-            : colorHoverIcon || color;
+        const currentColor = isDisabledIcon ? colors.disabled : colors.hovered;
 
         return {
             svg: {
                 color: currentColor,
             },
         };
-    }, [color, colorHoverIcon, disabledColorIcon, disabledIcon, help.disabled]);
+    }, [isDisabledIcon, colors]);
 
     const currentColorIcon = React.useMemo(() => {
-        return disabledIcon
-            ? disabledColorIcon || help.disabled
-            : defaultColorIcon || help.active;
-    }, [
-        defaultColorIcon,
-        disabledColorIcon,
-        disabledIcon,
-        help.active,
-        help.disabled,
-    ]);
+        return isDisabledIcon ? colors.disabled : colors.active;
+    }, [isDisabledIcon, colors]);
 
     return (
         <Tooltip
@@ -131,7 +116,7 @@ export const Help: FC<HelpProps> = ({
             placement={placement}
             hasArrow={true}
             arrowSize="4px"
-            arrowColor={color}
+            arrowColor={colors.hovered}
             arrowPadding={align === 'center' ? 0 : 16}
             offset={offset}
             showDelay={500}
@@ -144,9 +129,6 @@ export const Help: FC<HelpProps> = ({
                 cursor="pointer"
                 sx={{
                     ':hover': currentСolorOnHover,
-                    svg: {
-                        fill: 'transparent',
-                    },
                 }}
             >
                 {typeof contentBefore === 'function' && (
@@ -156,6 +138,9 @@ export const Help: FC<HelpProps> = ({
                     icon={iconQuestion}
                     size={sizeIcon}
                     color={currentColorIcon}
+                    sx={{
+                        fill: 'transparent',
+                    }}
                 />
                 {typeof contentAfter === 'function' && (
                     <Box>{contentAfter()}</Box>

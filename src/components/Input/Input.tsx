@@ -12,10 +12,6 @@ export const inputSizeVariants = {
         paddingLeft: '$16',
         paddingRight: '$16',
     },
-    mediumWE: {
-        fontSize: '$13',
-        height: 'medium',
-    },
 };
 
 const defaultStyles = {

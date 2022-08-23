@@ -225,9 +225,9 @@ export const transitions = {
 export const breakpoints = [
     '576px',
     '768px',
-    '992px',
+    '1024px',
     '1200px',
-    '1400px',
+    '1366px',
     '1920px',
 ];
 

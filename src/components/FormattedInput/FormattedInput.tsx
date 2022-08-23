@@ -1,10 +1,10 @@
+import { InputWithTag, InputWithTagProps } from '../InputWithTag/InputWithTag';
 import React, { Component } from 'react';
-import { Input, InputProps } from '../Input/Input';
-import { getFormattedValue, parseFormattedValue, handleDots } from './helpers';
+import { getFormattedValue, handleDots, parseFormattedValue } from './helpers';
 
 type ChangeFunction = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
-type FormattedInputProps = InputProps & {
+type FormattedInputProps = InputWithTagProps & {
     onChange?: ChangeFunction;
     formatSeparator: string;
     decimals: number;
@@ -49,7 +49,7 @@ export class FormattedInput extends Component<
         const { formattedValue } = this.state;
 
         return (
-            <Input
+            <InputWithTag
                 {...rest}
                 ref={this.inputRef}
                 value={formattedValue}
@@ -139,8 +139,9 @@ export class FormattedInput extends Component<
             return;
         }
 
-        const valueLength = event.target.value.split(formatSeparator).join('')
-            .length;
+        const valueLength = event.target.value
+            .split(formatSeparator)
+            .join('').length;
 
         if (lengthLimit && +valueLength > lengthLimit && !isBackspace) {
             return;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { matchers } from 'jest-emotion';
 import { FormattedInput } from './FormattedInput';
 import { ThemeProvider } from 'emotion-theming';
@@ -16,7 +16,7 @@ describe('FormattedInput', () => {
                 $0: 'white',
             },
             danger: {
-                $300: 'red',
+                $600: 'red',
             },
         },
     };

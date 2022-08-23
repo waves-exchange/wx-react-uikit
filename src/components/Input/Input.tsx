@@ -1,55 +1,47 @@
+import { Box } from '../Box/Box';
 import { InputHTMLAttributes } from 'react';
+import { InterpolationWithTheme } from '@emotion/core';
+import { TDefaultTheme } from '../../interface';
 import styled from '@emotion/styled';
 import { variant } from 'styled-system';
-import { TDefaultTheme } from '../../interface';
-import { Box } from '../Box/Box';
-import { InterpolationWithTheme } from '@emotion/core';
 
 export const inputSizeVariants = {
     medium: {
-        fontSize: '$15',
+        fontSize: '$16',
         height: 'medium',
-        paddingLeft: '$20',
-        paddingRight: '$20',
-    },
-    mediumWE: {
-        fontSize: '$13',
-        height: 'medium',
-        paddingLeft: 16,
-        paddingRight: 16,
+        paddingLeft: '$16',
+        paddingRight: '$16',
     },
 };
 
 const defaultStyles = {
-    backgroundColor: 'basic.$900',
-    borderColor: 'main.$600',
+    backgroundColor: 'main.$300',
+    borderColor: 'main.$300',
     borderRadius: '$4',
     color: 'standard.$0',
+    '::placeholder': {
+        color: 'basic.$400',
+    },
     ':hover:not(:disabled)': {
-        borderColor: 'main.$200',
+        borderColor: 'basic.$800',
     },
     ':focus:not(:disabled)': {
         borderColor: 'primary.$300',
     },
     ':disabled': {
-        backgroundColor: 'main.$700',
+        backgroundColor: 'main.$600',
+        '::placeholder': {
+            color: 'main.$100',
+        },
     },
     '&[aria-invalid="true"]': {
         '&, &:hover, &:focus': {
-            borderColor: 'danger.$300',
+            borderColor: 'danger.$600',
         },
     },
 };
 
-export const inputVariants = {
-    default: defaultStyles,
-    defaultWE: {
-        ...defaultStyles,
-        '&[aria-checked="true"]': {
-            borderColor: 'green.$500',
-        },
-    },
-};
+export const inputVariants = { default: defaultStyles };
 
 export type InputSize = keyof typeof inputSizeVariants;
 export type InputVariant = keyof typeof inputVariants;

@@ -1,5 +1,4 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { fontSizes, lineHeights } from '../../themes/constants';
 
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -73,8 +72,8 @@ export const Help: FC<HelpProps> = ({
                 borderRadius="$4"
                 borderColor={colors.hovered}
                 borderWidth="4px"
-                fontSize={fontSizes.$14}
-                lineHeight={lineHeights.$24}
+                fontSize="$14"
+                lineHeight="$24"
                 sx={{
                     '[data-popper-placement^="top"] &': {
                         borderBottomStyle: 'solid',

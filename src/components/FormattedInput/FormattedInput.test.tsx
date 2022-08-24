@@ -28,7 +28,7 @@ describe('FormattedInput', () => {
             </ThemeProvider>
         );
 
-        const input = container.firstChild;
+        const input = container.firstChild?.firstChild;
 
         expect(input).toHaveProperty('type', 'text');
         expect(input).toHaveStyleRule('color', 'white');

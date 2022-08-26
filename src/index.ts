@@ -44,7 +44,7 @@ export * from './components/Select/Select';
 // export * from './components/Slider/SliderTrack';
 // export * from './components/Slider/SliderThumb';
 // export * from './components/Slider/SliderLegendLabel';
-// export * from './components/PlateNote/PlateNote';
+export * from './components/PlateNote/PlateNote';
 // export * from './components/Accordion/Accordion';
 // export * from './components/Accordion/AccordionItem';
 // export * from './components/Accordion/AccordionHeader';

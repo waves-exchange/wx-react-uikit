@@ -146,6 +146,7 @@ export const darkThemeColors = {
     warning: { ...colors.orange },
     green: { ...colors.herbal },
     success: { ...colors.green },
+    yellow: { ...colors.yellow },
     mix: {
         // TODO
     },
@@ -162,6 +163,7 @@ export const lightThemeColors = {
     warning: { ...colors.orange },
     green: { ...colors.herbal },
     success: { ...colors.green },
+    yellow: { ...colors.yellow },
     mix: {
         // TODO
     },

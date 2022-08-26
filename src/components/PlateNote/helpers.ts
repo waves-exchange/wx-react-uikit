@@ -6,7 +6,7 @@ export const getMainColor = (type: TPlateNoteType): string => {
             return 'danger.$300';
         }
         case 'warning': {
-            return 'warning.$500';
+            return 'yellow.$600';
         }
         default: {
             return 'main.$500';

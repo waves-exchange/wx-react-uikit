@@ -20,9 +20,7 @@ stories.add('simple', () => (
         >
             Default type ('info')
             <Box mt="8px" mb="16px">
-                <PlateNote
-                    text="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST."
-                />
+                <PlateNote text="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST." />
             </Box>
             Type 'info', custom text props
             <Box mt="8px" mb="16px">

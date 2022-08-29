@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
+import { TTextProps, Text } from '../Text/Text';
+
 import { LabelHTMLAttributes } from 'react';
-import { Text, TTextProps } from '../Text/Text';
+import styled from '@emotion/styled';
 
 export const Label = styled(Text)<
     LabelHTMLAttributes<HTMLLabelElement> & TTextProps
@@ -9,6 +10,3 @@ export const Label = styled(Text)<
 Label.defaultProps = {
     as: 'label',
 };
-
-// TODO storybook
-// TODO test

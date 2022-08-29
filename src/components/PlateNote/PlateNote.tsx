@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getMainColor } from './helpers';
 import { Flex, TFlexProps } from '../Flex/Flex';
-import { Text, TTextProps } from '../Text/Text';
+import { TTextProps, Text } from '../Text/Text';
 
 export type TPlateNoteType = 'info' | 'warning' | 'error';
 
@@ -31,8 +31,8 @@ export const PlateNote: React.FC<TPlateNote> = ({
         >
             {text ? (
                 <Text
-                    fontSize={14}
-                    lineHeight="$20"
+                    fontSize="$14"
+                    lineHeight="$24"
                     color={mainColor}
                     {...textProps}
                 >

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Flex, TFlexProps } from '../../Flex/Flex';
-import { Option, FeeOption } from './Option';
-import { iconCloseSelect } from '../../../assets/icons/closeSelect';
-import { iconOpenSelect } from '../../../assets/icons/openSelect';
+import { FeeOption, Option } from './Option';
+import { iconCloseSelect } from '../../../icons/closeSelect';
+import { iconOpenSelect } from '../../../icons/openSelect';
 import { Icon } from '../../Icon/Icon';
 
 type TSelectedProps = TFlexProps & {

@@ -47,5 +47,4 @@ export const Text = styled(Box)<TTextProps, TDefaultTheme>(
 
 Text.defaultProps = {
     as: 'span',
-    variant: 'body1',
 };

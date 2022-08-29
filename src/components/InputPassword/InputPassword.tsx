@@ -1,15 +1,16 @@
-import React, { FC, useState } from 'react';
 import { Flex, TFlexProps } from '../Flex/Flex';
-import { iconEye } from '../../icons/eye';
-import { iconEyeActive } from '../../icons/eyeActive';
 import {
     Input,
     InputProps,
     InputSize,
     inputSizeVariants,
 } from '../Input/Input';
-import { InputElement } from '../InputElement/InputElement';
+import React, { FC, useState } from 'react';
+
 import { Icon } from '../Icon/Icon';
+import { InputElement } from '../InputElement/InputElement';
+import { iconEyeHide } from '../../icons/iconEyeHide';
+import { iconEyeView } from '../../icons/iconEyeView';
 
 export const InputPassword: FC<InputProps & TFlexProps> = ({
     id,
@@ -33,12 +34,7 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
             />
             <InputElement placement="right">
                 <Flex
-                    sx={{
-                        ':hover': {
-                            color: show ? 'primary.$300' : 'basic.$500',
-                        },
-                    }}
-                    color={show ? 'primary.$300' : 'basic.$700'}
+                    color="primary.$300"
                     width={togglerWidth}
                     height="100%"
                     alignItems="center"
@@ -49,9 +45,9 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
                     transition="default"
                 >
                     {show ? (
-                        <Icon icon={iconEye} />
+                        <Icon icon={iconEyeHide} />
                     ) : (
-                        <Icon icon={iconEyeActive} />
+                        <Icon icon={iconEyeView} />
                     )}
                 </Flex>
             </InputElement>

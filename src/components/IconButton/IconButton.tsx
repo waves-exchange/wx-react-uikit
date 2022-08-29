@@ -1,6 +1,7 @@
-import { CSSObject } from '@emotion/core';
-import React, { FC } from 'react';
 import { Button, ButtonProps } from '../Button/Button';
+import React, { FC } from 'react';
+
+import { CSSObject } from '@emotion/core';
 
 export const iconButtonTestId = 'icon-button';
 
@@ -21,7 +22,6 @@ export const IconButton: FC<ButtonProps & IconButtonProps> = ({
 }) => {
     return (
         <Button
-            display="flex"
             sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -31,9 +31,6 @@ export const IconButton: FC<ButtonProps & IconButtonProps> = ({
                 ':hover': _hover,
                 ':disabled': _disabled,
             }}
-            cursor="pointer"
-            bg="transparent"
-            borderRadius={0}
             {...rest}
             data-testid={iconButtonTestId}
         >

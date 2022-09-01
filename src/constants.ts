@@ -1,7 +1,5 @@
 import { CSSProperties } from 'react';
 
-export const MAX_ALIAS_LENGTH = 30;
-
 export const VISUALLY_HIDDEN_CSS: CSSProperties = {
     border: '0px',
     clip: 'rect(0px, 0px, 0px, 0px)',

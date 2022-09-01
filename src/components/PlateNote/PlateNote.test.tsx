@@ -1,9 +1,9 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { matchers } from 'jest-emotion';
-import { ThemeProvider } from 'emotion-theming';
 import { PlateNote } from '../PlateNote/PlateNote';
+import React from 'react';
 import { Text } from '../Text/Text';
+import { ThemeProvider } from 'emotion-theming';
+import { matchers } from 'jest-emotion';
+import { render } from '@testing-library/react';
 
 expect.extend(matchers);
 
@@ -22,20 +22,21 @@ describe('PlateNote', () => {
                 danger: {
                     $300: '#E5494D',
                 },
-                warning: {
-                    $500: '#F8B700',
+                yellow: {
+                    $600: '#E9A500',
                 },
+            },
+            fontSizes: {
+                $14: '14px',
             },
         };
     });
-
     it('render default PlateNote', () => {
         const { container } = render(
             <ThemeProvider theme={theme}>
                 <PlateNote text="Text" />
             </ThemeProvider>
         );
-
         const text = container.querySelector('span');
         const wrapper = container.querySelector('div');
 
@@ -44,36 +45,31 @@ describe('PlateNote', () => {
         expect(wrapper).toHaveStyleRule('border', '1px dashed');
         expect(wrapper).toHaveStyleRule('border-color', '#495060');
     });
-
     it('render error PlateNote', () => {
         const { container } = render(
             <ThemeProvider theme={theme}>
                 <PlateNote text="Text" type="error" />
             </ThemeProvider>
         );
-
         const text = container.querySelector('span');
         const wrapper = container.querySelector('div');
 
         expect(text).toHaveStyleRule('color', '#E5494D');
         expect(wrapper).toHaveStyleRule('border-color', '#E5494D');
     });
-
     it('render warning PlateNote with custom styles', () => {
         const { container } = render(
             <ThemeProvider theme={theme}>
                 <PlateNote text="Text" type="warning" p={40} />
             </ThemeProvider>
         );
-
         const wrapper = container.querySelector('div');
         const text = container.querySelector('span');
 
-        expect(text).toHaveStyleRule('color', '#F8B700');
-        expect(wrapper).toHaveStyleRule('border-color', '#F8B700');
+        expect(text).toHaveStyleRule('color', '#E9A500');
+        expect(wrapper).toHaveStyleRule('border-color', '#E9A500');
         expect(wrapper).toHaveStyleRule('padding', '40px');
     });
-
     it('render warning PlateNote with children', () => {
         const { getByTestId } = render(
             <ThemeProvider theme={theme}>
@@ -84,7 +80,6 @@ describe('PlateNote', () => {
                 </PlateNote>
             </ThemeProvider>
         );
-
         const text = getByTestId('text');
 
         expect(text).toHaveStyleRule('color', '#B7BFD1');

@@ -1,6 +1,7 @@
 import {
     borderWidths,
     breakpoints,
+    colors,
     darkThemeColors,
     fontSizes,
     fontWeights,
@@ -27,12 +28,26 @@ const common = {
 };
 
 export const darkTheme = {
-    colors: { ...darkThemeColors },
+    colors: {
+        ...darkThemeColors,
+        help: {
+            active: colors.mediumGrey.$400,
+            hover: colors.blue.$300,
+            disabled: colors.darkGrey.$100,
+        },
+    },
     ...common,
 };
 
 export const lightTheme = {
-    colors: { ...lightThemeColors },
+    colors: {
+        ...lightThemeColors,
+        help: {
+            active: colors.mediumGrey.$400,
+            hover: colors.blue.$300,
+            disabled: colors.lightGrey.$800,
+        },
+    },
     ...common,
 };
 

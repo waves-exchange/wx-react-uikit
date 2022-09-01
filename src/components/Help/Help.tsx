@@ -1,29 +1,44 @@
-import { Placement } from '@popperjs/core';
 import React, { FC, useCallback, useMemo } from 'react';
-import { iconQuestion } from '../../icons/question';
+
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
+import { Placement } from '@popperjs/core';
 import { Tooltip } from '../Tooltip/Tooltip';
+import { iconQuestion } from '../../icons/question';
 
 type HelpProps = {
     direction?: 'top' | 'bottom' | 'left' | 'right' | 'auto';
     align?: 'left' | 'center' | 'right' | 'auto';
     maxWidth?: string;
-    color?: string;
     contentBefore?: () => React.ReactElement | undefined;
     contentAfter?: () => React.ReactElement | undefined;
+    isDisabledIcon?: boolean;
+    isOpenContent?: boolean;
+    sizeIcon?: string;
+    colors?: {
+        active?: string;
+        hovered?: string;
+        disabled?: string;
+    };
 };
 
 export const Help: FC<HelpProps> = ({
     align,
     direction = 'auto',
-    maxWidth = '320px',
-    color = 'primary.$300',
+    maxWidth = '288px',
     contentBefore,
     contentAfter,
     children,
+    isDisabledIcon = false,
+    isOpenContent = undefined,
+    sizeIcon = '16px',
+    colors = {},
 }) => {
+    colors.hovered = colors.hovered || 'help.hover';
+    colors.active = colors.active || 'help.active';
+    colors.disabled = colors.disabled || 'help.disabled';
+
     const placement = useMemo<Placement>(() => {
         switch (align) {
             case 'left':
@@ -51,12 +66,14 @@ export const Help: FC<HelpProps> = ({
     const tooltipContentFactory = useCallback(
         () => (
             <Box
-                backgroundColor="main.$700"
-                color="basic.$300"
-                padding="12px 16px 16px 16px"
+                backgroundColor="main.$300"
+                color="basic.$400"
+                padding="9px 16px"
                 borderRadius="$4"
-                borderColor={color}
+                borderColor={colors.hovered}
                 borderWidth="4px"
+                fontSize="$14"
+                lineHeight="$24"
                 sx={{
                     '[data-popper-placement^="top"] &': {
                         borderBottomStyle: 'solid',
@@ -75,13 +92,22 @@ export const Help: FC<HelpProps> = ({
                 {children}
             </Box>
         ),
-        [children, color]
+        [children, colors]
     );
 
-    const hasContentBefore = useMemo(
-        () => typeof contentBefore === 'function',
-        [contentBefore]
-    );
+    const currentСolorOnHover = React.useMemo(() => {
+        const currentColor = isDisabledIcon ? colors.disabled : colors.hovered;
+
+        return {
+            svg: {
+                color: currentColor,
+            },
+        };
+    }, [isDisabledIcon, colors]);
+
+    const currentColorIcon = React.useMemo(() => {
+        return isDisabledIcon ? colors.disabled : colors.active;
+    }, [isDisabledIcon, colors]);
 
     return (
         <Tooltip
@@ -89,45 +115,32 @@ export const Help: FC<HelpProps> = ({
             placement={placement}
             hasArrow={true}
             arrowSize="4px"
-            arrowColor={color}
+            arrowColor={colors.hovered}
             arrowPadding={align === 'center' ? 0 : 16}
             offset={offset}
             showDelay={500}
             interactive={true}
             maxWidth={maxWidth}
+            isOpen={isOpenContent}
         >
             <Flex
                 alignItems="center"
                 cursor="pointer"
                 sx={{
-                    ':hover > div:nth-of-type(1)': {
-                        backgroundColor: hasContentBefore
-                            ? 'transparent'
-                            : color,
-                    },
-                    ':hover > div:nth-of-type(2)': {
-                        backgroundColor: hasContentBefore
-                            ? color
-                            : 'basic.$700',
-                    },
+                    ':hover': currentСolorOnHover,
                 }}
             >
                 {typeof contentBefore === 'function' && (
                     <Box>{contentBefore()}</Box>
                 )}
-                <Flex
-                    size="14px"
-                    borderRadius="circle"
-                    justifyContent="center"
-                    alignItems="center"
-                    backgroundColor="basic.$700"
-                >
-                    <Icon
-                        icon={iconQuestion}
-                        size="8px"
-                        color="standard.$1000"
-                    />
-                </Flex>
+                <Icon
+                    icon={iconQuestion}
+                    size={sizeIcon}
+                    color={currentColorIcon}
+                    sx={{
+                        fill: 'transparent',
+                    }}
+                />
                 {typeof contentAfter === 'function' && (
                     <Box>{contentAfter()}</Box>
                 )}

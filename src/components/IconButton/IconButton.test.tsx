@@ -1,6 +1,7 @@
+import { IconButton, iconButtonTestId } from './IconButton';
+
 import React from 'react';
 import { render } from 'test-utils';
-import { IconButton, iconButtonTestId } from './IconButton';
 
 describe('<IconButton>', () => {
     it('renders with passed styles', () => {
@@ -8,11 +9,10 @@ describe('<IconButton>', () => {
         const focusColor = 'red';
         const disabledColor = 'tomato';
         const disabledAndHoverColor = 'lightcoral';
-        const _hover = { color: hoverColor };
-        const _focus = { color: focusColor };
-        const _disabled = { color: disabledColor };
-        const _disabledAndHover = { color: disabledAndHoverColor };
-
+        const _hover = { borderColor: hoverColor };
+        const _focus = { borderColor: focusColor };
+        const _disabled = { borderColor: disabledColor };
+        const _disabledAndHover = { borderColor: disabledAndHoverColor };
         const { getByTestId } = render(
             <IconButton
                 _hover={_hover}
@@ -21,25 +21,28 @@ describe('<IconButton>', () => {
                 _disabledAndHover={_disabledAndHover}
             />
         );
-
         const iconButton = getByTestId(iconButtonTestId);
 
-        expect(iconButton).toHaveStyleRule('color', hoverColor, {
+        expect(iconButton).toHaveStyleRule('border-color', hoverColor, {
             target: ':hover',
         });
-        expect(iconButton).toHaveStyleRule('color', disabledColor, {
+        expect(iconButton).toHaveStyleRule('border-color', disabledColor, {
             target: ':disabled',
         });
-        expect(iconButton).toHaveStyleRule('color', disabledAndHoverColor, {
-            target: ':hover:disabled',
-        });
-        expect(iconButton).toHaveStyleRule('color', focusColor, {
+        expect(iconButton).toHaveStyleRule(
+            'border-color',
+            disabledAndHoverColor,
+            {
+                target: ':hover:disabled',
+            }
+        );
+        expect(iconButton).toHaveStyleRule('border-color', focusColor, {
             target: ':focus',
         });
     });
+
     it('forwards style prop', () => {
         const marginTop = 40;
-
         const { getByTestId } = render(<IconButton mt={marginTop} />);
 
         expect(getByTestId(iconButtonTestId)).toHaveStyle(

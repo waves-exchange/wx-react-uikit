@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { matchers } from 'jest-emotion';
-import { ThemeProvider } from 'emotion-theming';
 import { InputPassword } from './InputPassword';
+import React from 'react';
+import { ThemeProvider } from 'emotion-theming';
+import { matchers } from 'jest-emotion';
+import { render } from '@testing-library/react';
 
 expect.extend(matchers);
 

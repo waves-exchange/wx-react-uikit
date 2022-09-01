@@ -1,14 +1,15 @@
-import styled, { WithTheme } from '@emotion/styled';
-import { PropsWithChildren } from 'react';
-import {
-    styleFn,
-    textShadow,
-    TextShadowProps,
-    variant,
-    system,
-} from 'styled-system';
-import CSS from 'csstype';
 import { Box, BoxProps } from '../Box/Box';
+import {
+    TextShadowProps,
+    styleFn,
+    system,
+    textShadow,
+    variant,
+} from 'styled-system';
+import styled, { WithTheme } from '@emotion/styled';
+
+import CSS from 'csstype';
+import { PropsWithChildren } from 'react';
 import { TDefaultTheme } from '../../interface';
 import { variants } from './styles';
 

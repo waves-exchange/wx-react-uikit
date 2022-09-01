@@ -1,7 +1,8 @@
-import styled from '@emotion/styled';
+import { InputSize, inputSizeVariants } from '../Input/Input';
+
 import { Box } from '../Box/Box';
 import { css } from '@styled-system/css';
-import { InputSize, inputSizeVariants } from '../Input/Input';
+import styled from '@emotion/styled';
 
 type Props = {
     placement: 'left' | 'right';

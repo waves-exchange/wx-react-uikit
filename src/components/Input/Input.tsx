@@ -36,7 +36,7 @@ const defaultStyles = {
     },
     '&[aria-invalid="true"]': {
         '&, &:hover, &:focus': {
-            borderColor: 'danger.$600',
+            borderColor: 'danger.$300',
         },
     },
 };

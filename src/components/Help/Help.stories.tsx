@@ -38,7 +38,7 @@ stories.add('Bottom Left', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Text
                 mr="10px"
@@ -65,7 +65,7 @@ stories.add('Bottom Center', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Help direction="bottom" align="center">
                 {box}
@@ -84,7 +84,7 @@ stories.add('Bottom Right', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Help direction="bottom" align="right">
                 {box}
@@ -103,7 +103,7 @@ stories.add('Top Left', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Help direction="top" align="right">
                 {box}
@@ -122,7 +122,7 @@ stories.add('Top Left width before content and after content', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Help
                 direction="top"
@@ -154,7 +154,7 @@ stories.add('Top Left CustomColor', () => (
             alignItems="center"
             flexDirection="row"
             p="16px"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
         >
             <Help
                 direction="top"

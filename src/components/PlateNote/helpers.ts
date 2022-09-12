@@ -9,7 +9,7 @@ export const getMainColor = (type: TPlateNoteType): string => {
             return 'yellow.$600';
         }
         default: {
-            return 'main.$500';
+            return 'darkGrey.$500';
         }
     }
 };

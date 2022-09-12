@@ -35,6 +35,7 @@ export const darkTheme = {
             hover: colors.blue.$300,
             disabled: colors.darkGrey.$100,
         },
+        ...colors,
     },
     ...common,
 };
@@ -47,6 +48,7 @@ export const lightTheme = {
             hover: colors.blue.$300,
             disabled: colors.lightGrey.$800,
         },
+        ...colors,
     },
     ...common,
 };

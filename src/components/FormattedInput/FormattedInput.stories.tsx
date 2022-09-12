@@ -14,7 +14,7 @@ stories.add('simple', () => (
         <Box
             height="100%"
             p="$20"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             color="standard.$0"
         >
             <Box mb="$30">

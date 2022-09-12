@@ -14,7 +14,7 @@ const stories = storiesOf('IconButton', module);
 stories.add('simple', () => {
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Box height="100vh" p="16px" bg="main.$700">
+            <Box height="100vh" p="16px" bg="darkGrey.$700">
                 <Flex mb="10px">
                     <IconButton mr="10px" disabled={true}>
                         <Icon

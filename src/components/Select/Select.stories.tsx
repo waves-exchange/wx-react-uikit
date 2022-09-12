@@ -60,7 +60,7 @@ stories.add('simple', () => {
     return (
         <ThemeProvider theme={defaultTheme}>
             <Box
-                backgroundColor="main.$800"
+                backgroundColor="darkGrey.$800"
                 height="100vh"
                 p="$20"
                 color="standard.$0"
@@ -105,9 +105,9 @@ stories.add('simple', () => {
                             opened={opened}
                             selected={selectedA}
                             selectedOptionStylesProps={{ fontSize: '26px' }}
-                            borderColor="main.$100"
+                            borderColor="darkGrey.$100"
                             borderRadius={15}
-                            backgroundColor="main.$300"
+                            backgroundColor="darkGrey.$300"
                         />
                     )}
                     mb={20}
@@ -116,7 +116,7 @@ stories.add('simple', () => {
                         options={options}
                         onSelect={onSelectA}
                         optionStylesProps={{ color: 'primary.$300' }}
-                        backgroundColor="main.$300"
+                        backgroundColor="darkGrey.$300"
                         mt={20}
                         mb={20}
                     />

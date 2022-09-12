@@ -4,7 +4,7 @@ import React from 'react';
 import { defaultTheme } from '../../themes/default';
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
-import { Tabs, TabsList, Tab, TabPanels, TabPanel } from './Tabs';
+import { Tab, TabPanel, TabPanels, Tabs, TabsList } from './Tabs';
 
 const stories = storiesOf('Tabs', module);
 
@@ -13,14 +13,14 @@ stories.add('simple', () => (
         <Box
             height="100vh"
             p="$20"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             color="standard.$0"
         >
             <Box mb="20px">
                 <Tabs>
                     <TabsList
                         borderBottom="1px solid"
-                        borderColor="main.$700"
+                        borderColor="darkGrey.$700"
                         mb="16px"
                     >
                         <Tab mr="32px">
@@ -49,14 +49,14 @@ stories.add('with selected', () => (
         <Box
             height="100vh"
             p="$20"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             color="standard.$0"
         >
             <Box mb="20px">
                 <Tabs selectedIndex={1}>
                     <TabsList
                         borderBottom="1px solid"
-                        borderColor="main.$700"
+                        borderColor="darkGrey.$700"
                         mb="16px"
                     >
                         <Tab mr="32px">
@@ -85,14 +85,14 @@ stories.add('with disabled', () => (
         <Box
             height="100vh"
             p="$20"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             color="standard.$0"
         >
             <Box mb="20px">
                 <Tabs>
                     <TabsList
                         borderBottom="1px solid"
-                        borderColor="main.$700"
+                        borderColor="darkGrey.$700"
                         mb="16px"
                     >
                         <Tab mr="32px">
@@ -125,14 +125,14 @@ stories.add('with value and onChange', () => (
         <Box
             height="100vh"
             p="$20"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             color="standard.$0"
         >
             <Box mb="20px">
                 <Tabs onChange={(value): void => alert(value)}>
                     <TabsList
                         borderBottom="1px solid"
-                        borderColor="main.$700"
+                        borderColor="darkGrey.$700"
                         mb="16px"
                     >
                         <Tab mr="32px" value={'First Tab Value'}>

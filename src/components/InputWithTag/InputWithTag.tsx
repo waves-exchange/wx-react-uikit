@@ -29,7 +29,7 @@ export const InputWithTag = forwardRef<HTMLDivElement, InputWithTagProps>(
                 {tag && (
                     <Text
                         variant="line"
-                        color={props.disabled ? 'main.$100' : 'basic.$400'}
+                        color={props.disabled ? 'darkGrey.$100' : 'basic.$400'}
                         position="absolute"
                         top="50%"
                         right="16px"

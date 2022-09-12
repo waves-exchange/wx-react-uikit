@@ -9,7 +9,7 @@ const stories = storiesOf('Text', module);
 
 stories.add('simple - light theme', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Box bg="#F3F3F3" color="main.$100" height="100vh">
+        <Box bg="#F3F3F3" color="darkGrey.$100" height="100vh">
             <Box p="10px">
                 <Text>Body-1</Text>
             </Box>
@@ -49,7 +49,7 @@ stories.add('simple - light theme', () => (
 
 stories.add('simple - dark theme', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Box bg="main.$800" color="secondary.$100" height="100vh">
+        <Box bg="darkGrey.$800" color="secondary.$100" height="100vh">
             <Box p="10px">
                 <Text>Body-1</Text>
             </Box>

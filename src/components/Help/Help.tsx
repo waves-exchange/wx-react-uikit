@@ -66,7 +66,7 @@ export const Help: FC<HelpProps> = ({
     const tooltipContentFactory = useCallback(
         () => (
             <Box
-                backgroundColor="main.$300"
+                backgroundColor="darkGrey.$300"
                 color="basic.$400"
                 padding="9px 16px"
                 borderRadius="$4"

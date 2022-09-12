@@ -16,7 +16,7 @@ stories.add('Label', () => {
                 height="100vh"
                 flexDirection="column"
                 p={16}
-                bg="main.$700"
+                bg="darkGrey.$700"
                 color="standard.$0"
             >
                 <Box p="10px">

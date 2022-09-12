@@ -13,7 +13,7 @@ export const variants = {
             bg: 'primary.$800',
         },
         ':disabled': {
-            bg: 'main.$600',
+            bg: 'darkGrey.$600',
             color: 'basic.$800',
         },
     },
@@ -21,7 +21,7 @@ export const variants = {
         bg: 'transparent',
         color: 'standard.$0',
         border: '1px solid',
-        borderColor: 'main.$100',
+        borderColor: 'darkGrey.$100',
         outline: 'none',
         ':hover:not(:disabled)': {
             border: '1px solid',
@@ -33,12 +33,12 @@ export const variants = {
         },
         ':active': {
             border: '1px solid',
-            borderColor: 'main.$100',
+            borderColor: 'darkGrey.$100',
         },
         ':disabled': {
             color: 'basic.$800',
             border: '1px solid',
-            borderColor: 'main.$600',
+            borderColor: 'darkGrey.$600',
         },
     },
 };

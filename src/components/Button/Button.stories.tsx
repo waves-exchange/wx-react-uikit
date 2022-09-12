@@ -10,7 +10,7 @@ const stories = storiesOf('Button', module);
 
 stories.add('simple', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Flex flexDirection="row" p={16} bg="main.$700">
+        <Flex flexDirection="row" p={16} bg="darkGrey.$700">
             <Flex flexDirection="column" mr={16}>
                 <Box color="standard.$0" as="h1">
                     ExtraLarge
@@ -64,7 +64,7 @@ stories.add('simple', () => (
 
 stories.add('disabled', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Flex flexDirection="row" p={16} bg="main.$700">
+        <Flex flexDirection="row" p={16} bg="darkGrey.$700">
             <Flex flexDirection="column" mr={16}>
                 <Box color="standard.$0" as="h1">
                     ExtraLarge

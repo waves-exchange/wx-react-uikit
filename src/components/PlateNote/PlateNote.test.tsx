@@ -13,7 +13,7 @@ describe('PlateNote', () => {
     beforeEach(() => {
         theme = {
             colors: {
-                main: {
+                darkGrey: {
                     $500: '#495060',
                 },
                 basic: {

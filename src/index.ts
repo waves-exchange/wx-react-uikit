@@ -1,3 +1,5 @@
+export * from './components/Avatar/Avatar';
+export * from './components/Avatar/AddressAvatar/AddressAvatar';
 export * from './components/Box/Box';
 export * from './components/Button/Button';
 export * from './components/ExternalLink/ExternalLink';

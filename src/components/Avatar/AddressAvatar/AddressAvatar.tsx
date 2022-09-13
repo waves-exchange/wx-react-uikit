@@ -11,13 +11,13 @@ export enum TOOLTIP_LABELS {
 }
 
 type TUserAvatar = {
-    tooltipLabels: Record<TOOLTIP_LABELS_VALUES, string>;
+    tooltipLabels: Record<TOOLTIP_LABELS, string>;
     isSmart?: boolean;
-    userType?: USER_TYPES_VALUES;
+    userType?: USER_TYPES;
     hasNotify?: boolean;
 };
 
-enum USER_TYPES {
+export enum USER_TYPES {
     wavesKeeper = 'wavesKeeper',
     ledger = 'ledger',
     metamask = 'metamask',
@@ -27,24 +27,17 @@ enum USER_TYPES {
     backdoor = 'backdoor',
 }
 
-type USER_TYPES_VALUES = keyof typeof USER_TYPES;
-export type TOOLTIP_LABELS_VALUES = keyof typeof TOOLTIP_LABELS;
-
 export const AddressAvatar: FC<TAvatarComponent & TUserAvatar> = ({
     isSmart = false,
-    userType = 'seed',
+    userType = USER_TYPES.seed,
     tooltipLabels,
     hasNotify = false,
     ...rest
 }) => {
-    const isWavesKeeper = userType === USER_TYPES.wavesKeeper;
-    const isLedger = userType === USER_TYPES.ledger;
-    const isMetamask = userType === USER_TYPES.metamask;
-    const icon = getIcon({ isWavesKeeper, isLedger, isSmart, isMetamask });
+    const icon = getIcon({ isSmart, userType });
     const tooltipContent = getTooltipContent({
-        isWavesKeeper,
-        isLedger,
         isSmart,
+        userType,
         tooltipLabels,
     });
 

@@ -34,7 +34,7 @@ export const TooltipIcon: React.FC<TooltipIconProps> = ({
             justifyContent="center"
             alignItems="center"
             borderRadius="circle"
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             cursor="pointer"
             zIndex={1}
         >

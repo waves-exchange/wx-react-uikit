@@ -1,6 +1,7 @@
-import { TOOLTIP_LABELS, TOOLTIP_LABELS_VALUES } from './AddressAvatar';
 import { IIcon } from '../../Icon/Icon';
 import { ITooltipContent } from './TooltipLabel';
+import { TOOLTIP_LABELS } from './AddressAvatar';
+import { USER_TYPES } from './AddressAvatar';
 import { iconInfo } from './avatarIcons/info';
 import { iconLedgerMini } from './avatarIcons/ledgerMini';
 import { iconSmartMini } from './avatarIcons/smartMini';
@@ -10,35 +11,28 @@ import { metamask } from './avatarIcons/metamask';
 
 type TUserProps = {
     isSmart: boolean;
-    isWavesKeeper: boolean;
-    isLedger: boolean;
-    isMetamask?: boolean;
+    userType: USER_TYPES;
 };
 
 type GetTooltipContentProps = TUserProps & {
-    tooltipLabels: Record<TOOLTIP_LABELS_VALUES, string>;
+    tooltipLabels: Record<TOOLTIP_LABELS, string>;
 };
 
 type TIcon = IIcon | null;
 
-export const getIcon = ({
-    isSmart,
-    isWavesKeeper,
-    isLedger,
-    isMetamask,
-}: TUserProps): TIcon => {
+export const getIcon = ({ isSmart, userType }: TUserProps): TIcon => {
     switch (true) {
-        case isSmart && isWavesKeeper:
+        case isSmart && userType === USER_TYPES.wavesKeeper:
             return iconInfo;
-        case isSmart && isLedger:
+        case isSmart && userType === USER_TYPES.ledger:
             return iconInfo;
         case isSmart:
             return iconSmartMini;
-        case isLedger:
+        case userType === USER_TYPES.ledger:
             return iconLedgerMini;
-        case isWavesKeeper:
+        case userType === USER_TYPES.wavesKeeper:
             return iconWalletKeeperMini;
-        case isMetamask:
+        case userType === USER_TYPES.metamask:
             return metamask;
         default:
             return null;
@@ -47,12 +41,11 @@ export const getIcon = ({
 
 export const getTooltipContent = ({
     isSmart,
-    isWavesKeeper,
-    isLedger,
+    userType,
     tooltipLabels,
 }: GetTooltipContentProps): Array<ITooltipContent> | null => {
     switch (true) {
-        case isSmart && isWavesKeeper:
+        case isSmart && userType === USER_TYPES.wavesKeeper:
             return [
                 {
                     icon: iconWalletKeeperMini,
@@ -63,7 +56,7 @@ export const getTooltipContent = ({
                     label: tooltipLabels[TOOLTIP_LABELS.scriptText],
                 },
             ];
-        case isSmart && isLedger:
+        case isSmart && userType === USER_TYPES.ledger:
             return [
                 {
                     icon: iconLedgerMini,

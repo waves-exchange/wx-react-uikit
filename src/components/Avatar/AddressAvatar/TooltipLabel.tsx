@@ -15,7 +15,7 @@ export const TooltipLabel: React.FC<IToltipLabel> = ({ content }) => {
         <Flex
             flexDirection="column"
             borderTop="4px solid"
-            borderTopColor="primary.$300"
+            borderTopColor="main"
             backgroundColor="#4a5060"
             borderRadius="$4"
             py="8px"
@@ -31,7 +31,7 @@ export const TooltipLabel: React.FC<IToltipLabel> = ({ content }) => {
                         justifyContent="center"
                         size="16px"
                         borderRadius="circle"
-                        backgroundColor="main.$600"
+                        backgroundColor="darkGrey.$600"
                         flex="none"
                     >
                         <Icon icon={icon} size={10} color="standard.$0" />

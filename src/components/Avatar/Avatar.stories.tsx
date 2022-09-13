@@ -3,6 +3,7 @@ import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
+import { USER_TYPES } from './AddressAvatar/AddressAvatar';
 import { defaultTheme } from '../../themes/default';
 import { storiesOf } from '@storybook/react';
 
@@ -13,7 +14,7 @@ stories.add('simple', () => (
         <Flex flexDirection="row" p={16} bg="darkGrey.$700">
             <Box mr={32}>
                 <Box color="standard.$0" mb="16px">
-                    {'wavesKeeper'}
+                    {USER_TYPES.wavesKeeper}
                 </Box>
                 <Box size={36}>
                     <AddressAvatar
@@ -23,14 +24,14 @@ stories.add('simple', () => (
                             scriptText: '',
                         }}
                         size={36}
-                        userType={'wavesKeeper'}
+                        userType={USER_TYPES.wavesKeeper}
                         address={'adadasdasdasd'}
                     />
                 </Box>
             </Box>
             <Box mr={32}>
                 <Box color="standard.$0" mb="16px">
-                    {'ledger'}
+                    {USER_TYPES.ledger}
                 </Box>
                 <Box size={36}>
                     <AddressAvatar
@@ -40,14 +41,14 @@ stories.add('simple', () => (
                             scriptText: '',
                         }}
                         size={36}
-                        userType={'ledger'}
+                        userType={USER_TYPES.ledger}
                         address={'adadasdasdasd'}
                     />
                 </Box>
             </Box>
             <Box mr={32}>
                 <Box color="standard.$0" mb="16px">
-                    {'metamask'}
+                    {USER_TYPES.metamask}
                 </Box>
                 <Box size={36}>
                     <AddressAvatar
@@ -57,7 +58,7 @@ stories.add('simple', () => (
                             scriptText: '',
                         }}
                         size={36}
-                        userType={'metamask'}
+                        userType={USER_TYPES.metamask}
                         address={'adadasdasdasd'}
                     />
                 </Box>
@@ -75,7 +76,7 @@ stories.add('simple', () => (
                         }}
                         isSmart={true}
                         size={36}
-                        userType={'metamask'}
+                        userType={USER_TYPES.metamask}
                         address={'adadasdasdasd'}
                     />
                 </Box>
@@ -99,7 +100,7 @@ stories.add('simple', () => (
             </Box>
             <Box mr={32}>
                 <Box color="standard.$0" mb="16px">
-                    {'Seed'}
+                    {USER_TYPES.seed}
                 </Box>
                 <Box size={36} mr={32}>
                     <AddressAvatar

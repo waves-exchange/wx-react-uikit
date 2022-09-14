@@ -138,7 +138,7 @@ export const colors = {
 };
 
 export const darkThemeColors = {
-    // TODO delete old naming ⬇️
+    // TODO  delete  old  naming ⬇️
     basic: { ...colors.mediumGrey },
     secondary: { ...colors.lightGrey },
     standard: { ...colors.standard },
@@ -148,7 +148,7 @@ export const darkThemeColors = {
     green: { ...colors.herbal },
     success: { ...colors.green },
     yellow: { ...colors.yellow },
-    // TODO delete old naming ⬆️
+    // TODO  delete  old  naming ⬆️
     bg: colors.darkGrey.$800,
     bgsec: colors.darkGrey.$700,
     surf: colors.darkGrey.$400,

@@ -26,10 +26,10 @@ export const colors = {
     },
     lightGrey: {
         $100: '#FBFCFD',
-        $200: '#F6F7FB',
-        $250: '#F5F8FF',
-        $300: '#EEF2FA',
-        $400: '#E5E8F1',
+        $200: '#F2F7FC',
+        $250: '#EBF1FA',
+        $300: '#E9EDF7',
+        $400: '#E6EBF7',
         $500: '#D8DDE4',
         $600: '#CED3DB',
         $700: '#BFC4CC',
@@ -165,6 +165,7 @@ export const darkThemeColors = {
     textpositive: colors.greenSoft.$300,
     icon: colors.mediumGrey.$400,
     iconsec: colors.mediumGrey.$850,
+    hover: colors.darkGrey.$100,
 };
 
 export const lightThemeColors = {
@@ -195,6 +196,7 @@ export const lightThemeColors = {
     textpositive: colors.green.$500,
     icon: colors.mediumGrey.$400,
     iconsec: colors.lightGrey.$700,
+    hover: colors.lightGrey.$400,
 };
 
 export const fontSizes = {

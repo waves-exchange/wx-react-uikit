@@ -1,44 +1,46 @@
 export const variants = {
     primary: {
-        bg: 'primary.$300',
+        bg: 'main',
         color: 'standard.$0',
         outline: 'none',
         ':hover:not(:disabled)': {
-            bg: 'primary.$500',
+            bg: 'blue.$500',
         },
         ':focus:not(:disabled)': {
-            bg: 'primary.$800',
+            bg: 'main',
         },
         ':active': {
-            bg: 'primary.$800',
+            bg: 'main',
         },
         ':disabled': {
-            bg: 'darkGrey.$600',
-            color: 'basic.$800',
+            bg: 'surfmut',
+            color: 'textmuted',
         },
     },
     transparent: {
         bg: 'transparent',
-        color: 'standard.$0',
+        color: 'text',
         border: '1px solid',
-        borderColor: 'darkGrey.$100',
+        borderColor: 'border',
         outline: 'none',
         ':hover:not(:disabled)': {
             border: '1px solid',
-            borderColor: 'basic.$100',
+            borderColor: 'border',
+            color: 'textsec',
         },
         ':focus:not(:disabled)': {
             border: '2px solid',
-            borderColor: 'basic.$800',
+            borderColor: 'border',
         },
         ':active': {
             border: '1px solid',
-            borderColor: 'darkGrey.$100',
+            borderColor: 'border',
         },
         ':disabled': {
-            color: 'basic.$800',
+            color: 'textmuted',
             border: '1px solid',
-            borderColor: 'darkGrey.$600',
+            borderColor: 'surfmut',
+            backgroundColor: 'surfmut',
         },
     },
 };
@@ -48,22 +50,22 @@ export const variantSizes = {
         fontSize: '$16',
         lineHeight: '$24',
         height: '56px',
-        paddingLeft: '$24',
-        paddingRight: '$24',
+        paddingLeft: '$8',
+        paddingRight: '$8',
     },
     large: {
         fontSize: '$16',
         lineHeight: '$24',
         height: '48px',
-        paddingLeft: '$16',
-        paddingRight: '$16',
+        paddingLeft: '$8',
+        paddingRight: '$8',
     },
     medium: {
         fontSize: '$14',
         lineHeight: '$24',
         height: '40px',
-        paddingLeft: '$12',
-        paddingRight: '$12',
+        paddingLeft: '$8',
+        paddingRight: '$8',
     },
     small: {
         fontSize: '$14',

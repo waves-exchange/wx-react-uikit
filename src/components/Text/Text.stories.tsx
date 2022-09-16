@@ -43,6 +43,12 @@ stories.add('simple - light theme', () => (
             <Box p="10px">
                 <Text variant="heading5">Heading-5</Text>
             </Box>
+            <Box p="10px">
+                <Text variant="button1">Button-1</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="button2">Button-2</Text>
+            </Box>
         </Box>
     </ThemeProvider>
 ));
@@ -82,6 +88,12 @@ stories.add('simple - dark theme', () => (
             </Box>
             <Box p="10px">
                 <Text variant="heading5">Heading-5</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="button1">Button-1</Text>
+            </Box>
+            <Box p="10px">
+                <Text variant="button2">Button-2</Text>
             </Box>
         </Box>
     </ThemeProvider>

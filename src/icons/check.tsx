@@ -5,9 +5,11 @@ export const iconCheck = {
         <g fill="currentColor" fillRule="evenodd">
             <path
                 fill="currentColor"
-                d="M10.315 3.5L5.56 8.176 3.68 6.333 2.5 7.492 5.56 10.5l5.94-5.842z"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10.6477 0L3.91373 6.38977L1.33292 3.98641L0 5.30951L3.87398 9H3.89062L12 1.29612L10.6477 0Z"
             />
         </g>
     ),
-    viewBox: '0 0 14 14',
+    viewBox: '0 0 12 9',
 };

@@ -25,8 +25,13 @@ describe('PlateNote', () => {
                 yellow: {
                     $400: '#FAB400',
                 },
-                plateWarningTitle: '#FAB400',
-                plateWarningBorder: '#FFB800',
+                plate: {
+                    warning: {
+                        border: '#FFB800',
+                        title: '#FAB400',
+                        bg: 'rgba(255, 197, 48, 0.15)',
+                    },
+                },
             },
             fontSizes: {
                 $12: '12px',

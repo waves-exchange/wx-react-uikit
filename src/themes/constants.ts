@@ -166,9 +166,6 @@ export const darkThemeColors = {
     icon: colors.mediumGrey.$400,
     iconsec: colors.mediumGrey.$850,
     hover: colors.darkGrey.$100,
-    // aliases for components
-    plateWarningBorder: colors.yellow.$300,
-    plateWarningTitle: colors.yellow.$400,
 };
 
 export const lightThemeColors = {
@@ -200,9 +197,6 @@ export const lightThemeColors = {
     icon: colors.mediumGrey.$400,
     iconsec: colors.lightGrey.$700,
     hover: colors.lightGrey.$400,
-    // aliases for components
-    plateWarningBorder: colors.orange.$300,
-    plateWarningTitle: colors.orange.$600,
 };
 
 export const fontSizes = {

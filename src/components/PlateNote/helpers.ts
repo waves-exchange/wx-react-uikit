@@ -11,16 +11,16 @@ export const getMainColors = (type: TPlateNoteType): Record<string, string> => {
         }
         case 'warning': {
             return {
-                borderColor: 'plateWarningBorder',
-                titleColor: 'plateWarningTitle',
-                bgColor: 'rgba(255, 197, 48, 0.15)',
+                borderColor: 'plate.warning.border',
+                titleColor: 'plate.warning.title',
+                bgColor: 'plate.warning.bg',
             };
         }
         default: {
             return {
                 borderColor: 'darkGrey.$500',
                 titleColor: 'darkGrey.$500',
-                bgColor: 'rgba(255, 197, 48, 0.15)',
+                bgColor: 'transparent',
             };
         }
     }

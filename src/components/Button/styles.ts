@@ -7,10 +7,10 @@ export const variants = {
             bg: 'blue.$500',
         },
         ':focus:not(:disabled)': {
-            bg: 'main',
+            bg: 'blue.$700',
         },
         ':active': {
-            bg: 'main',
+            bg: 'blue.$700',
         },
         ':disabled': {
             bg: 'surfmut',
@@ -25,16 +25,18 @@ export const variants = {
         outline: 'none',
         ':hover:not(:disabled)': {
             border: '1px solid',
-            borderColor: 'border',
+            borderColor: 'button.transparent.border.hover',
             color: 'textsec',
         },
         ':focus:not(:disabled)': {
-            border: '2px solid',
-            borderColor: 'border',
+            border: '1px solid',
+            borderColor: 'button.transparent.border.focus',
+            color: 'textsec',
         },
         ':active': {
             border: '1px solid',
-            borderColor: 'border',
+            borderColor: 'button.transparent.border.focus',
+            color: 'textsec',
         },
         ':disabled': {
             color: 'textmuted',
@@ -50,15 +52,15 @@ export const variantSizes = {
         fontSize: '$16',
         lineHeight: '$24',
         height: '56px',
-        paddingLeft: '$8',
-        paddingRight: '$8',
+        paddingLeft: '$16',
+        paddingRight: '$16',
     },
     large: {
         fontSize: '$16',
         lineHeight: '$24',
         height: '48px',
-        paddingLeft: '$8',
-        paddingRight: '$8',
+        paddingLeft: '$12',
+        paddingRight: '$12',
     },
     medium: {
         fontSize: '$14',
@@ -69,6 +71,7 @@ export const variantSizes = {
     },
     small: {
         fontSize: '$14',
+        lineHeight: '$24',
         height: '32px',
         paddingLeft: '$8',
         paddingRight: '$8',

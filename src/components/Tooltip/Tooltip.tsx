@@ -1,20 +1,20 @@
-import { Placement, Options } from '@popperjs/core';
+import { Options, Placement } from '@popperjs/core';
+import { Popper, PopperArrow } from '../Popper/Popper';
 import React, {
     Children,
-    cloneElement,
     FC,
-    isValidElement,
     MouseEventHandler,
     ReactNode,
+    Ref,
+    cloneElement,
+    isValidElement,
     useCallback,
-    useState,
     useEffect,
     useLayoutEffect,
-    Ref,
+    useState,
 } from 'react';
+import { getPopperArrowStyle, variants } from './styles';
 import { BoxProps } from '../Box/Box';
-import { Popper, PopperArrow } from '../Popper/Popper';
-import { getPopperArrowStyle } from './styles';
 import { path } from 'ramda';
 
 /*
@@ -45,6 +45,7 @@ export type TooltipProps = BoxProps & {
     postPositionCb?: (arrowRef: HTMLDivElement | null) => void;
     popperOptions?: Partial<Options>;
     interactive?: boolean;
+    variant?: 'default' | undefined;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -63,6 +64,7 @@ export const Tooltip: FC<TooltipProps> = ({
     postPositionCb,
     popperOptions,
     interactive,
+    variant,
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(isOpenProp || isDefaultOpen);
@@ -161,11 +163,14 @@ export const Tooltip: FC<TooltipProps> = ({
                     offset,
                     arrowPadding,
                 }}
-                sx={getPopperArrowStyle({
-                    arrowSize,
-                    hasArrow,
-                    color: arrowColor,
-                })}
+                sx={{
+                    ...(getPopperArrowStyle({
+                        arrowSize: variant ? '4px' : arrowSize,
+                        hasArrow: !!variant || hasArrow,
+                        color: variant ? 'transparent' : arrowColor,
+                    }) as Record<string, any>),
+                    ...(variant ? variants[variant] : {}),
+                }}
                 maxWidth={maxWidth}
                 zIndex={1}
                 {...rest}
@@ -176,9 +181,10 @@ export const Tooltip: FC<TooltipProps> = ({
                 >
                     {typeof label === 'function' ? label() : label}
                 </div>
-                {hasArrow && (
-                    <PopperArrow ref={setArrowRef as Ref<HTMLDivElement>} />
-                )}
+                {hasArrow ||
+                    (variant && (
+                        <PopperArrow ref={setArrowRef as Ref<HTMLDivElement>} />
+                    ))}
             </Popper>
         </div>
     );

@@ -23,11 +23,18 @@ describe('PlateNote', () => {
                     $300: '#E5494D',
                 },
                 yellow: {
-                    $600: '#E9A500',
+                    $400: '#FAB400',
+                },
+                plate: {
+                    warning: {
+                        border: '#FFB800',
+                        title: '#FAB400',
+                        bg: 'rgba(255, 197, 48, 0.15)',
+                    },
                 },
             },
             fontSizes: {
-                $14: '14px',
+                $12: '12px',
             },
         };
     });
@@ -41,7 +48,7 @@ describe('PlateNote', () => {
         const wrapper = container.querySelector('div');
 
         expect(text).toHaveStyleRule('color', '#495060');
-        expect(text).toHaveStyleRule('font-size', '14px');
+        expect(text).toHaveStyleRule('font-size', '12px');
         expect(wrapper).toHaveStyleRule('border', '1px dashed');
         expect(wrapper).toHaveStyleRule('border-color', '#495060');
     });
@@ -66,8 +73,8 @@ describe('PlateNote', () => {
         const wrapper = container.querySelector('div');
         const text = container.querySelector('span');
 
-        expect(text).toHaveStyleRule('color', '#E9A500');
-        expect(wrapper).toHaveStyleRule('border-color', '#E9A500');
+        expect(text).toHaveStyleRule('color', '#FAB400');
+        expect(wrapper).toHaveStyleRule('border-color', '#FFB800');
         expect(wrapper).toHaveStyleRule('padding', '40px');
     });
     it('render warning PlateNote with children', () => {

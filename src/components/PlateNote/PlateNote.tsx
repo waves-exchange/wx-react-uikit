@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { getMainColor } from './helpers';
 import { Flex, TFlexProps } from '../Flex/Flex';
 import { TTextProps, Text } from '../Text/Text';
+import { getMainColors } from './helpers';
 
 export type TPlateNoteType = 'info' | 'warning' | 'error';
 
@@ -18,24 +18,20 @@ export const PlateNote: React.FC<TPlateNote> = ({
     children,
     ...rest
 }) => {
-    const mainColor = getMainColor(type);
+    const { borderColor, titleColor, bgColor } = getMainColors(type);
 
     return (
         <Flex
             flexDirection="column"
             border="1px dashed"
-            borderColor={mainColor}
+            borderColor={borderColor}
             borderRadius="$4"
+            backgroundColor={bgColor}
             p="16px"
             {...rest}
         >
             {text ? (
-                <Text
-                    fontSize="$14"
-                    lineHeight="$24"
-                    color={mainColor}
-                    {...textProps}
-                >
+                <Text variant="caption" color={titleColor} {...textProps}>
                     {text}
                 </Text>
             ) : null}

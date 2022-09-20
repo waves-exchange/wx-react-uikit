@@ -191,7 +191,7 @@ export const lightThemeColors = {
     main: colors.blue.$400,
     text: colors.darkGrey.$100,
     textsec: colors.mediumGrey.$400,
-    textmuted: colors.lightGrey.$800,
+    textmuted: colors.lightGrey.$700,
     textnegative: colors.red.$500,
     textpositive: colors.green.$500,
     icon: colors.mediumGrey.$400,

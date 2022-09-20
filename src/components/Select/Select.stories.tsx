@@ -1,74 +1,95 @@
 import React, { useCallback, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from 'emotion-theming';
-import { defaultTheme } from '../../themes/default';
+import { defaultTheme, lightTheme } from '../../themes/default';
 import { Select } from '../Select/Select';
 import { Box } from '../Box/Box';
-import { Selected } from './FeeSelect/Selected';
-import { List } from './FeeSelect/List';
-import { Text } from '../Text/Text';
-import { FeeOption } from './FeeSelect/Option';
+import { List } from './defaultSelect/List';
+import { Selected } from './defaultSelect/Selected';
+import { DefaultOption } from './defaultSelect/Option';
 
-const options: Array<FeeOption> = [
+const options: Array<DefaultOption> = [
     {
-        value: '0.01',
-        ticker: 'WAVES',
-        name: 'Waves',
-        id: 'WAVES',
+        id: 'placeholder',
+        renderPlaceholder: (): string => 'Select',
     },
     {
-        value: '0.0001',
-        ticker: 'Sviblovo',
-        name: 'SVIBLOVO',
-        id: 'Sviblovo',
+        id: 'RU',
+        value: (): string => 'Русский',
     },
     {
-        value: '30.2301',
-        ticker: 'Fantik',
-        name: 'FANTIK',
-        id: 'Fantik',
+        id: 'EN',
+        value: (): string => 'English',
     },
     {
-        value: '220.23126743',
-        ticker: 'Select',
-        name: 'SELECT',
-        id: 'Select',
-    },
-    {
-        value: '1',
-        ticker: 'ZOLOTO',
-        name: 'Zoloto',
-        id: 'Zoloto',
+        id: 'ES',
+        value: (): string => 'Spanish',
     },
 ];
 
 const stories = storiesOf('Select', module);
 
-stories.add('simple', () => {
-    const initialSelected = options.find((option) => option.id === 'WAVES');
+stories.add('default select - DT', () => {
+    const initialSelected = options.find((option) => option.id === 'RU');
+    const initialSelected2 = options.find((option) => option.id === 'EN');
 
-    const [selectedA, setSelectedA] = useState<FeeOption>(initialSelected!);
+    const [selectedA, setSelectedA] = useState<DefaultOption>(initialSelected!);
     const onSelectA = useCallback((selected) => {
         setSelectedA(selected);
     }, []);
 
-    const [selectedB, setSelectedB] = useState<FeeOption>(initialSelected!);
+    const [selectedB, setSelectedB] = useState<DefaultOption>(
+        initialSelected2!
+    );
     const onSelectB = useCallback((selected) => {
         setSelectedB(selected);
+    }, []);
+
+    const [selectedC, setSelectedC] = useState<DefaultOption>(options[0]);
+    const onSelectC = useCallback((selected) => {
+        setSelectedC(selected);
     }, []);
 
     return (
         <ThemeProvider theme={defaultTheme}>
             <Box
-                backgroundColor="darkGrey.$800"
+                backgroundColor="bg"
                 height="100vh"
                 p="$20"
-                color="standard.$0"
+                color="text"
                 fontSize={13}
             >
-                <Text>Default</Text>
+                <Box mb="10px">Empty</Box>
                 <Select
-                    renderSelected={(opened: boolean) => (
+                    renderSelected={({ opened }): React.ReactElement => (
+                        <Selected opened={opened} selected={selectedC} />
+                    )}
+                    mb={20}
+                >
+                    <List options={options} onSelect={onSelectC} />
+                </Select>
+
+                <Box mb="10px">Error</Box>
+                <Select
+                    renderSelected={({
+                        opened,
+                        isError,
+                    }): React.ReactElement => (
+                        <Selected
+                            isError={isError}
+                            opened={opened}
+                            selected={selectedB}
+                        />
+                    )}
+                    mb={20}
+                    isError={true}
+                >
+                    <List options={options} onSelect={onSelectB} />
+                </Select>
+
+                <Box mb="10px">Default</Box>
+                <Select
+                    renderSelected={({ opened }): React.ReactElement => (
                         <Selected opened={opened} selected={selectedA} />
                     )}
                     mb={20}
@@ -76,10 +97,17 @@ stories.add('simple', () => {
                     <List options={options} onSelect={onSelectA} />
                 </Select>
 
-                <Text>Disabled</Text>
+                <Box mb="10px">Disabled</Box>
                 <Select
-                    renderSelected={(opened: boolean) => (
-                        <Selected opened={opened} selected={selectedB} />
+                    renderSelected={({
+                        opened,
+                        isDisabled,
+                    }): React.ReactElement => (
+                        <Selected
+                            opened={opened}
+                            selected={selectedB}
+                            isDisabled={isDisabled}
+                        />
                     )}
                     isDisabled={true}
                     mb={20}
@@ -87,9 +115,9 @@ stories.add('simple', () => {
                     <List options={options} onSelect={onSelectB} />
                 </Select>
 
-                <Text>Default. Placement='top'</Text>
+                <Box mb="10px">Default. Placement='top'</Box>
                 <Select
-                    renderSelected={(opened: boolean) => (
+                    renderSelected={({ opened }): React.ReactElement => (
                         <Selected opened={opened} selected={selectedA} />
                     )}
                     placement="top"
@@ -97,29 +125,98 @@ stories.add('simple', () => {
                 >
                     <List options={options} onSelect={onSelectA} />
                 </Select>
+            </Box>
+        </ThemeProvider>
+    );
+});
 
-                <Text>Custom styles</Text>
+stories.add('default select - LT', () => {
+    const initialSelected = options.find((option) => option.id === 'RU');
+
+    const [selectedA, setSelectedA] = useState<DefaultOption>(initialSelected!);
+    const onSelectA = useCallback((selected) => {
+        setSelectedA(selected);
+    }, []);
+
+    const [selectedB, setSelectedB] = useState<DefaultOption>(initialSelected!);
+    const onSelectB = useCallback((selected) => {
+        setSelectedB(selected);
+    }, []);
+
+    return (
+        <ThemeProvider theme={lightTheme}>
+            <Box
+                backgroundColor="bg"
+                height="100vh"
+                p="$20"
+                color="text"
+                fontSize={13}
+            >
+                <Box mb="10px">Empty</Box>
                 <Select
-                    renderSelected={(opened: boolean) => (
-                        <Selected
-                            opened={opened}
-                            selected={selectedA}
-                            selectedOptionStylesProps={{ fontSize: '26px' }}
-                            borderColor="darkGrey.$100"
-                            borderRadius={15}
-                            backgroundColor="darkGrey.$300"
-                        />
+                    renderSelected={({ opened }): React.ReactElement => (
+                        <Selected opened={opened} selected={selectedB} />
                     )}
                     mb={20}
                 >
-                    <List
-                        options={options}
-                        onSelect={onSelectA}
-                        optionStylesProps={{ color: 'primary.$300' }}
-                        backgroundColor="darkGrey.$300"
-                        mt={20}
-                        mb={20}
-                    />
+                    <List options={options} onSelect={onSelectB} />
+                </Select>
+
+                <Box mb="10px">Error</Box>
+                <Select
+                    renderSelected={({
+                        opened,
+                        isError,
+                    }): React.ReactElement => (
+                        <Selected
+                            isError={isError}
+                            opened={opened}
+                            selected={selectedB}
+                        />
+                    )}
+                    mb={20}
+                    isError={true}
+                >
+                    <List options={options} onSelect={onSelectB} />
+                </Select>
+
+                <Box mb="10px">Default</Box>
+                <Select
+                    renderSelected={({ opened }): React.ReactElement => (
+                        <Selected opened={opened} selected={selectedA} />
+                    )}
+                    mb={20}
+                >
+                    <List options={options} onSelect={onSelectA} />
+                </Select>
+
+                <Box mb="10px">Disabled</Box>
+                <Select
+                    renderSelected={({
+                        opened,
+                        isDisabled,
+                    }): React.ReactElement => (
+                        <Selected
+                            opened={opened}
+                            selected={selectedB}
+                            isDisabled={isDisabled}
+                        />
+                    )}
+                    isDisabled={true}
+                    mb={20}
+                >
+                    <List options={options} onSelect={onSelectB} />
+                </Select>
+
+                <Box mb="10px">Default. Placement='top'</Box>
+                <Select
+                    renderSelected={({ opened }): React.ReactElement => (
+                        <Selected opened={opened} selected={selectedA} />
+                    )}
+                    placement="top"
+                    mb={20}
+                >
+                    <List options={options} onSelect={onSelectA} />
                 </Select>
             </Box>
         </ThemeProvider>

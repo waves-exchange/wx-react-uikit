@@ -67,7 +67,7 @@ export const Help: FC<HelpProps> = ({
         () => (
             <Box
                 backgroundColor="darkGrey.$300"
-                color="basic.$400"
+                color="mediumGrey.$400"
                 padding="9px 16px"
                 borderRadius="$4"
                 borderColor={colors.hovered}

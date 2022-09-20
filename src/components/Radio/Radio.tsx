@@ -15,6 +15,7 @@ export type RadioProps = InputHTMLAttributes<HTMLInputElement> &
         customControlBox?: boolean;
     };
 
+// TODO: добавить поддержку светлой темы
 export const Radio: FC<RadioProps> = ({
     name,
     value,

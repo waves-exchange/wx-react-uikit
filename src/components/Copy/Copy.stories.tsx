@@ -11,7 +11,7 @@ const stories = storiesOf('Copy', module);
 
 stories.add('simple', () => (
     <ThemeProvider theme={defaultTheme}>
-        <Flex p={20} backgroundColor="main.$800" flexDirection="column">
+        <Flex p={20} backgroundColor="bg" flexDirection="column">
             <Copy
                 inititialTooltipLabel="Copy address"
                 copiedTooltipLabel="Copied!"

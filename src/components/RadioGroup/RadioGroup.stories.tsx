@@ -1,11 +1,11 @@
-import { storiesOf } from '@storybook/react';
-import { ThemeProvider } from 'emotion-theming';
+import { Radio, RadioProps } from '../Radio/Radio';
 import React, { FC } from 'react';
-import { defaultTheme } from '../../themes/default';
 import { Box } from '../Box/Box';
 import { RadioGroup } from './RadioGroup';
-import { Radio, RadioProps } from '../Radio/Radio';
 import { Text } from '../Text/Text';
+import { ThemeProvider } from 'emotion-theming';
+import { defaultTheme } from '../../themes/default';
+import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('RadioGroup', module);
 
@@ -25,7 +25,7 @@ const CustomRadio: FC<RadioProps> = ({
         <Box
             aria-checked={checked}
             color={checked ? 'standard.$0' : 'standard.$1000'}
-            bg={checked ? 'primary.$500' : 'warning.$500'}
+            bg={checked ? 'blue.$500' : 'orange.$500'}
             p="$5"
         >
             {children}

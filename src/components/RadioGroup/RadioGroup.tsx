@@ -18,6 +18,7 @@ type RadioGroupProps = TFlexProps & {
     onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
+// TODO: добавить поддержку светлой темы
 export const RadioGroup: FC<RadioGroupProps> = ({
     children,
     direction,

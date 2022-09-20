@@ -1,9 +1,9 @@
-import { storiesOf } from '@storybook/react';
-import { ThemeProvider } from 'emotion-theming';
-import React from 'react';
-import { defaultTheme } from '../../themes/default';
 import { Box } from '../Box/Box';
 import { Radio } from './Radio';
+import React from 'react';
+import { ThemeProvider } from 'emotion-theming';
+import { defaultTheme } from '../../themes/default';
+import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Radio', module);
 

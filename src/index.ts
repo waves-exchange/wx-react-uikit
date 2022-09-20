@@ -28,6 +28,10 @@ export * from './components/Select/FeeSelect/List';
 export * from './components/Select/FeeSelect/Option';
 export * from './components/Tabs/Tabs';
 export * from './components/PlateNote/PlateNote';
+export * from './components/Accordion/Accordion';
+export * from './components/Accordion/AccordionItem';
+export * from './components/Accordion/AccordionHeader';
+export * from './components/Accordion/AccordionPanel';
 export * from './themes/default';
 // assets
 export * from './icons/check';

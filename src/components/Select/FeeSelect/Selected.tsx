@@ -21,7 +21,7 @@ export const Selected: React.FC<TSelectedProps> = ({
         justifyContent="space-between"
         backgroundColor="basic.$900"
         border="1px solid"
-        borderColor="main.$600"
+        borderColor="darkGrey.$600"
         borderRadius="$4"
         p={15}
         {...rest}
@@ -30,7 +30,7 @@ export const Selected: React.FC<TSelectedProps> = ({
         {opened ? (
             <Icon icon={iconCloseSelect} color="primary.$300" ml={10} />
         ) : (
-            <Icon icon={iconOpenSelect} color="main.$100" ml={10} />
+            <Icon icon={iconOpenSelect} color="darkGrey.$100" ml={10} />
         )}
     </Flex>
 );

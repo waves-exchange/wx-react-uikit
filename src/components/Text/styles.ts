@@ -17,6 +17,10 @@ export const variants = {
         lineHeight: '$24',
         fontWeight: '$600',
     },
+    bodyXL: {
+        fontSize: '$20',
+        lineHeight: '$24',
+    },
     caption: {
         fontSize: '$12',
         lineHeight: '$16',
@@ -49,5 +53,15 @@ export const variants = {
         fontSize: '$20',
         lineHeight: '$24',
         fontWeight: '$700',
+    },
+    button1: {
+        fontSize: '$16',
+        lineHeight: '$24',
+        fontWeight: '$500',
+    },
+    button2: {
+        fontSize: '$14',
+        lineHeight: '$26',
+        fontWeight: '$500',
     },
 };

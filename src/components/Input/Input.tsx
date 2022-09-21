@@ -15,8 +15,8 @@ export const inputSizeVariants = {
 };
 
 const defaultStyles = {
-    backgroundColor: 'main.$300',
-    borderColor: 'main.$300',
+    backgroundColor: 'darkGrey.$300',
+    borderColor: 'darkGrey.$300',
     borderRadius: '$4',
     color: 'standard.$0',
     '::placeholder': {
@@ -29,9 +29,9 @@ const defaultStyles = {
         borderColor: 'primary.$300',
     },
     ':disabled': {
-        backgroundColor: 'main.$600',
+        backgroundColor: 'darkGrey.$600',
         '::placeholder': {
-            color: 'main.$100',
+            color: 'darkGrey.$100',
         },
     },
     '&[aria-invalid="true"]': {

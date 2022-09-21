@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, TFlexProps } from '../../Flex/Flex';
 import { Box } from '../../Box/Box';
-import { Option, FeeOption } from './Option';
+import { FeeOption, Option } from './Option';
 
 type TListProps = Omit<TFlexProps, 'onSelect'> & {
     options: Array<FeeOption>;
@@ -27,7 +27,7 @@ export const List: React.FC<TListProps> = ({
                 width: 3,
             },
             '::-webkit-scrollbar-thumb': {
-                backgroundColor: 'main.$200',
+                backgroundColor: 'darkGrey.$200',
                 borderRadius: 1.5,
                 width: 3,
             },
@@ -45,7 +45,7 @@ export const List: React.FC<TListProps> = ({
                 key={option.id || 'WAVES'}
                 sx={{
                     ':hover': {
-                        backgroundColor: 'main.$600',
+                        backgroundColor: 'darkGrey.$600',
                     },
                 }}
                 px={15}

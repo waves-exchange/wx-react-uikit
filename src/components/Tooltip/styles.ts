@@ -6,6 +6,19 @@ type GetPopperArrowStyle = (options: {
     color?: string;
 }) => Interpolation;
 
+export const variants = {
+    default: {
+        p: 10,
+        borderRadius: '$4',
+        border: '1px solid',
+        borderColor: 'mediumGrey.$850',
+        bg: 'rgba(0, 0, 0, .7)',
+        color: 'standard.$0',
+        fontSize: '12px',
+        lineHeight: '16px',
+    },
+};
+
 export const getPopperArrowStyle: GetPopperArrowStyle = ({
     arrowSize,
     hasArrow,

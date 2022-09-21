@@ -35,6 +35,22 @@ export const darkTheme = {
             hover: colors.blue.$300,
             disabled: colors.darkGrey.$100,
         },
+        plate: {
+            warning: {
+                border: colors.yellow.$300,
+                title: colors.yellow.$400,
+                bg: 'rgba(255, 197, 48, 0.15)',
+            },
+        },
+        button: {
+            transparent: {
+                border: {
+                    hover: colors.mediumGrey.$850,
+                    focus: colors.darkGrey.$100,
+                },
+            },
+        },
+        ...colors,
     },
     ...common,
 };
@@ -47,6 +63,22 @@ export const lightTheme = {
             hover: colors.blue.$300,
             disabled: colors.lightGrey.$800,
         },
+        plate: {
+            warning: {
+                border: colors.orange.$300,
+                title: colors.orange.$600,
+                bg: 'rgba(255, 197, 48, 0.15)',
+            },
+        },
+        button: {
+            transparent: {
+                border: {
+                    hover: colors.lightGrey.$600,
+                    focus: colors.lightGrey.$500,
+                },
+            },
+        },
+        ...colors,
     },
     ...common,
 };

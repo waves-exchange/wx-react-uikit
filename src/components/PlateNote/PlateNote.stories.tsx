@@ -12,7 +12,7 @@ const stories = storiesOf('PlateNote', module);
 stories.add('simple', () => (
     <ThemeProvider theme={defaultTheme}>
         <Box
-            backgroundColor="main.$800"
+            backgroundColor="darkGrey.$800"
             height="100vh"
             p={10}
             fontSize="$12"

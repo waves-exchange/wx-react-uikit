@@ -22,12 +22,14 @@ export const colors = {
         $600: '#778295',
         $700: '#707B8F',
         $800: '#697387',
+        $850: '#43495F',
     },
     lightGrey: {
         $100: '#FBFCFD',
-        $200: '#F6F7FB',
-        $300: '#EEF2FA',
-        $400: '#E5E8F1',
+        $200: '#F2F7FC',
+        $250: '#EBF1FA',
+        $300: '#E9EDF7',
+        $400: '#E6EBF7',
         $500: '#D8DDE4',
         $600: '#CED3DB',
         $700: '#BFC4CC',
@@ -135,9 +137,8 @@ export const colors = {
     },
 };
 
-// TODO
 export const darkThemeColors = {
-    main: { ...colors.darkGrey },
+    // TODO  delete  old  naming ⬇️
     basic: { ...colors.mediumGrey },
     secondary: { ...colors.lightGrey },
     standard: { ...colors.standard },
@@ -147,14 +148,28 @@ export const darkThemeColors = {
     green: { ...colors.herbal },
     success: { ...colors.green },
     yellow: { ...colors.yellow },
-    mix: {
-        // TODO
-    },
+    // TODO  delete  old  naming ⬆️
+    bg: colors.darkGrey.$800,
+    bgsec: colors.darkGrey.$700,
+    surf: colors.darkGrey.$400,
+    surfmut: colors.darkGrey.$600,
+    divider: colors.darkGrey.$200,
+    border: colors.mediumGrey.$800,
+    negative: colors.redSoft.$400,
+    positive: colors.greenSoft.$400,
+    main: colors.blue.$300,
+    text: colors.standard.$0,
+    textsec: colors.mediumGrey.$200,
+    textmuted: colors.mediumGrey.$800,
+    textnegative: colors.redSoft.$300,
+    textpositive: colors.greenSoft.$300,
+    icon: colors.mediumGrey.$400,
+    iconsec: colors.mediumGrey.$850,
+    hover: colors.darkGrey.$100,
 };
 
-// TODO
 export const lightThemeColors = {
-    main: { ...colors.lightGrey },
+    // TODO delete old naming ⬇️
     basic: { ...colors.mediumGrey },
     secondary: { ...colors.darkGrey },
     standard: { ...colors.standard },
@@ -164,9 +179,24 @@ export const lightThemeColors = {
     green: { ...colors.herbal },
     success: { ...colors.green },
     yellow: { ...colors.yellow },
-    mix: {
-        // TODO
-    },
+    // TODO delete old naming ⬆️
+    bg: colors.standard.$0,
+    bgsec: colors.lightGrey.$100,
+    surf: colors.lightGrey.$250,
+    surfmut: colors.lightGrey.$200,
+    divider: colors.lightGrey.$400,
+    border: colors.lightGrey.$800,
+    negative: colors.red.$400,
+    positive: colors.green.$400,
+    main: colors.blue.$400,
+    text: colors.darkGrey.$100,
+    textsec: colors.mediumGrey.$400,
+    textmuted: colors.lightGrey.$700,
+    textnegative: colors.red.$500,
+    textpositive: colors.green.$500,
+    icon: colors.mediumGrey.$400,
+    iconsec: colors.lightGrey.$700,
+    hover: colors.lightGrey.$400,
 };
 
 export const fontSizes = {

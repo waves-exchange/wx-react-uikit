@@ -34,8 +34,8 @@ describe('Button', () => {
         );
         expect(button).toHaveStyleRule('height', '56px');
         expect(button).toHaveStyleRule('font-weight', '500');
-        expect(button).toHaveStyleRule('padding-left', space.$24);
-        expect(button).toHaveStyleRule('padding-right', space.$24);
+        expect(button).toHaveStyleRule('padding-left', space.$16);
+        expect(button).toHaveStyleRule('padding-right', space.$16);
     });
 
     it('render - transparent extraLarge', () => {
@@ -57,7 +57,7 @@ describe('Button', () => {
         expect(button).toHaveStyleRule('background-color', 'transparent');
         expect(button).toHaveStyleRule('height', '56px');
         expect(button).toHaveStyleRule('font-weight', '500');
-        expect(button).toHaveStyleRule('padding-left', space.$24);
-        expect(button).toHaveStyleRule('padding-right', space.$24);
+        expect(button).toHaveStyleRule('padding-left', space.$16);
+        expect(button).toHaveStyleRule('padding-right', space.$16);
     });
 });

@@ -46,6 +46,6 @@ export * from './icons/logo';
 export * from './icons/openSelect';
 export * from './icons/question';
 export * from './icons/invoke';
-
+export * from './icons/chevron';
 //types
 export * from './interface';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultOption, Option } from './Option';
 import { Flex, TFlexProps } from '../../Flex/Flex';
-import { closeSelectDefault } from '../../../icons/closeSelectDefault';
+import { chevron } from '../../../icons/chevron';
 import { Icon } from '../../Icon/Icon';
 
 type TSelectedProps = TFlexProps & {
@@ -41,7 +41,7 @@ export const Selected: React.FC<TSelectedProps> = ({
             <Option option={selected} {...selectedOptionStylesProps} />
 
             <Icon
-                icon={closeSelectDefault}
+                icon={chevron}
                 color="icon"
                 transition="transform .3s"
                 sx={{

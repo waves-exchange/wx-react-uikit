@@ -29,7 +29,7 @@ export const List: React.FC<TListProps> = ({
                 .filter((item) => item.id !== 'placeholder')
                 .map((option) => (
                     <Box
-                        key={option.id || ''}
+                        key={option.id as string}
                         sx={{
                             ':hover': {
                                 backgroundColor: 'surf',

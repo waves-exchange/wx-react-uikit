@@ -3,7 +3,7 @@ import { Flex, TFlexProps } from '../../Flex/Flex';
 
 export type DefaultOption = {
     id: string | null;
-    value?: () => React.ReactNode;
+    value?: () => React.ReactNode | React.ReactNode;
     renderPlaceholder?: () => React.ReactNode;
 };
 
@@ -19,7 +19,13 @@ export const Option: React.FC<TFlexProps & { option: DefaultOption }> = ({
             lineHeight="$24"
             {...rest}
         >
-            {value ? value() : renderPlaceholder ? renderPlaceholder() : ''}
+            {value
+                ? typeof value === 'function'
+                    ? value()
+                    : value
+                : renderPlaceholder
+                ? renderPlaceholder()
+                : ''}
         </Flex>
     );
 };

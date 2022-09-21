@@ -181,10 +181,9 @@ export const Tooltip: FC<TooltipProps> = ({
                 >
                     {typeof label === 'function' ? label() : label}
                 </div>
-                {hasArrow ||
-                    (variant && (
-                        <PopperArrow ref={setArrowRef as Ref<HTMLDivElement>} />
-                    ))}
+                {(hasArrow || variant) && (
+                    <PopperArrow ref={setArrowRef as Ref<HTMLDivElement>} />
+                )}
             </Popper>
         </div>
     );

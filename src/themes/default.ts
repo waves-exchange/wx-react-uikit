@@ -42,6 +42,14 @@ export const darkTheme = {
                 bg: 'rgba(255, 197, 48, 0.15)',
             },
         },
+        button: {
+            transparent: {
+                border: {
+                    hover: colors.mediumGrey.$850,
+                    focus: colors.darkGrey.$100,
+                },
+            },
+        },
         ...colors,
     },
     ...common,
@@ -60,6 +68,14 @@ export const lightTheme = {
                 border: colors.orange.$300,
                 title: colors.orange.$600,
                 bg: 'rgba(255, 197, 48, 0.15)',
+            },
+        },
+        button: {
+            transparent: {
+                border: {
+                    hover: colors.lightGrey.$600,
+                    focus: colors.lightGrey.$500,
+                },
             },
         },
         ...colors,

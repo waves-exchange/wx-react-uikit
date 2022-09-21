@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, TFlexProps } from '../../Flex/Flex';
 
 export type DefaultOption = {
-    id: string | null;
+    id: string;
     value?: () => React.ReactNode | React.ReactNode;
     renderPlaceholder?: () => React.ReactNode;
 };

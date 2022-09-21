@@ -24,6 +24,9 @@ type TSelectProps = BoxProps & {
 const getBorderRadiusPlacement = (isOpenPlacement: boolean): string =>
     isOpenPlacement ? '0' : '$4';
 
+const getBorderWidthPlacement = (isOpenPlacement: boolean): string =>
+    isOpenPlacement ? '0px' : '1px';
+
 export const Select: React.FC<TSelectProps> = ({
     renderSelected,
     isDisabled = false,
@@ -76,10 +79,8 @@ export const Select: React.FC<TSelectProps> = ({
         return {
             border: '1px solid',
             borderColor: mainColor,
-            borderTopColor: openPlacementBottom ? 'transparent' : mainColor,
-            borderBottomColor: openPlacementTop ? 'transparent' : mainColor,
-            borderTopWidth: openPlacementBottom ? '0px' : '1px',
-            borderBottomWidth: openPlacementTop ? '0px' : '1px',
+            borderTopWidth: getBorderWidthPlacement(openPlacementBottom),
+            borderBottomWidth: getBorderWidthPlacement(openPlacementTop),
             borderRadius: '$4',
             borderBottomLeftRadius: getBorderRadiusPlacement(openPlacementTop),
             borderBottomRightRadius: getBorderRadiusPlacement(openPlacementTop),
@@ -107,8 +108,8 @@ export const Select: React.FC<TSelectProps> = ({
                 getBorderRadiusPlacement(openPlacementBottom),
             borderTopLeftRadius: getBorderRadiusPlacement(openPlacementTop),
             borderTopRightRadius: getBorderRadiusPlacement(openPlacementTop),
-            borderBottomColor: openPlacementBottom ? 'transparent' : mainColor,
-            borderTopColor: openPlacementTop ? 'transparent' : mainColor,
+            borderTopWidth: getBorderWidthPlacement(openPlacementTop),
+            borderBottomWidth: getBorderWidthPlacement(openPlacementBottom),
         };
     }, [isError, openPlacementBottom, openPlacementTop, opened]);
 

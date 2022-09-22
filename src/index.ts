@@ -32,6 +32,7 @@ export {
     Option as OptionDefault,
     DefaultOption,
 } from './components/Select/defaultSelect/Option';
+export * from './components/Spinner/Spinner';
 export * from './components/Tabs/Tabs';
 export * from './components/PlateNote/PlateNote';
 export * from './components/Accordion/Accordion';
@@ -51,5 +52,6 @@ export * from './icons/openSelect';
 export * from './icons/question';
 export * from './icons/invoke';
 export * from './icons/chevron';
+export * from './icons/logoText';
 //types
 export * from './interface';

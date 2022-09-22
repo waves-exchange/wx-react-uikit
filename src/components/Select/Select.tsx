@@ -24,9 +24,6 @@ type TSelectProps = BoxProps & {
 const getBorderRadiusPlacement = (isOpenPlacement: boolean): string =>
     isOpenPlacement ? '0' : '$4';
 
-const getBorderWidthPlacement = (isOpenPlacement: boolean): string =>
-    isOpenPlacement ? '0px' : '1px';
-
 export const Select: React.FC<TSelectProps> = ({
     renderSelected,
     isDisabled = false,
@@ -37,7 +34,7 @@ export const Select: React.FC<TSelectProps> = ({
 }) => {
     const [opened, setOpened] = useState<boolean>(false);
     const element = useRef<HTMLDivElement>(null);
-
+    const { sx = {}, ...otherRest } = rest;
     const onToggleOpened = useCallback(() => {
         if (isDisabled) {
             return null;
@@ -79,8 +76,8 @@ export const Select: React.FC<TSelectProps> = ({
         return {
             border: '1px solid',
             borderColor: mainColor,
-            borderTopWidth: getBorderWidthPlacement(openPlacementBottom),
-            borderBottomWidth: getBorderWidthPlacement(openPlacementTop),
+            borderTopColor: openPlacementBottom ? 'surf' : mainColor,
+            borderBottomColor: openPlacementTop ? 'surf' : mainColor,
             borderRadius: '$4',
             borderBottomLeftRadius: getBorderRadiusPlacement(openPlacementTop),
             borderBottomRightRadius: getBorderRadiusPlacement(openPlacementTop),
@@ -99,6 +96,7 @@ export const Select: React.FC<TSelectProps> = ({
             : 'transparent';
 
         return {
+            height: '100%',
             border: '1px solid',
             borderColor: mainColor,
             borderRadius: '$4',
@@ -108,8 +106,8 @@ export const Select: React.FC<TSelectProps> = ({
                 getBorderRadiusPlacement(openPlacementBottom),
             borderTopLeftRadius: getBorderRadiusPlacement(openPlacementTop),
             borderTopRightRadius: getBorderRadiusPlacement(openPlacementTop),
-            borderTopWidth: getBorderWidthPlacement(openPlacementTop),
-            borderBottomWidth: getBorderWidthPlacement(openPlacementBottom),
+            borderBottomColor: openPlacementBottom ? 'surf' : mainColor,
+            borderTopColor: openPlacementTop ? 'surf' : mainColor,
         };
     }, [isError, openPlacementBottom, openPlacementTop, opened]);
 
@@ -127,9 +125,9 @@ export const Select: React.FC<TSelectProps> = ({
                 },
                 '.list': stylesForList,
                 '.selected': stylesForSelected,
-                ...((rest && rest.sx ? rest.sx : {}) as Record<string, any>),
+                ...(sx as Record<string, any>),
             }}
-            {...rest}
+            {...otherRest}
         >
             <Box>{renderSelected({ opened, isDisabled, isError })}</Box>
 

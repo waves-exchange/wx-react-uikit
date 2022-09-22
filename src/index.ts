@@ -29,6 +29,7 @@ export * from './components/Select/FeeSelect/Option';
 export { List as ListDefault } from './components/Select/defaultSelect/List';
 export { Selected as SelectedDefault } from './components/Select/defaultSelect/Selected';
 export { Option as OptionDefault } from './components/Select/defaultSelect/Option';
+export * from './components/Spinner/Spinner';
 export * from './components/Tabs/Tabs';
 export * from './components/PlateNote/PlateNote';
 export * from './components/Accordion/Accordion';
@@ -48,5 +49,6 @@ export * from './icons/openSelect';
 export * from './icons/question';
 export * from './icons/invoke';
 export * from './icons/chevron';
+export * from './icons/logoText';
 //types
 export * from './interface';

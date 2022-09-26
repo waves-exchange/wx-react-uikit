@@ -12,12 +12,8 @@ describe('FormattedInput', () => {
             medium: '42px',
         },
         colors: {
-            standard: {
-                $0: 'white',
-            },
-            danger: {
-                $600: 'red',
-            },
+            text: 'white',
+            negative: 'red',
         },
     };
 

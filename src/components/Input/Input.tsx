@@ -15,28 +15,30 @@ export const inputSizeVariants = {
 };
 
 const defaultStyles = {
-    backgroundColor: 'darkGrey.$300',
-    borderColor: 'darkGrey.$300',
+    backgroundColor: 'surf',
+    borderColor: 'surf',
     borderRadius: '$4',
-    color: 'standard.$0',
+    color: 'text',
     '::placeholder': {
-        color: 'basic.$400',
+        color: 'textsec',
     },
     ':hover:not(:disabled)': {
-        borderColor: 'basic.$800',
+        borderColor: 'surf',
     },
     ':focus:not(:disabled)': {
-        borderColor: 'primary.$300',
+        borderColor: 'main',
     },
     ':disabled': {
-        backgroundColor: 'darkGrey.$600',
+        color: 'textmuted',
+        backgroundColor: 'surfmut',
+        borderColor: 'surfmut',
         '::placeholder': {
-            color: 'darkGrey.$100',
+            color: 'textmuted',
         },
     },
     '&[aria-invalid="true"]': {
         '&, &:hover, &:focus': {
-            borderColor: 'danger.$300',
+            borderColor: 'negative',
         },
     },
 };

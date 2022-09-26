@@ -14,12 +14,8 @@ describe('Input', () => {
                 medium: '42px',
             },
             colors: {
-                standard: {
-                    $0: 'white',
-                },
-                danger: {
-                    $300: 'red',
-                },
+                negative: 'red',
+                text: 'white',
             },
         };
     });

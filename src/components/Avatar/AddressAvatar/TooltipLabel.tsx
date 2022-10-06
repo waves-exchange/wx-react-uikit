@@ -25,7 +25,7 @@ export const TooltipLabel: React.FC<IToltipLabel> = ({ content }) => {
             zIndex={1}
         >
             {content.map(({ icon, label }, index) => (
-                <Flex key={label} mt={index ? 8 : 0}>
+                <Flex key={label} alignItems="center" mt={index ? 8 : 0}>
                     <Flex
                         alignItems="center"
                         justifyContent="center"
@@ -33,6 +33,7 @@ export const TooltipLabel: React.FC<IToltipLabel> = ({ content }) => {
                         borderRadius="circle"
                         backgroundColor="darkGrey.$600"
                         flex="none"
+                        mr="4px"
                     >
                         <Icon icon={icon} size={10} color="standard.$0" />
                     </Flex>

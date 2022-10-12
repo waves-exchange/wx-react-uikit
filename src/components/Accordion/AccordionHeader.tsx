@@ -3,7 +3,7 @@ import React, { useCallback, useContext } from 'react';
 
 import { AccordionItemContext } from './AccordionItemContext';
 import { Icon } from '../Icon/Icon';
-import { iconExpandAccordion } from '../../icons/expandAccordion';
+import { chevron } from '../../icons/chevron';
 
 export type TAccordionHeader = Omit<TFlexProps, 'onClick'> & {
     onClick?: () => void;
@@ -59,13 +59,13 @@ export const AccordionHeader: React.FC<TAccordionHeader> = ({
         >
             {children}
             <Icon
-                icon={iconExpandAccordion}
+                icon={chevron}
                 color="icon"
                 transition="transform .3s"
                 sx={{
                     transform: isExpanded ? 'rotate(-180deg)' : 'rotate(0deg)',
                 }}
-                size={16}
+                size={24}
             />
         </Flex>
     );

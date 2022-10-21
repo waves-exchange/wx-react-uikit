@@ -36,6 +36,25 @@ type TextSpecificProps = {
     textDecoration?: CSS.TextDecorationProperty;
 };
 
+const getStyleFabric =
+    (
+        breakpoints: string[],
+        _variantsKeys: Array<keyof typeof variants | undefined | null>
+    ) =>
+    (property: keyof typeof variants[keyof typeof variants]) => {
+        const findVariantKey = (index: number): string => {
+            return _variantsKeys[index]
+                ? (_variantsKeys[index] as 'string')
+                : (_variantsKeys[Math.max(index - 1, 0)] as string);
+        };
+
+        const getValidKey = (i: number): string => findVariantKey(i) || 'body1';
+
+        return breakpoints.map((bp, i) => {
+            return variants[getValidKey(i)][property];
+        });
+    };
+
 export type TTextProps = BoxProps & TextShadowProps & TextSpecificProps;
 
 export const Text = styled(Box)<TTextProps, TDefaultTheme>(
@@ -52,24 +71,14 @@ export const Text = styled(Box)<TTextProps, TDefaultTheme>(
         if (!Array.isArray(_variantsKeys)) {
             return {};
         }
-        const breakpoints = props.theme.breakpoints;
-
-        const getStyle = (
-            property: keyof typeof variants[keyof typeof variants]
-        ) => {
-            return breakpoints.map((bp, i) => {
-                const variant = _variantsKeys[i]
-                    ? variants[_variantsKeys[i] as 'string']
-                    : variants[_variantsKeys[Math.max(i - 1, 0)] || 'body1'];
-
-                return variant[property];
-            });
-        };
-
+        const stylesByVariant = getStyleFabric(
+            props.theme.breakpoints,
+            _variantsKeys
+        );
         const fontProps = {
-            fontSize: getStyle('fontSize'),
-            lineHeight: getStyle('lineHeight'),
-            fontWeight: getStyle('fontWeight'),
+            fontSize: stylesByVariant('fontSize'),
+            lineHeight: stylesByVariant('lineHeight'),
+            fontWeight: stylesByVariant('fontWeight'),
             variant: undefined,
         };
 

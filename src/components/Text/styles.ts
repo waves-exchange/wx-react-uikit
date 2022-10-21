@@ -1,4 +1,7 @@
-export const variants = {
+export const variants: Record<
+    string,
+    Partial<Record<'fontSize' | 'lineHeight' | 'fontWeight', string>>
+> = {
     body1: {
         fontSize: '$16',
         lineHeight: '$24',

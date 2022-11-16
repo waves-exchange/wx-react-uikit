@@ -8,7 +8,7 @@ export const iconInfo = {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M7.5 4H6.5V6.5H4V7.5H6.5V10H7.5V7.5H10V6.5H7.5V4Z"
-                fill="white"
+                fill="currentColor"
             />
         </>
     ),

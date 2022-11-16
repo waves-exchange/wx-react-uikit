@@ -7,6 +7,7 @@ import {
     variant,
 } from 'styled-system';
 import styled, { WithTheme } from '@emotion/styled';
+import css from '@styled-system/css';
 
 import CSS from 'csstype';
 import { PropsWithChildren } from 'react';
@@ -25,7 +26,9 @@ const truncate: styleFn = (
     }
 };
 
-export type TTextVariant = keyof typeof variants;
+export type TTextVariant =
+    | keyof typeof variants
+    | Array<keyof typeof variants | undefined | null>;
 
 type TextSpecificProps = {
     isTruncated?: boolean;
@@ -35,6 +38,29 @@ type TextSpecificProps = {
 
 export type TTextProps = BoxProps & TextShadowProps & TextSpecificProps;
 
+const getStyleFabric =
+    (
+        breakpoints: string[],
+        _variantsKeys: Array<keyof typeof variants | undefined | null>
+    ) =>
+    (property: keyof typeof variants[keyof typeof variants]) => {
+        const findVariantKey = (index: number): string => {
+            if (index === 0) {
+                return _variantsKeys[index] as string;
+            }
+
+            return _variantsKeys[index]
+                ? (_variantsKeys[index] as 'string')
+                : findVariantKey(index - 1);
+        };
+
+        const getValidKey = (i: number): string => findVariantKey(i) || 'body1';
+
+        return breakpoints.map((bp, i) => {
+            return variants[getValidKey(i)][property];
+        });
+    };
+
 export const Text = styled(Box)<TTextProps, TDefaultTheme>(
     truncate,
     textShadow,
@@ -42,7 +68,26 @@ export const Text = styled(Box)<TTextProps, TDefaultTheme>(
     variant({
         prop: 'variant',
         variants,
-    })
+    }),
+    (props) => {
+        const _variantsKeys = props.variant;
+
+        if (!Array.isArray(_variantsKeys)) {
+            return {};
+        }
+        const stylesByVariant = getStyleFabric(
+            props.theme.breakpoints,
+            _variantsKeys
+        );
+        const fontProps = {
+            fontSize: stylesByVariant('fontSize'),
+            lineHeight: stylesByVariant('lineHeight'),
+            fontWeight: stylesByVariant('fontWeight'),
+            variant: undefined,
+        };
+
+        return css({ ...fontProps })(props.theme);
+    }
 );
 
 Text.defaultProps = {

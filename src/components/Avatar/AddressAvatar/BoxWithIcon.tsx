@@ -22,7 +22,7 @@ export const IconNode: React.FC<IIconNode> = ({ icon }) => (
         backgroundColor="bgsec"
         cursor="pointer"
     >
-        <Icon icon={icon} size={10} color="standard.$0" />
+        <Icon icon={icon} size={10} color="currentColor" />
     </Flex>
 );
 

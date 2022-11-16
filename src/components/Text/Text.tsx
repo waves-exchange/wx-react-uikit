@@ -36,6 +36,8 @@ type TextSpecificProps = {
     textDecoration?: CSS.TextDecorationProperty;
 };
 
+export type TTextProps = BoxProps & TextShadowProps & TextSpecificProps;
+
 const getStyleFabric =
     (
         breakpoints: string[],
@@ -43,9 +45,13 @@ const getStyleFabric =
     ) =>
     (property: keyof typeof variants[keyof typeof variants]) => {
         const findVariantKey = (index: number): string => {
+            if (index === 0) {
+                return _variantsKeys[index] as string;
+            }
+
             return _variantsKeys[index]
                 ? (_variantsKeys[index] as 'string')
-                : (_variantsKeys[Math.max(index - 1, 0)] as string);
+                : findVariantKey(index - 1);
         };
 
         const getValidKey = (i: number): string => findVariantKey(i) || 'body1';
@@ -54,8 +60,6 @@ const getStyleFabric =
             return variants[getValidKey(i)][property];
         });
     };
-
-export type TTextProps = BoxProps & TextShadowProps & TextSpecificProps;
 
 export const Text = styled(Box)<TTextProps, TDefaultTheme>(
     truncate,

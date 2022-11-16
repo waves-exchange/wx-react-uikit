@@ -14,15 +14,7 @@ stories.add('simple - light theme', () => (
                 <Text>Body-1</Text>
             </Box>
             <Box p="10px">
-                <Text
-                    variant={[
-                        null,
-                        'bodySemiBold1',
-                        null,
-                        'bodyXL',
-                        'heading1',
-                    ]}
-                >
+                <Text variant={['heading1', null, null, 'bodyXL', 'body2']}>
                     Responsive
                 </Text>
             </Box>

@@ -34,8 +34,8 @@ export const Spinner: React.FC = () => {
     return (
         <Flex alignItems="center" justifyContent="center">
             <Box
-                height={[26, null, null, 52]}
-                width={[26, null, null, 52]}
+                height={26}
+                width={26}
                 sx={{
                     animation: `${around} 3.8s infinite`,
                     willChange: 'transform',
@@ -45,8 +45,8 @@ export const Spinner: React.FC = () => {
             >
                 <TopBox>
                     <Box
-                        width={[30, null, null, 56]}
-                        height={[15, null, null, 28]}
+                        width={30}
+                        height={15}
                         sx={{
                             transform: 'rotate(45deg)',
                             transformOrigin: '0 0',
@@ -55,8 +55,8 @@ export const Spinner: React.FC = () => {
                 </TopBox>
                 <BottomBox>
                     <Box
-                        width={[30, null, null, 56]}
-                        height={[15, null, null, 28]}
+                        width={30}
+                        height={15}
                         sx={{
                             transform:
                                 'rotate(-45deg) translateX(-50%) translateY(100%)',
@@ -65,11 +65,7 @@ export const Spinner: React.FC = () => {
                     />
                 </BottomBox>
             </Box>
-
-            <Box ml={16} mb={8} display={['none', null, null, 'block']}>
-                <Icon icon={iconLogoText} color="text" size={239} height={34} />
-            </Box>
-            <Box ml={12} mb={6} display={[null, null, null, 'none']}>
+            <Box ml={12} mb={6}>
                 <Icon icon={iconLogoText} color="text" size={120} height={17} />
             </Box>
         </Flex>

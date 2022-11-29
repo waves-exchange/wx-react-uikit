@@ -5,6 +5,7 @@ import { Flex } from '../Flex/Flex';
 import { Box } from '../Box/Box';
 import { Icon } from '../..';
 import { iconLogoText } from '../../icons/logoText';
+import { colors } from '../../themes/constants';
 
 const MainBox = styled(Box)({
     height: '70.71%',
@@ -16,14 +17,14 @@ const MainBox = styled(Box)({
 });
 
 const TopBox = styled(MainBox)({
-    backgroundImage: 'linear-gradient(45deg, #F21162, #215CFB)',
+    backgroundImage: `linear-gradient(45deg, ${colors.magenta.$300}, ${colors.blue.$300})`,
     top: 0,
     transform: 'rotate(-45deg)',
     transformOrigin: '0 0',
 });
 
 const BottomBox = styled(MainBox)({
-    backgroundImage: 'linear-gradient(-45deg, #F21162, #215CFB)',
+    backgroundImage: `linear-gradient(-45deg, ${colors.magenta.$300}, ${colors.blue.$300})`,
     bottom: 0,
     transform: 'rotate(45deg)',
     transformOrigin: '0 100%',
@@ -31,14 +32,10 @@ const BottomBox = styled(MainBox)({
 
 export const Spinner: React.FC = () => {
     return (
-        <Flex
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-        >
+        <Flex alignItems="center" justifyContent="center">
             <Box
-                height={32}
-                width={32}
+                height={[26, null, null, 52]}
+                width={[26, null, null, 52]}
                 sx={{
                     animation: `${around} 3.8s infinite`,
                     willChange: 'transform',
@@ -48,8 +45,8 @@ export const Spinner: React.FC = () => {
             >
                 <TopBox>
                     <Box
-                        width={36}
-                        height={18}
+                        width={[30, null, null, 56]}
+                        height={[15, null, null, 28]}
                         sx={{
                             transform: 'rotate(45deg)',
                             transformOrigin: '0 0',
@@ -58,8 +55,8 @@ export const Spinner: React.FC = () => {
                 </TopBox>
                 <BottomBox>
                     <Box
-                        width={36}
-                        height={18}
+                        width={[30, null, null, 56]}
+                        height={[15, null, null, 28]}
                         sx={{
                             transform:
                                 'rotate(-45deg) translateX(-50%) translateY(100%)',
@@ -69,13 +66,11 @@ export const Spinner: React.FC = () => {
                 </BottomBox>
             </Box>
 
-            <Box mt={20} width={150} height={21}>
-                <Icon
-                    icon={iconLogoText}
-                    color="textmuted"
-                    size={150}
-                    height={21}
-                />
+            <Box ml={16} mb={8} display={['none', null, null, 'block']}>
+                <Icon icon={iconLogoText} color="text" size={239} height={34} />
+            </Box>
+            <Box ml={12} mb={6} display={[null, null, null, 'none']}>
+                <Icon icon={iconLogoText} color="text" size={120} height={17} />
             </Box>
         </Flex>
     );

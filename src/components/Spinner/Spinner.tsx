@@ -1,5 +1,5 @@
 import React from 'react';
-import { around, gradient } from './keyframes';
+import { around, sandBlue, sandMagenta } from './keyframes';
 import styled from '@emotion/styled';
 import { Flex } from '../Flex/Flex';
 import { Box } from '../Box/Box';
@@ -12,19 +12,17 @@ const MainBox = styled(Box)({
     width: '70.71%',
     position: 'absolute',
     overflow: 'hidden',
-    animation: `${gradient} 3.8s infinite`,
-    backgroundSize: '400%',
 });
 
 const TopBox = styled(MainBox)({
-    backgroundImage: `linear-gradient(45deg, ${colors.magenta.$300}, ${colors.blue.$300})`,
+    backgroundColor: colors.magenta.$300,
     top: 0,
     transform: 'rotate(-45deg)',
     transformOrigin: '0 0',
 });
 
 const BottomBox = styled(MainBox)({
-    backgroundImage: `linear-gradient(-45deg, ${colors.magenta.$300}, ${colors.blue.$300})`,
+    backgroundColor: colors.blue.$300,
     bottom: 0,
     transform: 'rotate(45deg)',
     transformOrigin: '0 100%',
@@ -37,7 +35,7 @@ export const Spinner: React.FC = () => {
                 height={26}
                 width={26}
                 sx={{
-                    animation: `${around} 3.8s infinite`,
+                    animation: `${around} 4.2s infinite`,
                     willChange: 'transform',
                 }}
                 overflow="hidden"
@@ -45,22 +43,25 @@ export const Spinner: React.FC = () => {
             >
                 <TopBox>
                     <Box
-                        width={30}
+                        width={26}
                         height={15}
                         sx={{
-                            transform: 'rotate(45deg)',
+                            animation: `${sandBlue} 4.2s infinite`,
+                            backgroundColor: colors.blue.$300,
                             transformOrigin: '0 0',
                         }}
                     />
                 </TopBox>
                 <BottomBox>
                     <Box
-                        width={30}
+                        width={26}
                         height={15}
                         sx={{
-                            transform:
-                                'rotate(-45deg) translateX(-50%) translateY(100%)',
-                            transformOrigin: '0 0',
+                            animation: `${sandMagenta} 4.2s infinite`,
+                            backgroundColor: colors.magenta.$300,
+                            transformOrigin: 'bottom left',
+                            position: 'absolute',
+                            bottom: '0',
                         }}
                     />
                 </BottomBox>

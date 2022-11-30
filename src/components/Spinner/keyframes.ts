@@ -5,7 +5,7 @@ export const around = keyframes`
         transform: rotate(0);
     }
 
-    15% {
+    12% {
         transform: rotate(180deg);
     }
 
@@ -13,7 +13,7 @@ export const around = keyframes`
         transform: rotate(180deg);
     }
 
-    65% {
+    62% {
         transform: rotate(360deg);
     }
 
@@ -22,14 +22,44 @@ export const around = keyframes`
     }
 `;
 
-export const gradient = keyframes`
+export const sandBlue = keyframes`
     0% {
-        background-position: 0% 0%;
+        transform: rotate(45deg) translateY(-15px)
     }
-    50% {
-        background-position: 100% 100%;
+    10% {
+        transform: rotate(45deg) translateY(-15px)
+    }
+    45% {
+        transform: rotate(45deg) translateY(0)
+    }
+    60% {
+        transform: rotate(45deg) translateY(0)
+    }
+    98% {
+        transform: rotate(45deg) translateY(15px)
     }
     100% {
-        background-position: 0% 0%;
+        transform: rotate(45deg) translateY(15px)
+    }
+`;
+
+export const sandMagenta = keyframes`
+    0% {
+        transform: rotate(-45deg) translateY(15px)
+    }
+    10% {
+        transform: rotate(-45deg) translateY(15px)
+    }
+    45% {
+        transform: rotate(-45deg) translateY(0)
+    }
+    60% {
+        transform: rotate(-45deg) translateY(0)
+    }
+    98% {
+        transform: rotate(-45deg) translateY(-15px)
+    }
+    100% {
+        transform: rotate(-45deg) translateY(-15px)
     }
 `;

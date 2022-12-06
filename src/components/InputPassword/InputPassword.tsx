@@ -11,6 +11,7 @@ import { Icon } from '../Icon/Icon';
 import { InputElement } from '../InputElement/InputElement';
 import { iconEyeHide } from '../../icons/iconEyeHide';
 import { iconEyeView } from '../../icons/iconEyeView';
+import { sizes } from '../../themes/constants';
 
 export const InputPassword: FC<InputProps & TFlexProps> = ({
     id,
@@ -30,11 +31,11 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
                 id={id}
                 {...props}
                 type={show ? 'text' : 'password'}
-                paddingRight={togglerWidth}
+                paddingRight={sizes[togglerWidth]}
             />
             <InputElement placement="right">
                 <Flex
-                    color="primary.$300"
+                    color="icon"
                     width={togglerWidth}
                     height="100%"
                     alignItems="center"
@@ -45,9 +46,9 @@ export const InputPassword: FC<InputProps & TFlexProps> = ({
                     transition="default"
                 >
                     {show ? (
-                        <Icon icon={iconEyeHide} />
+                        <Icon icon={iconEyeView} iconSize="large" />
                     ) : (
-                        <Icon icon={iconEyeView} />
+                        <Icon icon={iconEyeHide} iconSize="large" />
                     )}
                 </Flex>
             </InputElement>

@@ -7,12 +7,14 @@ export type TPlateNoteType = 'info' | 'warning' | 'error';
 
 export type TPlateNote = TFlexProps & {
     type?: TPlateNoteType;
+    title?: string;
     text?: string;
     textProps?: TTextProps;
 };
 
 export const PlateNote: React.FC<TPlateNote> = ({
     type = 'info',
+    title,
     text,
     textProps = {},
     children,
@@ -30,12 +32,31 @@ export const PlateNote: React.FC<TPlateNote> = ({
             p="16px"
             {...rest}
         >
+            {title ? (
+                <Text
+                    variant="bodySemiBold1"
+                    color={titleColor}
+                    mb="12px"
+                    {...textProps}
+                >
+                    {title}
+                </Text>
+            ) : null}
             {text ? (
-                <Text variant="caption" color={titleColor} {...textProps}>
+                <Text
+                    variant="body2"
+                    color={titleColor}
+                    mb="12px"
+                    {...textProps}
+                >
                     {text}
                 </Text>
             ) : null}
-            {children}
+            {children ? (
+                <Text variant="caption" color="text">
+                    {children}
+                </Text>
+            ) : null}
         </Flex>
     );
 };

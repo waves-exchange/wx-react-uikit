@@ -1,4 +1,11 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, {
+    FC,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { BoxProps } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
@@ -24,6 +31,7 @@ export const CopyMini: FC<CopyMiniProps> = ({
 }) => {
     const [resetTimeout, setResetTimeout] = useState(-1);
     const [state, setState] = useState<'initial' | 'copied'>('initial');
+    const isMounted = useRef(true);
 
     const label = useMemo(
         () => (state === 'copied' ? copiedLabel : initLabel),
@@ -34,12 +42,19 @@ export const CopyMini: FC<CopyMiniProps> = ({
 
         clearTimeout(resetTimeout);
         setState('copied');
-        setResetTimeout(
-            window.setTimeout(() => {
+        const timeout = window.setTimeout(() => {
+            if (isMounted.current) {
                 setState('initial');
-            }, 2000)
-        );
+                setResetTimeout(timeout);
+            }
+        }, 2000);
     }, [onTextCopy, resetTimeout, text]);
+
+    useEffect(() => {
+        return (): void => {
+            isMounted.current = false;
+        };
+    }, []);
 
     return (
         <LightCopy text={text} onTextCopy={handleClick} {...rest}>

@@ -69,7 +69,7 @@ describe('Copy', () => {
         });
 
         fireEvent.mouseOver(getByText(buttonText));
-        getByText(inititialTooltipLabel);
+        getByText(inititialTooltipLabel || copiedTooltipLabel);
     });
 
     it('calls callback', () => {

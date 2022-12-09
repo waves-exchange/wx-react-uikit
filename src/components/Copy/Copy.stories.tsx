@@ -1,6 +1,7 @@
 import { Copy } from './Copy';
 import { Flex } from '../Flex/Flex';
 import { LightCopy } from './LightCopy';
+import { CopyMini } from './CopyMini';
 import React from 'react';
 import { Text } from '../Text/Text';
 import { ThemeProvider } from 'emotion-theming';
@@ -33,6 +34,12 @@ stories.add('simple', () => (
                     3PCAB4sHXgvtu5NPoen6
                 </Text>
             </Copy>
+            <CopyMini
+                mt={30}
+                initLabel="Copy"
+                copiedLabel="Copied!"
+                text="this is text to be copied"
+            />
         </Flex>
     </ThemeProvider>
 ));

@@ -13,11 +13,11 @@ export const variants: Record<
     },
     body2: {
         fontSize: '$14',
-        lineHeight: '$24',
+        lineHeight: '$20',
     },
     bodySemiBold2: {
         fontSize: '$14',
-        lineHeight: '$24',
+        lineHeight: '$20',
         fontWeight: '$600',
     },
     bodyXL: {

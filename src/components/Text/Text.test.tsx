@@ -31,7 +31,7 @@ describe('Text - dark theme', () => {
 
         expect(text).toHaveProperty('textContent', 'Test Text');
         expect(text).toHaveStyleRule('font-size', fontSizes.$14);
-        expect(text).toHaveStyleRule('line-height', lineHeights.$24);
+        expect(text).toHaveStyleRule('line-height', lineHeights.$20);
     });
     it('render - variant caption', () => {
         const { getByTestId } = render(

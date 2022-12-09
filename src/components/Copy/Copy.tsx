@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { BoxProps } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Icon } from '../Icon/Icon';
@@ -25,6 +25,7 @@ export const Copy: FC<CopyProps> = ({
 }) => {
     const [resetTimeout, setResetTimeout] = useState(-1);
     const [label, setLabel] = useState(inititialTooltipLabel);
+    const isMounted = useRef(true);
 
     const handleClick = useCallback<(copiedText: string) => void>(() => {
         clearTimeout(resetTimeout);
@@ -32,11 +33,13 @@ export const Copy: FC<CopyProps> = ({
         setLabel(copiedTooltipLabel);
         onTextCopy && onTextCopy(text);
 
-        setResetTimeout(
-            window.setTimeout(() => {
+        const timeout = window.setTimeout(() => {
+            if (isMounted.current) {
                 setLabel(inititialTooltipLabel);
-            }, 4000)
-        );
+            }
+        }, 4000);
+
+        setResetTimeout(timeout);
     }, [
         copiedTooltipLabel,
         inititialTooltipLabel,
@@ -44,6 +47,12 @@ export const Copy: FC<CopyProps> = ({
         resetTimeout,
         text,
     ]);
+
+    useEffect(() => {
+        return (): void => {
+            isMounted.current = false;
+        };
+    }, []);
 
     return (
         <LightCopy text={text} onTextCopy={handleClick} {...rest}>

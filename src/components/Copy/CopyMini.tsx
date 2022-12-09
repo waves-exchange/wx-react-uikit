@@ -45,9 +45,10 @@ export const CopyMini: FC<CopyMiniProps> = ({
         const timeout = window.setTimeout(() => {
             if (isMounted.current) {
                 setState('initial');
-                setResetTimeout(timeout);
             }
         }, 2000);
+
+        setResetTimeout(timeout);
     }, [onTextCopy, resetTimeout, text]);
 
     useEffect(() => {

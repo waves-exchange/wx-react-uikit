@@ -36,9 +36,10 @@ export const Copy: FC<CopyProps> = ({
         const timeout = window.setTimeout(() => {
             if (isMounted.current) {
                 setLabel(inititialTooltipLabel);
-                setResetTimeout(timeout);
             }
         }, 4000);
+
+        setResetTimeout(timeout);
     }, [
         copiedTooltipLabel,
         inititialTooltipLabel,

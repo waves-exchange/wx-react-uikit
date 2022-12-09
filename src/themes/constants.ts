@@ -111,6 +111,7 @@ export const colors = {
         $300: '#FFB800',
         $400: '#FAB400',
         $500: '#F0AA00',
+        $550: '#F5A60B',
         $600: '#E9A500',
         $700: '#DD9C00',
         $800: '#D49600',
@@ -166,6 +167,8 @@ export const darkThemeColors = {
     icon: colors.mediumGrey.$400,
     iconsec: colors.mediumGrey.$850,
     hover: colors.darkGrey.$100,
+    alerttext: colors.yellow.$300,
+    alertbg: 'rgba(255, 197, 48, 0.1)',
 };
 
 export const lightThemeColors = {
@@ -197,6 +200,8 @@ export const lightThemeColors = {
     icon: colors.mediumGrey.$400,
     iconsec: colors.lightGrey.$700,
     hover: colors.lightGrey.$400,
+    alerttext: colors.yellow.$550,
+    alertbg: 'rgba(255, 197, 48, 0.15)',
 };
 
 export const fontSizes = {
@@ -223,6 +228,7 @@ export const space = {
 
 export const lineHeights = {
     $16: '16px',
+    $20: '20px',
     $24: '24px',
     $32: '32px',
     $40: '40px',

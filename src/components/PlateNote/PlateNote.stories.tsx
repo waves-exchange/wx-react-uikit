@@ -1,11 +1,11 @@
-import { storiesOf } from '@storybook/react';
-import { ThemeProvider } from 'emotion-theming';
-import React from 'react';
-import { defaultTheme } from '../../themes/default';
 import { Box } from '../Box/Box';
-import { PlateNote } from './PlateNote';
-import { Text } from '../Text/Text';
 import { Flex } from '../Flex/Flex';
+import { PlateNote } from './PlateNote';
+import React from 'react';
+import { Text } from '../Text/Text';
+import { ThemeProvider } from 'emotion-theming';
+import { defaultTheme } from '../../themes/default';
+import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('PlateNote', module);
 
@@ -20,7 +20,7 @@ stories.add('simple', () => (
         >
             Default type ('info')
             <Box mt="8px" mb="16px">
-                <PlateNote text="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST." />
+                <PlateNote text="The minimum amount of deposit is 0.1 WEST" />
             </Box>
             Type 'info', custom text props
             <Box mt="8px" mb="16px">
@@ -33,8 +33,12 @@ stories.add('simple', () => (
             <Box mt="8px" mb="16px">
                 <PlateNote
                     type="warning"
+                    title="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST."
                     text="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST."
-                />
+                >
+                    The minimum amount of deposit is 0.1 WEST, the maximum
+                    amount of deposit is 500,000 WEST.
+                </PlateNote>
             </Box>
             Type 'error'
             <Box mt="8px" mb="16px">

@@ -11,9 +11,9 @@ export const getMainColors = (type: TPlateNoteType): Record<string, string> => {
         }
         case 'warning': {
             return {
-                borderColor: 'plate.warning.border',
-                titleColor: 'plate.warning.title',
-                bgColor: 'plate.warning.bg',
+                borderColor: 'alerttext',
+                titleColor: 'alerttext',
+                bgColor: 'alertbg',
             };
         }
         default: {

@@ -20,7 +20,7 @@ type CopyMiniProps = BoxProps & {
     onTextCopy?(text: string): void;
 };
 
-export const iconTestId = 'copy-icon';
+const iconTestId = 'copy-icon';
 
 export const CopyMini: FC<CopyMiniProps> = ({
     initLabel,

@@ -10,6 +10,7 @@ export * from './components/Icon/Icon';
 export * from './components/IconButton/IconButton';
 export * from './components/Checkbox/Checkbox';
 export * from './components/Copy/Copy';
+export * from './components/Copy/CopyMini';
 export * from './components/Copy/LightCopy';
 export * from './components/Radio/Radio';
 export * from './components/RadioGroup/RadioGroup';

@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
-import { storiesOf } from '@storybook/react';
-import { Tooltip, TooltipProps } from './Tooltip';
-import { Box } from '../Box/Box';
 import { Button, ButtonProps } from '../Button/Button';
-import { ThemeProvider } from 'emotion-theming';
-import { defaultTheme } from '../../themes/default';
+import React, { ReactNode } from 'react';
+import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
+import { ThemeProvider } from 'emotion-theming';
+import { Tooltip } from './Tooltip';
+import { defaultTheme } from '../../themes/default';
+import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Tooltip', module);
 

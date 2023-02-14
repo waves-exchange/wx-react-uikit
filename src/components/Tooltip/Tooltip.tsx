@@ -30,10 +30,10 @@ import { path } from 'ramda';
   to parent element of the arrow. See getPopperArrowStyle()
 */
 
-export type TVariants = 'default' | 'info' | undefined;
+export type TVariants = 'default' | 'info';
 export type TooltipProps = BoxProps & {
     arrowColor?: string;
-    arrowSize?: number;
+    arrowSize?: string;
     hasArrow?: boolean;
     label?: (() => ReactNode) | string;
     maxWidth?: string; // max width of popping element
@@ -51,7 +51,7 @@ export type TooltipProps = BoxProps & {
 
 export const Tooltip: FC<TooltipProps> = ({
     arrowColor,
-    arrowSize = 8,
+    arrowSize = '8px',
     children,
     hasArrow = false,
     isOpen: isOpenProp,
@@ -65,7 +65,7 @@ export const Tooltip: FC<TooltipProps> = ({
     postPositionCb,
     popperOptions,
     interactive,
-    variant,
+    variant = 'default',
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(isOpenProp || isDefaultOpen);
@@ -166,14 +166,14 @@ export const Tooltip: FC<TooltipProps> = ({
                 }}
                 sx={{
                     ...(getPopperArrowStyle({
-                        arrowSize: variant ? 4 : arrowSize,
+                        arrowSize: variant ? '4px' : arrowSize,
                         hasArrow: !!variant || hasArrow,
-                        color: variant
+                        color: variants[variant]
                             ? variants[variant].arrowColor
                             : arrowColor,
                         variant,
                     }) as Record<string, any>),
-                    ...(variant ? variants[variant].styles : {}),
+                    ...(variants[variant] ? variants[variant].styles : {}),
                 }}
                 maxWidth={maxWidth}
                 zIndex={1}

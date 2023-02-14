@@ -3,14 +3,20 @@ import { Placement } from '@popperjs/core';
 import { TVariants } from './Tooltip';
 
 type GetPopperArrowStyle = (options: {
-    arrowSize: number;
+    arrowSize: string;
     hasArrow: boolean;
-    color?: string;
     variant: TVariants;
+    color?: string;
 }) => Interpolation;
 
 const borderWidth = 4;
-const getBorderStyles = (placement: Placement): Record<string, string> => {
+const getBorderStyles = (
+    variant: TVariants,
+    placement: Placement
+): Record<string, string> | null => {
+    if (variant !== 'info') {
+        return null;
+    }
     let key;
 
     switch (true) {
@@ -85,17 +91,19 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
     color = 'currentColor',
     variant,
 }) => {
+    const arrowSizeNum = Number(arrowSize.replace('px', ''));
+
     return {
         '[data-popper-arrow]': {
             color,
-            border: `${arrowSize}px solid`,
+            border: `${arrowSizeNum}px solid`,
             borderColor: 'currentColor',
             position: 'absolute',
         },
 
         "&[data-popper-placement^='top']": {
-            marginTop: hasArrow ? `-${arrowSize + borderWidth}px` : '0px',
-            ...(variant === 'info' ? getBorderStyles('top') : null),
+            marginTop: hasArrow ? `-${arrowSizeNum + borderWidth}px` : '0px',
+            ...getBorderStyles(variant, 'top'),
         },
 
         "&[data-popper-placement^='top'] [data-popper-arrow]": {
@@ -104,8 +112,8 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
         },
 
         "&[data-popper-placement^='bottom']": {
-            marginTop: hasArrow ? `${arrowSize}px` : '0px',
-            ...(variant === 'info' ? getBorderStyles('bottom') : null),
+            marginTop: hasArrow ? `${arrowSizeNum}px` : '0px',
+            ...getBorderStyles(variant, 'bottom'),
         },
 
         "&[data-popper-placement^='bottom'] [data-popper-arrow]": {
@@ -114,8 +122,8 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
         },
 
         "&[data-popper-placement^='left']": {
-            marginLeft: hasArrow ? `-${arrowSize + borderWidth}px` : '0px',
-            ...(variant === 'info' ? getBorderStyles('left') : null),
+            marginLeft: hasArrow ? `-${arrowSizeNum + borderWidth}px` : '0px',
+            ...getBorderStyles(variant, 'left'),
         },
 
         "&[data-popper-placement^='left'] [data-popper-arrow]": {
@@ -124,8 +132,8 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
         },
 
         "&[data-popper-placement^='right']": {
-            marginLeft: hasArrow ? `${arrowSize}px` : '0px',
-            ...(variant === 'info' ? getBorderStyles('right') : null),
+            marginLeft: hasArrow ? `${arrowSizeNum}px` : '0px',
+            ...getBorderStyles(variant, 'right'),
         },
 
         "&[data-popper-placement^='right'] [data-popper-arrow]": {

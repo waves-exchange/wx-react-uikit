@@ -16,7 +16,7 @@ export const TooltipIcon: React.FC<TooltipIconProps> = ({
     label,
 }) => (
     <Tooltip
-        arrowSize="4px"
+        arrowSize={4}
         hasArrow={true}
         arrowColor="#5A81EA"
         offset={4}

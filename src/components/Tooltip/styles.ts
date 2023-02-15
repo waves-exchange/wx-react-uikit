@@ -1,21 +1,87 @@
 import { Interpolation } from '@emotion/core';
+import { Placement } from '@popperjs/core';
+import { TVariants } from './Tooltip';
 
 type GetPopperArrowStyle = (options: {
     arrowSize: string;
     hasArrow: boolean;
+    variant: TVariants;
     color?: string;
 }) => Interpolation;
 
+const borderWidth = 4;
+const getBorderStyles = (
+    variant: TVariants,
+    placement: Placement
+): Record<string, string> | null => {
+    if (variant !== 'info') {
+        return null;
+    }
+    let key;
+
+    switch (true) {
+        case placement.includes('right'):
+            key = 'right';
+            break;
+        case placement.includes('top'):
+            key = 'top';
+            break;
+        case placement.includes('left'):
+            key = 'left';
+            break;
+        default:
+            key = 'bottom';
+    }
+
+    const styles = {
+        bottom: {
+            borderBottomLeftRadius: '8px',
+            borderBottomRightRadius: '8px',
+            borderTop: `${borderWidth}px solid`,
+        },
+        left: {
+            borderBottomLeftRadius: '8px',
+            borderTopLeftRadius: '8px',
+            borderRight: `${borderWidth}px solid`,
+        },
+        right: {
+            borderBottomRightRadius: '8px',
+            borderTopRightRadius: '8px',
+            borderLeft: `${borderWidth}px solid`,
+        },
+        top: {
+            borderTopLeftRadius: '8px',
+            borderTopRightRadius: '8px',
+            borderBottom: `${borderWidth}px solid`,
+        },
+    };
+
+    return { ...styles[key], borderColor: 'main' };
+};
+
 export const variants = {
     default: {
-        p: 10,
-        borderRadius: '$4',
-        border: '1px solid',
-        borderColor: 'mediumGrey.$850',
-        bg: 'rgba(0, 0, 0, .7)',
-        color: 'standard.$0',
-        fontSize: '12px',
-        lineHeight: '16px',
+        styles: {
+            p: '10px',
+            borderRadius: '$4',
+            border: '1px solid',
+            borderColor: 'mediumGrey.$850',
+            bg: 'rgba(0, 0, 0, .7)',
+            color: 'standard.$0',
+            fontSize: '12px',
+            lineHeight: '16px',
+        },
+        arrowColor: 'transparent',
+    },
+    info: {
+        styles: {
+            p: '16px',
+            bg: 'surf',
+            color: 'text',
+            fontSize: '12px',
+            lineHeight: '16px',
+        },
+        arrowColor: 'main',
     },
 };
 
@@ -23,48 +89,55 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
     arrowSize,
     hasArrow,
     color = 'currentColor',
+    variant,
 }) => {
+    const arrowSizeNum = Number(arrowSize.replace('px', ''));
+
     return {
         '[data-popper-arrow]': {
             color,
-            border: `${arrowSize} solid`,
+            border: `${arrowSizeNum}px solid`,
             borderColor: 'currentColor',
             position: 'absolute',
         },
 
         "&[data-popper-placement^='top']": {
-            marginBottom: hasArrow ? arrowSize : '0px',
+            marginTop: hasArrow ? `-${arrowSizeNum + borderWidth}px` : '0px',
+            ...getBorderStyles(variant, 'top'),
         },
 
         "&[data-popper-placement^='top'] [data-popper-arrow]": {
-            bottom: `calc(${arrowSize} * -2)`,
+            top: `calc(100% + ${borderWidth}px)`,
             borderColor: 'currentColor transparent transparent transparent',
         },
 
         "&[data-popper-placement^='bottom']": {
-            marginTop: hasArrow ? arrowSize : '0px',
+            marginTop: hasArrow ? `${arrowSizeNum}px` : '0px',
+            ...getBorderStyles(variant, 'bottom'),
         },
 
         "&[data-popper-placement^='bottom'] [data-popper-arrow]": {
-            top: `calc(${arrowSize} * -2)`,
+            bottom: `calc(100% + ${borderWidth}px)`,
             borderColor: 'transparent transparent currentColor transparent',
         },
 
         "&[data-popper-placement^='left']": {
-            marginRight: hasArrow ? arrowSize : '0px',
+            marginLeft: hasArrow ? `-${arrowSizeNum + borderWidth}px` : '0px',
+            ...getBorderStyles(variant, 'left'),
         },
 
         "&[data-popper-placement^='left'] [data-popper-arrow]": {
-            right: `calc(${arrowSize} * -2)`,
+            left: `calc(100% + ${borderWidth}px)`,
             borderColor: 'transparent transparent transparent currentColor',
         },
 
         "&[data-popper-placement^='right']": {
-            marginLeft: hasArrow ? arrowSize : '0px',
+            marginLeft: hasArrow ? `${arrowSizeNum}px` : '0px',
+            ...getBorderStyles(variant, 'right'),
         },
 
         "&[data-popper-placement^='right'] [data-popper-arrow]": {
-            left: `calc(${arrowSize} * -2)`,
+            right: `calc(100% + ${borderWidth}px)`,
             borderColor: 'transparent currentColor transparent transparent',
         },
     };

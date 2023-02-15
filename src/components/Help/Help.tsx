@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -51,49 +51,17 @@ export const Help: FC<HelpProps> = ({
     }, [direction, align]);
 
     const offset = useMemo(() => {
-        const offsetY = direction === 'top' ? 12 : 8;
+        const offsetY = 8;
 
         switch (align) {
             case 'left':
-                return [-16, offsetY];
+                return [-8, offsetY];
             case 'right':
-                return [16, offsetY];
+                return [8, offsetY];
             default:
                 return [0, offsetY];
         }
-    }, [align, direction]);
-
-    const tooltipContentFactory = useCallback(
-        () => (
-            <Box
-                backgroundColor="surf"
-                color="textsec"
-                padding="9px 16px"
-                borderRadius="$4"
-                borderColor={colors.hovered}
-                borderWidth="4px"
-                fontSize="$14"
-                lineHeight="$24"
-                sx={{
-                    '[data-popper-placement^="top"] &': {
-                        borderBottomStyle: 'solid',
-                    },
-                    '[data-popper-placement^="bottom"] &': {
-                        borderTopStyle: 'solid',
-                    },
-                    '[data-popper-placement^="left"] &': {
-                        borderRightStyle: 'solid',
-                    },
-                    '[data-popper-placement^="right"] &': {
-                        borderLeftStyle: 'solid',
-                    },
-                }}
-            >
-                {children}
-            </Box>
-        ),
-        [children, colors]
-    );
+    }, [align]);
 
     const currentСolorOnHover = React.useMemo(() => {
         const currentColor = isDisabledIcon ? colors.disabled : colors.hovered;
@@ -111,16 +79,12 @@ export const Help: FC<HelpProps> = ({
 
     return (
         <Tooltip
-            label={tooltipContentFactory}
+            label={(): React.ReactNode => <Box>{children}</Box>}
             placement={placement}
-            hasArrow={true}
-            arrowSize="4px"
-            arrowColor={colors.hovered}
-            arrowPadding={align === 'center' ? 0 : 16}
-            offset={offset}
-            showDelay={500}
+            variant="info"
             interactive={true}
             maxWidth={maxWidth}
+            offset={offset}
             isOpen={isOpenContent}
         >
             <Flex

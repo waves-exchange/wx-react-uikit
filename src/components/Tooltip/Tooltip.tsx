@@ -30,6 +30,7 @@ import { path } from 'ramda';
   to parent element of the arrow. See getPopperArrowStyle()
 */
 
+export type TVariants = 'default' | 'info';
 export type TooltipProps = BoxProps & {
     arrowColor?: string;
     arrowSize?: string;
@@ -45,7 +46,7 @@ export type TooltipProps = BoxProps & {
     postPositionCb?: (arrowRef: HTMLDivElement | null) => void;
     popperOptions?: Partial<Options>;
     interactive?: boolean;
-    variant?: 'default' | undefined;
+    variant?: TVariants;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -64,7 +65,7 @@ export const Tooltip: FC<TooltipProps> = ({
     postPositionCb,
     popperOptions,
     interactive,
-    variant,
+    variant = 'default',
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(isOpenProp || isDefaultOpen);
@@ -167,9 +168,12 @@ export const Tooltip: FC<TooltipProps> = ({
                     ...(getPopperArrowStyle({
                         arrowSize: variant ? '4px' : arrowSize,
                         hasArrow: !!variant || hasArrow,
-                        color: variant ? 'transparent' : arrowColor,
+                        color: variants[variant]
+                            ? variants[variant].arrowColor
+                            : arrowColor,
+                        variant,
                     }) as Record<string, any>),
-                    ...(variant ? variants[variant] : {}),
+                    ...(variants[variant] ? variants[variant].styles : {}),
                 }}
                 maxWidth={maxWidth}
                 zIndex={1}

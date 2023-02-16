@@ -19,9 +19,8 @@ describe('PlateNote', () => {
                 basic: {
                     $300: '#B7BFD1',
                 },
-                danger: {
-                    $300: '#E5494D',
-                },
+                negstroke: '#F3213B',
+                textnegative: '#E74F61',
                 alerttext: '#FFB800',
                 alertbg: 'rgba(255, 197, 48, 0.1)',
             },
@@ -53,8 +52,8 @@ describe('PlateNote', () => {
         const text = container.querySelector('span');
         const wrapper = container.querySelector('div');
 
-        expect(text).toHaveStyleRule('color', '#E5494D');
-        expect(wrapper).toHaveStyleRule('border-color', '#E5494D');
+        expect(text).toHaveStyleRule('color', '#E74F61');
+        expect(wrapper).toHaveStyleRule('border-color', '#F3213B');
     });
     it('render warning PlateNote with custom styles', () => {
         const { container } = render(

@@ -44,8 +44,12 @@ stories.add('simple', () => (
             <Box mt="8px" mb="16px">
                 <PlateNote
                     type="error"
+                    title="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST."
                     text="The minimum amount of deposit is 0.1 WEST, the maximum amount of deposit is 500,000 WEST."
-                />
+                >
+                    The minimum amount of deposit is 0.1 WEST, the maximum
+                    amount of deposit is 500,000 WEST.
+                </PlateNote>
             </Box>
             With children
             <Box mt="8px" mb="16px">

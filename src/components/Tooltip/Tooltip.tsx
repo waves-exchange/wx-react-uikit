@@ -57,7 +57,7 @@ export const Tooltip: FC<TooltipProps> = ({
     isOpen: isOpenProp,
     isDefaultOpen,
     label,
-    maxWidth = '320px',
+    maxWidth = '300px',
     showDelay,
     offset,
     arrowPadding,
@@ -166,7 +166,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 }}
                 sx={{
                     ...(getPopperArrowStyle({
-                        arrowSize: variant ? '4px' : arrowSize,
+                        arrowSize: variant ? '8px' : arrowSize,
                         hasArrow: !!variant || hasArrow,
                         color: variants[variant]
                             ? variants[variant].arrowColor
@@ -174,6 +174,10 @@ export const Tooltip: FC<TooltipProps> = ({
                         variant,
                     }) as Record<string, any>),
                     ...(variants[variant] ? variants[variant].styles : {}),
+                    filter:
+                        'drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.14)) ' +
+                        'drop-shadow(0px 1px 18px rgba(0, 0, 0, 0.12)) ' +
+                        'drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2))',
                 }}
                 maxWidth={maxWidth}
                 zIndex={1}

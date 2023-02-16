@@ -4,9 +4,9 @@ export const getMainColors = (type: TPlateNoteType): Record<string, string> => {
     switch (type) {
         case 'error': {
             return {
-                borderColor: 'danger.$300',
-                titleColor: 'danger.$300',
-                bgColor: 'transparent',
+                borderColor: 'negstroke',
+                titleColor: 'textnegative',
+                bgColor: 'negativebg',
             };
         }
         case 'warning': {

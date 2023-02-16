@@ -168,7 +168,9 @@ export const darkThemeColors = {
     iconsec: colors.mediumGrey.$850,
     hover: colors.darkGrey.$100,
     alerttext: colors.yellow.$300,
+    negstroke: colors.red.$300,
     alertbg: 'rgba(255, 197, 48, 0.1)',
+    negativebg: 'rgba(255, 72, 94, 0.1)',
 };
 
 export const lightThemeColors = {
@@ -201,7 +203,9 @@ export const lightThemeColors = {
     iconsec: colors.lightGrey.$700,
     hover: colors.lightGrey.$400,
     alerttext: colors.yellow.$550,
+    negstroke: colors.red.$300,
     alertbg: 'rgba(255, 197, 48, 0.15)',
+    negativebg: 'rgba(255, 72, 94, 0.15)',
 };
 
 export const fontSizes = {

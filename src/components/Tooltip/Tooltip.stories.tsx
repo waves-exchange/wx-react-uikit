@@ -54,6 +54,7 @@ stories.add('simple', () => {
                     </Box>
                     <Box>
                         <Tooltip
+                            isOpen={true}
                             label="Lorem ipsum dolor sit amet"
                             variant="info"
                             placement="top"

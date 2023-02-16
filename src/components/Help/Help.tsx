@@ -26,7 +26,7 @@ type HelpProps = {
 export const Help: FC<HelpProps> = ({
     align,
     direction = 'auto',
-    maxWidth = '288px',
+    maxWidth = '300px',
     contentBefore,
     contentAfter,
     children,
@@ -83,6 +83,7 @@ export const Help: FC<HelpProps> = ({
             placement={placement}
             variant="info"
             interactive={true}
+            showDelay={500}
             maxWidth={maxWidth}
             offset={offset}
             isOpen={isOpenContent}

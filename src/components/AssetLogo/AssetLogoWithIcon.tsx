@@ -54,7 +54,7 @@ export const AssetLogoWithIcon: FC<AssetLogoWithIconProps> = ({
                                 backgroundColor="surf"
                                 flex="none"
                             >
-                                <Icon icon={icon} size={10} color="icon" />
+                                <Icon icon={icon} size={10} color="text" />
                             </Flex>
                             <Text ml="$8" variant="body2">
                                 {iconLabel}
@@ -74,8 +74,8 @@ export const AssetLogoWithIcon: FC<AssetLogoWithIconProps> = ({
                 >
                     <Flex
                         position="absolute"
-                        bottom={0}
-                        right={0}
+                        bottom={-2}
+                        right={3}
                         width={14}
                         height={14}
                         justifyContent="center"
@@ -85,7 +85,7 @@ export const AssetLogoWithIcon: FC<AssetLogoWithIconProps> = ({
                         cursor="pointer"
                         zIndex={2}
                     >
-                        <Icon icon={icon} size={8} color="icon" />
+                        <Icon icon={icon} size={8} color="text" />
                     </Flex>
                 </Tooltip>
             )}

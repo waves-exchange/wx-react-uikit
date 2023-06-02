@@ -21,6 +21,12 @@ stories.add('simple DT', () => (
                 <Button mb={16} variant="transparent" variantSize="extraLarge">
                     Action
                 </Button>
+                <Button mb={16} variant="red" variantSize="extraLarge">
+                    Action
+                </Button>
+                <Button mb={16} variant="green" variantSize="extraLarge">
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -31,6 +37,12 @@ stories.add('simple DT', () => (
                     Primary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="large">
+                    Action
+                </Button>
+                <Button mb={16} variant="red" variantSize="large">
+                    Action
+                </Button>
+                <Button mb={16} variant="green" variantSize="large">
                     Action
                 </Button>
             </Flex>
@@ -45,6 +57,12 @@ stories.add('simple DT', () => (
                 <Button mb={16} variant="transparent" variantSize="medium">
                     Action
                 </Button>
+                <Button mb={16} variant="red" variantSize="medium">
+                    Action
+                </Button>
+                <Button mb={16} variant="green" variantSize="medium">
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -55,6 +73,12 @@ stories.add('simple DT', () => (
                     Primary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="small">
+                    Action
+                </Button>
+                <Button mb={16} variant="red" variantSize="small">
+                    Action
+                </Button>
+                <Button mb={16} variant="green" variantSize="small">
                     Action
                 </Button>
             </Flex>
@@ -85,6 +109,22 @@ stories.add('disabled DT', () => (
                 >
                     Action
                 </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="extraLarge"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
+                    variantSize="extraLarge"
+                    disabled={true}
+                >
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -102,6 +142,22 @@ stories.add('disabled DT', () => (
                 <Button
                     mb={16}
                     variant="transparent"
+                    variantSize="large"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="large"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
                     variantSize="large"
                     disabled={true}
                 >
@@ -129,6 +185,22 @@ stories.add('disabled DT', () => (
                 >
                     Action
                 </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="medium"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
+                    variantSize="medium"
+                    disabled={true}
+                >
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -146,6 +218,22 @@ stories.add('disabled DT', () => (
                 <Button
                     mb={16}
                     variant="transparent"
+                    variantSize="small"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="small"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
                     variantSize="small"
                     disabled={true}
                 >
@@ -169,6 +257,12 @@ stories.add('simple LT', () => (
                 <Button mb={16} variant="transparent" variantSize="extraLarge">
                     Action
                 </Button>
+                <Button mb={16} variant="red" variantSize="extraLarge">
+                    Primary
+                </Button>
+                <Button mb={16} variant="green" variantSize="extraLarge">
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -179,6 +273,12 @@ stories.add('simple LT', () => (
                     Primary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="large">
+                    Action
+                </Button>
+                <Button mb={16} variant="red" variantSize="large">
+                    Primary
+                </Button>
+                <Button mb={16} variant="green" variantSize="large">
                     Action
                 </Button>
             </Flex>
@@ -193,6 +293,12 @@ stories.add('simple LT', () => (
                 <Button mb={16} variant="transparent" variantSize="medium">
                     Action
                 </Button>
+                <Button mb={16} variant="red" variantSize="medium">
+                    Primary
+                </Button>
+                <Button mb={16} variant="green" variantSize="medium">
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -203,6 +309,12 @@ stories.add('simple LT', () => (
                     Primary
                 </Button>
                 <Button mb={16} variant="transparent" variantSize="small">
+                    Action
+                </Button>
+                <Button mb={16} variant="red" variantSize="small">
+                    Primary
+                </Button>
+                <Button mb={16} variant="green" variantSize="small">
                     Action
                 </Button>
             </Flex>
@@ -233,6 +345,22 @@ stories.add('disabled LT', () => (
                 >
                     Action
                 </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="extraLarge"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
+                    variantSize="extraLarge"
+                    disabled={true}
+                >
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -250,6 +378,22 @@ stories.add('disabled LT', () => (
                 <Button
                     mb={16}
                     variant="transparent"
+                    variantSize="large"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="large"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
                     variantSize="large"
                     disabled={true}
                 >
@@ -277,6 +421,22 @@ stories.add('disabled LT', () => (
                 >
                     Action
                 </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="medium"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
+                    variantSize="medium"
+                    disabled={true}
+                >
+                    Action
+                </Button>
             </Flex>
 
             <Flex flexDirection="column" mr={16}>
@@ -294,6 +454,22 @@ stories.add('disabled LT', () => (
                 <Button
                     mb={16}
                     variant="transparent"
+                    variantSize="small"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="red"
+                    variantSize="small"
+                    disabled={true}
+                >
+                    Action
+                </Button>
+                <Button
+                    mb={16}
+                    variant="green"
                     variantSize="small"
                     disabled={true}
                 >

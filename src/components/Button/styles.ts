@@ -45,6 +45,42 @@ export const variants = {
             backgroundColor: 'surfmut',
         },
     },
+    red: {
+        bg: 'negative',
+        color: 'standard.$0',
+        outline: 'none',
+        ':hover:not(:disabled)': {
+            bg: 'red.$300',
+        },
+        ':focus:not(:disabled)': {
+            bg: 'red.$700',
+        },
+        ':active': {
+            bg: 'red.$700',
+        },
+        ':disabled': {
+            bg: 'surfmut',
+            color: 'textmuted',
+        },
+    },
+    green: {
+        bg: 'positive',
+        color: 'standard.$0',
+        outline: 'none',
+        ':hover:not(:disabled)': {
+            bg: 'green.$300',
+        },
+        ':focus:not(:disabled)': {
+            bg: 'green.$700',
+        },
+        ':active': {
+            bg: 'green.$700',
+        },
+        ':disabled': {
+            bg: 'surfmut',
+            color: 'textmuted',
+        },
+    },
 };
 
 export const variantSizes = {

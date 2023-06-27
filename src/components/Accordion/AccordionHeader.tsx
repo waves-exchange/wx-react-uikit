@@ -14,8 +14,9 @@ export const AccordionHeader: React.FC<TAccordionHeader> = ({
     children,
     ...rest
 }) => {
-    const { onToggle, isExpanded, isDisabled } =
+    const { onToggle, isExpanded, isDisabled, variant } =
         useContext(AccordionItemContext);
+    const isDefault = variant === 'default';
 
     const handleClick = useCallback(() => {
         if (isDisabled) {
@@ -32,12 +33,13 @@ export const AccordionHeader: React.FC<TAccordionHeader> = ({
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
-            px={16}
-            py={14}
+            px={isDefault ? 16 : [16, null, 24]}
+            pb={isDefault ? 14 : isExpanded ? 12 : [16, null, 24]}
+            pt={isDefault ? 14 : isExpanded ? 24 : [16, null, 24]}
             // backgroundColor={isExpanded ? 'main.$500' : 'main.$600'}
-            borderRadius="$4"
-            boxShadow="0 2px 7px 0 rgba(0, 0, 0, .15)"
-            transition="box-shadow 0.3s"
+            borderRadius={isDefault ? '$4' : '0'}
+            boxShadow={isDefault ? '0 2px 7px 0 rgba(0, 0, 0, .15)' : ''}
+            transition="0.3s"
             cursor={isDisabled ? 'not-allowed' : 'pointer'}
             color="text"
             fontSize="$14"
@@ -52,6 +54,15 @@ export const AccordionHeader: React.FC<TAccordionHeader> = ({
             //           }
             //         : {}
             // }
+            sx={
+                !isDefault
+                    ? {
+                          '&[aria-expanded="true"] path': {
+                              stroke: 'main',
+                          },
+                      }
+                    : {}
+            }
             {...rest}
             aria-disabled={isDisabled}
             aria-expanded={isExpanded}

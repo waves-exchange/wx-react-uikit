@@ -9,16 +9,19 @@ import React, {
 } from 'react';
 
 type TExpendedIndex = Array<number> | number;
+export type TVariant = 'default' | 'faq' | 'transparent-faq';
 export type TAccordion = Omit<BoxProps, 'onChange'> & {
     allowMultiple?: boolean;
     defaultIndex?: TExpendedIndex;
     onChange?: (expandedIndex?: TExpendedIndex) => void;
+    variant?: TVariant;
 };
 
 export const Accordion: React.FC<TAccordion> = ({
     allowMultiple,
     defaultIndex,
     onChange,
+    variant = 'default',
     children,
     ...rest
 }) => {
@@ -90,13 +93,18 @@ export const Accordion: React.FC<TAccordion> = ({
                         }
                     }
                 },
+                variant,
             });
         } else {
             return null;
         }
     });
 
-    return <Box {...rest}>{clones}</Box>;
+    return (
+        <Box width="100%" {...rest}>
+            {clones}
+        </Box>
+    );
 };
 
 Accordion.displayName = 'Accordion';

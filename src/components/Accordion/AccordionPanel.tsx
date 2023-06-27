@@ -14,24 +14,28 @@ const commonStyles = {
 };
 
 export const AccordionPanel: React.FC<BoxProps> = ({ children, ...rest }) => {
-    const { isExpanded, isDisabled } = useContext(AccordionItemContext);
+    const { isExpanded, isDisabled, variant } =
+        useContext(AccordionItemContext);
     const styles = isExpanded
         ? {
               ...commonStyles,
               maxHeight: 500,
               py: 12,
-              mt: 10,
+              pb: '24px',
           }
         : {
               ...commonStyles,
               maxHeight: 0,
               py: 0,
+              pb: 0,
           };
 
     return (
         <Box
             aria-disabled={isDisabled}
             aria-expanded={isExpanded}
+            px={variant === 'default' ? 0 : [16, null, 24]}
+            mt={variant === 'default' ? 10 : 0}
             {...styles}
             {...rest}
         >

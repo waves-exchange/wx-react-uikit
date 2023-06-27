@@ -44,11 +44,59 @@ stories.add('simple DT', () => (
             <Box width={600}>
                 <Accordion>
                     {items.map((item, i) => (
-                        <AccordionItem
-                            key={i}
-                            borderBottom="1px solid"
-                            borderColor="divider"
-                        >
+                        <AccordionItem key={i}>
+                            <AccordionHeader>
+                                <Text>{item.header}</Text>
+                            </AccordionHeader>
+                            <AccordionPanel>
+                                <Text>{item.panel}</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </Box>
+        </Flex>
+    </ThemeProvider>
+));
+
+stories.add('transparent-faq variant DT', () => (
+    <ThemeProvider theme={defaultTheme}>
+        <Flex
+            justifyContent="center"
+            pt={40}
+            backgroundColor="bg"
+            height="100vh"
+        >
+            <Box width={600}>
+                <Accordion variant="transparent-faq">
+                    {items.map((item, i) => (
+                        <AccordionItem key={i}>
+                            <AccordionHeader>
+                                <Text>{item.header}</Text>
+                            </AccordionHeader>
+                            <AccordionPanel>
+                                <Text>{item.panel}</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </Box>
+        </Flex>
+    </ThemeProvider>
+));
+
+stories.add('faq variant DT', () => (
+    <ThemeProvider theme={defaultTheme}>
+        <Flex
+            justifyContent="center"
+            pt={40}
+            backgroundColor="bg"
+            height="100vh"
+        >
+            <Box width={600}>
+                <Accordion variant="faq">
+                    {items.map((item, i) => (
+                        <AccordionItem key={i}>
                             <AccordionHeader>
                                 <Text>{item.header}</Text>
                             </AccordionHeader>

@@ -4,7 +4,6 @@ export const getTabStyles = (
     variant: TTabVariant,
     selected: TabProps['selected']
 ) => {
-    //  'border' | 'round' | 'square'
     return {
         border: {
             cursor: 'pointer',

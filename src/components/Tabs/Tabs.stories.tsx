@@ -18,11 +18,7 @@ stories.add('border', () => (
         >
             <Box mb="20px">
                 <Tabs>
-                    <TabsList
-                        borderBottom="1px solid"
-                        borderColor="darkGrey.$700"
-                        mb="16px"
-                    >
+                    <TabsList mb="16px">
                         <Tab mr="32px">
                             <Text variant="body1">First</Text>
                         </Tab>

@@ -81,6 +81,17 @@ export const variants = {
             color: 'textmuted',
         },
     },
+    text: {
+        bg: 'transparent',
+        color: 'textsec',
+        outline: 'none',
+        ':hover:not(:disabled)': {
+            opacity: '0.8',
+        },
+        ':disabled': {
+            color: 'textmuted',
+        },
+    },
 };
 
 export const variantSizes = {
@@ -102,6 +113,13 @@ export const variantSizes = {
         fontSize: '$14',
         lineHeight: '$24',
         height: '40px',
+        paddingLeft: '$8',
+        paddingRight: '$8',
+    },
+    extraSmall: {
+        fontSize: '$16',
+        lineHeight: '$24',
+        height: '32px',
         paddingLeft: '$8',
         paddingRight: '$8',
     },

@@ -76,6 +76,15 @@ stories.add('simple DT', () => (
 
             <Flex flexDirection="column" mr={16}>
                 <Box color="text" as="h1">
+                    ExtraSmall
+                </Box>
+                <Button mb={16} variant="text" variantSize="extraSmall">
+                    Text
+                </Button>
+            </Flex>
+
+            <Flex flexDirection="column" mr={16}>
+                <Box color="text" as="h1">
                     Small
                 </Box>
                 <Button mb={16} variant="primary" variantSize="small">
@@ -241,6 +250,20 @@ stories.add('disabled DT', () => (
 
             <Flex flexDirection="column" mr={16}>
                 <Box color="text" as="h1">
+                    ExtraSmall
+                </Box>
+                <Button
+                    mb={16}
+                    variant="text"
+                    variantSize="extraSmall"
+                    disabled={true}
+                >
+                    Text
+                </Button>
+            </Flex>
+
+            <Flex flexDirection="column" mr={16}>
+                <Box color="text" as="h1">
                     Small
                 </Box>
                 <Button
@@ -350,6 +373,15 @@ stories.add('simple LT', () => (
                     Action
                 </Button>
                 <Button mb={16} variant="text" variantSize="medium">
+                    Text
+                </Button>
+            </Flex>
+
+            <Flex flexDirection="column" mr={16}>
+                <Box color="text" as="h1">
+                    ExtraSmall
+                </Box>
+                <Button mb={16} variant="text" variantSize="extraSmall">
                     Text
                 </Button>
             </Flex>
@@ -513,6 +545,20 @@ stories.add('disabled LT', () => (
                     mb={16}
                     variant="text"
                     variantSize="medium"
+                    disabled={true}
+                >
+                    Text
+                </Button>
+            </Flex>
+
+            <Flex flexDirection="column" mr={16}>
+                <Box color="text" as="h1">
+                    ExtraSmall
+                </Box>
+                <Button
+                    mb={16}
+                    variant="text"
+                    variantSize="extraSmall"
                     disabled={true}
                 >
                     Text

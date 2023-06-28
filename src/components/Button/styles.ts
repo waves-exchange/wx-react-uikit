@@ -116,6 +116,13 @@ export const variantSizes = {
         paddingLeft: '$8',
         paddingRight: '$8',
     },
+    extraSmall: {
+        fontSize: '$16',
+        lineHeight: '$24',
+        height: '32px',
+        paddingLeft: '$8',
+        paddingRight: '$8',
+    },
     small: {
         fontSize: '$14',
         lineHeight: '$24',

@@ -81,6 +81,17 @@ export const variants = {
             color: 'textmuted',
         },
     },
+    text: {
+        bg: 'transparent',
+        color: 'textsec',
+        outline: 'none',
+        ':hover:not(:disabled)': {
+            opacity: '0.8',
+        },
+        ':disabled': {
+            color: 'textmuted',
+        },
+    },
 };
 
 export const variantSizes = {

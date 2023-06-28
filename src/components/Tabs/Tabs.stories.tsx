@@ -18,14 +18,14 @@ stories.add('border', () => (
         >
             <Box mb="20px">
                 <Tabs>
-                    <TabsList mb="16px">
-                        <Tab mr="32px">
+                    <TabsList variant="border" mb="16px">
+                        <Tab variant="border" mr="32px">
                             <Text variant="body1">First</Text>
                         </Tab>
-                        <Tab mr="32px">
+                        <Tab variant="border" mr="32px">
                             <Text variant="body1">Second</Text>
                         </Tab>
-                        <Tab mr="32px">
+                        <Tab variant="border" mr="32px">
                             <Text variant="body1">Third</Text>
                         </Tab>
                     </TabsList>

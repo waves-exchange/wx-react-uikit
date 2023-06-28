@@ -24,6 +24,13 @@ export const getTabStyles = (
             py: '16px',
             color: selected ? 'standard.$0' : 'textsec',
             backgroundColor: selected ? 'main' : 'surf',
+            borderRight: '1px solid',
+            borderColor: 'divider',
+            sx: {
+                '&:last-of-type': {
+                    borderRight: 'none',
+                },
+            },
         },
     }[variant];
 };

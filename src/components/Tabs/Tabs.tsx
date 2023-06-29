@@ -1,22 +1,25 @@
 import React, {
+    Children,
     FC,
     ReactElement,
-    Children,
-    isValidElement,
     cloneElement,
-    useState,
     createContext,
+    isValidElement,
     useCallback,
     useContext,
     useEffect,
+    useState,
 } from 'react';
 import { Box, BoxProps } from '../Box/Box';
 import { Flex, TFlexProps } from '../Flex/Flex';
+import { getTabStyles, tabListStyles } from './styles';
 
 type TabContextType = {
     selectedIndex: number;
     onChangeTab: (index: number, value: any) => void; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
+
+export type TTabVariant = 'border' | 'round' | 'square';
 
 export const TabContext = createContext<TabContextType>({
     selectedIndex: 0,
@@ -64,13 +67,19 @@ export const Tabs: TabsFC = (props) => {
     );
 };
 
-type TabListProps = TFlexProps & {};
+type TabListProps = TFlexProps & {
+    variant?: TTabVariant;
+};
 
-export const TabsList: FC<TabListProps> = ({ children, ...rest }) => {
+export const TabsList: FC<TabListProps> = ({
+    children,
+    variant = 'border',
+    ...rest
+}) => {
     const { selectedIndex, onChangeTab } = useContext(TabContext);
 
     return (
-        <Flex {...rest}>
+        <Flex {...tabListStyles[variant]} {...rest}>
             {Children.map(children, (child, index) => {
                 if (!isValidElement(child)) {
                     return;
@@ -97,30 +106,34 @@ export const TabsList: FC<TabListProps> = ({ children, ...rest }) => {
     );
 };
 
-type TabProps = BoxProps & {
+export type TabProps = BoxProps & {
     value?: unknown;
     selected?: boolean;
     disabled?: boolean;
+    variant?: TTabVariant;
 };
 
 export const Tab: FC<TabProps> = ({
     selected,
     disabled,
     children,
+    variant = 'border',
     ...rest
-}) => (
-    <Box
-        aria-selected={selected}
-        aria-disabled={disabled}
-        color={selected ? 'standard.$0' : 'basic.$500'}
-        borderBottom={selected ? '2px solid' : 0}
-        borderBottomColor="primary.$300"
-        cursor="default"
-        {...rest}
-    >
-        {children}
-    </Box>
-);
+}) => {
+    const styles = getTabStyles(variant, selected);
+
+    return (
+        <Box
+            aria-selected={selected}
+            aria-disabled={disabled}
+            cursor="default"
+            {...styles}
+            {...rest}
+        >
+            {children}
+        </Box>
+    );
+};
 
 Tab.defaultProps = {
     selected: false,

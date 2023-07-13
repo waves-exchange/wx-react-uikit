@@ -52,7 +52,7 @@ stories.add('simple', () => {
                             </Button>
                         </Tooltip>
                     </Box>
-                    <Box>
+                    <Box mr="60px">
                         <Tooltip
                             isOpen={true}
                             label="Lorem ipsum dolor sit amet"
@@ -84,6 +84,43 @@ stories.add('simple', () => {
                         >
                             <Button {...commonAnchorProps}>
                                 info tooltip left
+                            </Button>
+                        </Tooltip>
+                    </Box>
+                    <Box>
+                        <Tooltip
+                            isOpen={true}
+                            label="Lorem ipsum dolor sit amet"
+                            variant="error"
+                            placement="top"
+                        >
+                            <Button {...commonAnchorProps}>
+                                error tooltip
+                            </Button>
+                        </Tooltip>
+
+                        <Tooltip
+                            label="Lorem ipsum dolor sit amet"
+                            variant="error"
+                            placement="top"
+                        >
+                            <Button {...commonAnchorProps}>
+                                error tooltip left
+                            </Button>
+                        </Tooltip>
+                        <Tooltip
+                            label={(): ReactNode => (
+                                <Box width="200px" borderRadius="$4">
+                                    Lorem ipsum dolor sit amet Lorem ipsum dolor
+                                    sit amet Lorem ipsum dolor sit amet Lorem
+                                    ipsum dolor sit amet
+                                </Box>
+                            )}
+                            variant="error"
+                            placement="bottom"
+                        >
+                            <Button {...commonAnchorProps}>
+                                error tooltip left
                             </Button>
                         </Tooltip>
                     </Box>

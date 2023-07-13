@@ -30,7 +30,7 @@ import { path } from 'ramda';
   to parent element of the arrow. See getPopperArrowStyle()
 */
 
-export type TVariants = 'default' | 'info';
+export type TVariants = 'default' | 'info' | 'error';
 export type TooltipProps = BoxProps & {
     arrowColor?: string;
     arrowSize?: string;

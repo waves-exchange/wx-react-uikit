@@ -10,11 +10,48 @@ type GetPopperArrowStyle = (options: {
 }) => Interpolation;
 
 const borderWidth = 4;
+
+export const variants = {
+    default: {
+        styles: {
+            p: '10px',
+            borderRadius: '$4',
+            border: '1px solid',
+            borderColor: 'mediumGrey.$850',
+            bg: 'rgba(0, 0, 0, .7)',
+            color: 'standard.$0',
+            fontSize: '12px',
+            lineHeight: '16px',
+        },
+        arrowColor: 'transparent',
+    },
+    info: {
+        styles: {
+            p: '16px',
+            bg: 'surf',
+            color: 'text',
+            fontSize: '12px',
+            lineHeight: '16px',
+        },
+        arrowColor: 'main',
+    },
+    error: {
+        styles: {
+            p: '16px',
+            bg: 'surf',
+            color: 'text',
+            fontSize: '12px',
+            lineHeight: '16px',
+        },
+        arrowColor: 'negative',
+    },
+};
+
 const getBorderStyles = (
     variant: TVariants,
     placement: Placement
 ): Record<string, string> | null => {
-    if (variant !== 'info') {
+    if (variant === 'default') {
         return null;
     }
     let key;
@@ -56,33 +93,7 @@ const getBorderStyles = (
         },
     };
 
-    return { ...styles[key], borderColor: 'main' };
-};
-
-export const variants = {
-    default: {
-        styles: {
-            p: '10px',
-            borderRadius: '$4',
-            border: '1px solid',
-            borderColor: 'mediumGrey.$850',
-            bg: 'rgba(0, 0, 0, .7)',
-            color: 'standard.$0',
-            fontSize: '12px',
-            lineHeight: '16px',
-        },
-        arrowColor: 'transparent',
-    },
-    info: {
-        styles: {
-            p: '16px',
-            bg: 'surf',
-            color: 'text',
-            fontSize: '12px',
-            lineHeight: '16px',
-        },
-        arrowColor: 'main',
-    },
+    return { ...styles[key], borderColor: variants[variant].arrowColor };
 };
 
 export const getPopperArrowStyle: GetPopperArrowStyle = ({

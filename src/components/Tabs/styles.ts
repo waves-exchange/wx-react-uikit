@@ -17,6 +17,11 @@ export const getTabStyles = (
             color: selected ? 'standard.$0' : 'textsec',
             backgroundColor: selected ? 'main' : 'surf',
             borderRadius: '38px',
+            sx: {
+                ':hover': {
+                    opacity: 0.8,
+                },
+            },
         },
         square: {
             cursor: 'pointer',

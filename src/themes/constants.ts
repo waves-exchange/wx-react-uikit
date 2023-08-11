@@ -234,6 +234,7 @@ export const lineHeights = {
     $16: '16px',
     $20: '20px',
     $24: '24px',
+    $26: '26px',
     $32: '32px',
     $40: '40px',
     $56: '56px',

@@ -57,5 +57,6 @@ export * from './icons/question';
 export * from './icons/invoke';
 export * from './icons/chevron';
 export * from './icons/logoText';
+export * from './icons/copy';
 //types
 export * from './interface';

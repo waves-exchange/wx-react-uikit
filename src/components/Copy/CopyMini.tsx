@@ -7,8 +7,8 @@ import React, {
     useState,
 } from 'react';
 import { BoxProps } from '../Box/Box';
-import { Flex } from '../Flex/Flex';
-import { Icon } from '../Icon/Icon';
+import { Flex, TFlexProps } from '../Flex/Flex';
+import { Icon, IconProps } from '../Icon/Icon';
 import { LightCopy } from './LightCopy';
 import { iconCopy } from '../../icons/copy';
 import { iconCheck } from '../../icons/check';
@@ -18,6 +18,8 @@ type CopyMiniProps = BoxProps & {
     initLabel?: string;
     copiedLabel?: string;
     onTextCopy?(text: string): void;
+    wrapperStyles?: ((state: 'initial' | 'copied') => TFlexProps) | TFlexProps;
+    iconSize?: IconProps['iconSize'];
 };
 
 const iconTestId = 'copy-icon';
@@ -27,6 +29,8 @@ export const CopyMini: FC<CopyMiniProps> = ({
     copiedLabel,
     onTextCopy,
     text,
+    wrapperStyles = {},
+    iconSize,
     ...rest
 }) => {
     const [resetTimeout, setResetTimeout] = useState(-1);
@@ -34,7 +38,7 @@ export const CopyMini: FC<CopyMiniProps> = ({
     const isMounted = useRef(true);
 
     const label = useMemo(
-        () => (state === 'copied' ? copiedLabel : initLabel),
+        () => (state === 'copied' ? copiedLabel || initLabel : initLabel),
         [copiedLabel, initLabel, state]
     );
     const handleClick = useCallback<(copiedText: string) => void>(() => {
@@ -75,13 +79,17 @@ export const CopyMini: FC<CopyMiniProps> = ({
                 ml={-4}
                 borderRadius="$4"
                 alignItems="center"
-                color={state === 'copied' ? 'textpositive' : 'textsec'}
+                color={state === 'copied' ? 'textpositive' : 'icon'}
+                {...(typeof wrapperStyles === 'function'
+                    ? wrapperStyles(state)
+                    : wrapperStyles)}
             >
                 <Icon
                     data-testid={iconTestId}
                     color={state === 'copied' ? 'textpositive' : 'iconsec'}
                     icon={state === 'copied' ? iconCheck : iconCopy}
-                    mr={label ? '5px' : 0}
+                    mr={label ? '10px' : 0}
+                    iconSize={iconSize}
                 />
                 {label}
             </Flex>

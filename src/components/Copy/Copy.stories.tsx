@@ -40,6 +40,15 @@ stories.add('simple', () => (
                 copiedLabel="Copied!"
                 text="this is text to be copied"
             />
+            <CopyMini
+                mt={30}
+                initLabel="Copy"
+                text="this is text to be copied"
+                iconSize="large"
+                wrapperStyles={(state) =>
+                    state === 'copied' ? { color: 'main' } : {}
+                }
+            />
         </Flex>
     </ThemeProvider>
 ));

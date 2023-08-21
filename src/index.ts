@@ -44,6 +44,7 @@ export * from './components/Accordion/AccordionHeader';
 export * from './components/Accordion/AccordionPanel';
 export * from './components/DotLoader/DotLoader';
 export * from './components/WxLoader/WxLoader';
+export * from './components/CircleCounter/CircleCounter';
 export * from './themes/default';
 // assets
 export * from './icons/check';

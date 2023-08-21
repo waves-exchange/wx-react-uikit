@@ -196,6 +196,30 @@ const AvatarExamples: React.FC = () => {
                         />
                     </Box>
                 </Flex>
+                <Flex
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                    mb={32}
+                >
+                    <Box color="text" mb="8px">
+                        {'Invalid'}
+                    </Box>
+                    <Box size={36}>
+                        <AddressAvatar
+                            tooltipLabels={{
+                                keeperText: '',
+                                ledgerText: '',
+                                scriptText: '',
+                            }}
+                            size={36}
+                            userType={USER_TYPES.ledger}
+                            address={ADDRESS}
+                            newsCounter={'news'}
+                            bg="surf"
+                        />
+                    </Box>
+                </Flex>
             </Flex>
         </Flex>
     );

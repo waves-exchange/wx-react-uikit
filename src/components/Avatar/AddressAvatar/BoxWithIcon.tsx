@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, BoxProps, Flex, IIcon, Icon, Text } from '../../..';
+import { Box, BoxProps, CircleCounter, Flex, IIcon, Icon } from '../../..';
 import { TTooltipLabel, TooltipIcon } from './TooltipIcon';
 import { Options } from '@popperjs/core';
 import { useMemo } from 'react';
@@ -25,20 +25,6 @@ export const IconNode: React.FC<IIconNode> = ({ icon }) => (
         <Icon icon={icon} size={10} color="text" />
     </Flex>
 );
-
-function normalizeCount(count?: string | number): string {
-    const countNumber = Number(count);
-
-    switch (true) {
-        case isNaN(countNumber):
-        case countNumber < 0:
-            return '';
-        case countNumber > 99:
-            return '!';
-        default:
-            return String(countNumber);
-    }
-}
 
 export const NotifyNode: React.FC<{ count?: number | string; bg?: string }> = ({
     count,
@@ -83,18 +69,7 @@ export const NotifyNode: React.FC<{ count?: number | string; bg?: string }> = ({
                 alignItems="center"
                 borderRadius="circle"
             >
-                <Flex
-                    width={16}
-                    height={16}
-                    justifyContent="center"
-                    alignItems="center"
-                    borderRadius="circle"
-                    backgroundColor="textnegative"
-                >
-                    <Text variant="line" color="standard.$0">
-                        {count}
-                    </Text>
-                </Flex>
+                <CircleCounter count={count} />
             </Flex>
         </Box>
     );
@@ -120,10 +95,8 @@ export const BoxWithIcon: React.FC<IBoxWithIcon & BoxProps> = ({
     ...rest
 }) => {
     const notifyNode = useMemo(() => {
-        const normalizedCounter = normalizeCount(newsCounter);
-
-        return normalizedCounter ? (
-            <NotifyNode count={normalizedCounter} bg={bg} />
+        return newsCounter && !isNaN(Number(newsCounter)) ? (
+            <NotifyNode count={newsCounter} bg={bg} />
         ) : null;
     }, [newsCounter, bg]);
 

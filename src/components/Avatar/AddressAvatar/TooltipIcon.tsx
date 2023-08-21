@@ -16,10 +16,7 @@ export const TooltipIcon: React.FC<TooltipIconProps> = ({
     label,
 }) => (
     <Tooltip
-        arrowSize="4px"
-        hasArrow={true}
-        arrowColor="#5A81EA"
-        offset={4}
+        variant="info"
         label={label}
         placement="bottom"
         popperOptions={popperOptions}
@@ -34,11 +31,11 @@ export const TooltipIcon: React.FC<TooltipIconProps> = ({
             justifyContent="center"
             alignItems="center"
             borderRadius="circle"
-            backgroundColor="darkGrey.$800"
+            backgroundColor="icon"
             cursor="pointer"
             zIndex={1}
         >
-            <Icon icon={icon} size={10} color="standard.$0" />
+            <Icon icon={icon} size={10} color="icon" />
         </Flex>
     </Tooltip>
 );

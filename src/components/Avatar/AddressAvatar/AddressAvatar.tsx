@@ -6,7 +6,7 @@ import { TooltipLabel } from './TooltipLabel';
 
 export enum TOOLTIP_LABELS {
     scriptText = 'scriptText',
-    keepertText = 'keepertText',
+    keeperText = 'keeperText',
     ledgerText = 'ledgerText',
 }
 
@@ -14,7 +14,8 @@ type TUserAvatar = {
     tooltipLabels: Record<TOOLTIP_LABELS, string>;
     isSmart?: boolean;
     userType?: USER_TYPES;
-    hasNotify?: boolean;
+    newsCounter?: number | string;
+    bg?: string;
 };
 
 export enum USER_TYPES {
@@ -31,7 +32,8 @@ export const AddressAvatar: FC<TAvatarComponent & TUserAvatar> = ({
     isSmart = false,
     userType = USER_TYPES.seed,
     tooltipLabels,
-    hasNotify = false,
+    newsCounter,
+    bg,
     ...rest
 }) => {
     const icon = getIcon({ isSmart, userType });
@@ -44,7 +46,7 @@ export const AddressAvatar: FC<TAvatarComponent & TUserAvatar> = ({
     return (
         <BoxWithIcon
             icon={icon}
-            hasNotify={hasNotify}
+            newsCounter={newsCounter}
             tooltipLabel={
                 Array.isArray(tooltipContent) && tooltipContent.length
                     ? (): React.ReactNode => (
@@ -52,6 +54,7 @@ export const AddressAvatar: FC<TAvatarComponent & TUserAvatar> = ({
                       )
                     : null
             }
+            bg={bg}
         >
             <AvatarComponent {...rest} />
         </BoxWithIcon>

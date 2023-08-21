@@ -6,40 +6,27 @@ export interface ITooltipContent {
     label: string;
 }
 
-interface IToltipLabel {
+interface ITooltipLabel {
     content: Array<ITooltipContent>;
 }
 
-export const TooltipLabel: React.FC<IToltipLabel> = ({ content }) => {
+export const TooltipLabel: React.FC<ITooltipLabel> = ({ content }) => {
     return (
-        <Flex
-            flexDirection="column"
-            borderTop="4px solid"
-            borderTopColor="main"
-            backgroundColor="#4a5060"
-            borderRadius="$4"
-            py="8px"
-            px="12px"
-            color="standard.$0"
-            maxWidth="100%"
-            zIndex={1}
-        >
+        <Flex flexDirection="column" maxWidth="100%" zIndex={1}>
             {content.map(({ icon, label }, index) => (
                 <Flex key={label} alignItems="center" mt={index ? 8 : 0}>
                     <Flex
                         alignItems="center"
                         justifyContent="center"
-                        size="16px"
-                        borderRadius="circle"
-                        backgroundColor="darkGrey.$600"
                         flex="none"
                         mr="4px"
                     >
-                        <Icon icon={icon} size={10} color="standard.$0" />
+                        <Icon icon={icon} size={10} color="text" />
                     </Flex>
                     <Text
                         ml="$10"
-                        variant="body2"
+                        variant="caption"
+                        color="text"
                         sx={{ whiteSpace: 'nowrap' }}
                     >
                         {label}

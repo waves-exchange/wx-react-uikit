@@ -6,7 +6,6 @@ import { iconInfo } from './avatarIcons/info';
 import { iconLedgerMini } from './avatarIcons/ledgerMini';
 import { iconSmartMini } from './avatarIcons/smartMini';
 import { iconWalletKeeperMini } from './avatarIcons/walletKeeperMini';
-import { keyframes } from '@emotion/core';
 import { metamask } from './avatarIcons/metamask';
 
 type TUserProps = {
@@ -49,7 +48,7 @@ export const getTooltipContent = ({
             return [
                 {
                     icon: iconWalletKeeperMini,
-                    label: tooltipLabels[TOOLTIP_LABELS.keepertText],
+                    label: tooltipLabels[TOOLTIP_LABELS.keeperText],
                 },
                 {
                     icon: iconSmartMini,
@@ -71,17 +70,3 @@ export const getTooltipContent = ({
             return null;
     }
 };
-
-export const animatedGradient = keyframes`
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-`;

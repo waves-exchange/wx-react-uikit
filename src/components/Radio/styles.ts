@@ -2,14 +2,14 @@ import { IControlBoxStyles } from '../ControlBox/ControlBox';
 
 export const defaultControlBoxStyles: IControlBoxStyles = {
     baseStyles: {
-        width: 20,
-        height: 20,
+        width: 18,
+        height: 18,
         marginRight: '4px',
         boxSizing: 'border-box',
         border: '1px solid',
         borderRadius: 'circle',
-        backgroundColor: 'main',
-        borderColor: 'main',
+        backgroundColor: 'transparent',
+        borderColor: 'border',
         cursor: 'pointer',
         justifyContent: 'center',
         '::before': {
@@ -17,30 +17,30 @@ export const defaultControlBoxStyles: IControlBoxStyles = {
             display: 'block',
             transition: '0.3s',
             borderRadius: 'circle',
-            width: 12,
-            height: 12,
-            backgroundColor: 'standard.$0',
-            border: '2px solid',
-            borderColor: 'standard.$0',
+            width: 8,
+            height: 8,
+            backgroundColor: 'surf',
         },
     },
     _hover: {
-        backgroundColor: 'darkGrey.$200',
-        borderColor: 'darkGrey.$200',
+        opacity: 0.8,
     },
     _checked: {
+        backgroundColor: 'main',
+        borderColor: 'main',
         '::before': {
-            backgroundColor: 'main',
+            backgroundColor: 'standard.$0',
         },
     },
     _disabled: {
-        backgroundColor: 'darkGrey.$600',
-        borderColor: 'darkGrey.$600',
+        opacity: 0.5,
         cursor: 'default',
     },
     _checkedAndDisabled: {
-        '::before': {
-            backgroundColor: 'blue.$900',
-        },
+        opacity: 0.5,
+        cursor: 'default',
+    },
+    _invalid: {
+        borderColor: 'textnegative',
     },
 };

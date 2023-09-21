@@ -24,8 +24,8 @@ exports[`<Radio> merges default and passed control box styles 1`] = `
   box-sizing: border-box;
   border: 1px solid;
   border-radius: circle;
-  background-color: main;
-  border-color: main;
+  background-color: transparent;
+  border-color: border;
   cursor: pointer;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -39,21 +39,29 @@ exports[`<Radio> merges default and passed control box styles 1`] = `
   -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: circle;
-  width: 12px;
-  height: 12px;
-  background-color: standard.$0;
-  border: 2px solid;
-  border-color: standard.$0;
+  width: 8px;
+  height: 8px;
+  background-color: surf;
 }
 
 input[type=radio]:hover:not(:disabled):not(:checked) + .emotion-0 {
+  opacity: 0.8;
   background-color: red;
-  border-color: darkGrey.$200;
 }
 
 input[type=radio]:disabled + .emotion-0 {
+  opacity: 0.5;
+  cursor: default;
   background-color: red;
-  border-color: darkGrey.$600;
+}
+
+input[type=radio][aria-invalid=true] + .emotion-0 {
+  border-color: textnegative;
+}
+
+input[type=radio]:checked:disabled + .emotion-0,
+input[type=radio][aria-checked=mixed]:disabled + .emotion-0 {
+  opacity: 0.5;
   cursor: default;
 }
 
@@ -64,6 +72,12 @@ input[type=radio][aria-checked=mixed]:disabled + .emotion-0::before {
 
 .emotion-0 > * {
   opacity: 0;
+}
+
+input[type=radio]:checked + .emotion-0,
+input[type=radio][aria-checked=mixed] + .emotion-0 {
+  background-color: main;
+  border-color: main;
 }
 
 input[type=radio]:checked + .emotion-0::before,

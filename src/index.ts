@@ -36,6 +36,7 @@ export {
     DefaultOption,
 } from './components/Select/defaultSelect/Option';
 export * from './components/Spinner/Spinner';
+export * from './components/Switch/Switch';
 export * from './components/Tabs/Tabs';
 export * from './components/PlateNote/PlateNote';
 export * from './components/Accordion/Accordion';

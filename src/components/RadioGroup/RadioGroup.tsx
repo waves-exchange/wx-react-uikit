@@ -14,7 +14,7 @@ export const radioGroupTestId = 'radio';
 type RadioGroupProps = TFlexProps & {
     direction?: 'row' | 'column';
     name?: string;
-    value?: string;
+    value?: string | number;
     onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 

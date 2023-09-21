@@ -97,7 +97,7 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
                     {...restControlStyles}
                     data-testid={controlBoxTestId}
                 >
-                    <Icon icon={iconCheck} size={12} height={9} />
+                    <Icon icon={iconCheck} size={20} height={15} />
                 </ControlBox>
             )}
             {children}

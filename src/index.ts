@@ -50,6 +50,8 @@ export * from './themes/default';
 // assets
 export * from './icons/check';
 export * from './icons/close';
+export * from './icons/arrow';
+export * from './icons/search';
 export * from './icons/closeSelect';
 export * from './icons/iconEyeHide';
 export * from './icons/iconEyeView';

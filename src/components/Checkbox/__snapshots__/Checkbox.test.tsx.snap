@@ -85,8 +85,8 @@ input[type=checkbox][aria-checked=mixed] + .emotion-1 > * {
   color: currentColor;
   display: inline-block;
   vertical-align: middle;
-  width: 12px;
-  height: 9px;
+  width: 20px;
+  height: 15px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -105,19 +105,12 @@ input[type=checkbox][aria-checked=mixed] + .emotion-1 > * {
 >
   <svg
     class="emotion-0"
-    viewBox="0 0 12 9"
+    viewBox="0 0 24 24"
   >
-    <g
+    <path
+      d="M19.9805 5.99023C19.7207 5.99797 19.4741 6.10655 19.293 6.29296L9 16.5859L5.70702 13.293C5.4562 13.0317 5.08375 12.9265 4.73331 13.0179C4.38287 13.1092 4.1092 13.3829 4.01784 13.7333C3.92648 14.0838 4.03172 14.4562 4.29295 14.707L8.29295 18.707C8.68349 19.0974 9.31648 19.0974 9.70702 18.707L20.707 7.70703C21.0028 7.41954 21.0917 6.97996 20.9309 6.60012C20.7702 6.22027 20.3928 5.97807 19.9805 5.99023Z"
       fill="currentColor"
-      fill-rule="evenodd"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M10.6477 0L3.91373 6.38977L1.33292 3.98641L0 5.30951L3.87398 9H3.89062L12 1.29612L10.6477 0Z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </g>
+    />
   </svg>
 </div>
 `;

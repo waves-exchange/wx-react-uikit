@@ -13,9 +13,9 @@ export type RadioProps = InputHTMLAttributes<HTMLInputElement> &
     TFlexProps & {
         controlBoxStyles?: IControlBoxStyles;
         customControlBox?: boolean;
+        isInvalid?: boolean;
     };
 
-// TODO: добавить поддержку светлой темы
 export const Radio: FC<RadioProps> = ({
     name,
     value,
@@ -29,6 +29,7 @@ export const Radio: FC<RadioProps> = ({
     defaultChecked,
     controlBoxStyles = {},
     customControlBox,
+    isInvalid,
     ...rest
 }) => {
     const controlStyles = mergeDeepRight<IControlBoxStyles, IControlBoxStyles>(
@@ -54,6 +55,7 @@ export const Radio: FC<RadioProps> = ({
                 value={value}
                 checked={checked}
                 disabled={disabled}
+                aria-invalid={isInvalid}
                 onChange={readOnly ? undefined : onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
@@ -70,7 +72,6 @@ export const Radio: FC<RadioProps> = ({
                     data-testid={radioControlBoxTestId}
                 />
             )}
-
             {children}
         </Flex>
     );

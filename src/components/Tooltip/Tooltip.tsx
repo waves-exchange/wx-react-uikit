@@ -112,6 +112,17 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     }, [isOpenProp, showDelay]);
 
+    const handleTouch = useCallback(
+        (e) => {
+            if (isOpen) {
+                handleMouseLeave(e);
+            } else {
+                handleMouseEnter(e);
+            }
+        },
+        [handleMouseEnter, handleMouseLeave, isOpen]
+    );
+
     let child = Children.only(children);
 
     if (isValidElement(child)) {
@@ -119,6 +130,7 @@ export const Tooltip: FC<TooltipProps> = ({
             ref: anchorRef,
             onMouseEnter: handleMouseEnter,
             onMouseLeave: handleMouseLeave,
+            onTouchStart: handleTouch,
         });
     }
 
@@ -142,7 +154,7 @@ export const Tooltip: FC<TooltipProps> = ({
     }, [anchorEl, useDisabledChildHack]);
 
     return (
-        <div style={{ position: 'relative' }} onClick={handleMouseEnter}>
+        <div style={{ position: 'relative' }}>
             {useDisabledChildHack ? (
                 <div
                     style={{
@@ -152,6 +164,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     }}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    onTouchStart={handleTouch}
                 />
             ) : null}
             {child}

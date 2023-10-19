@@ -171,6 +171,7 @@ export const darkThemeColors = {
     negstroke: colors.red.$300,
     alertbg: 'rgba(255, 197, 48, 0.1)',
     negativebg: 'rgba(255, 72, 94, 0.1)',
+    positivebg: 'rgba(42, 198, 132, 0.1)',
     togglebg: colors.mediumGrey.$850,
 };
 
@@ -207,6 +208,7 @@ export const lightThemeColors = {
     negstroke: colors.red.$300,
     alertbg: 'rgba(255, 197, 48, 0.15)',
     negativebg: 'rgba(255, 72, 94, 0.15)',
+    positivebg: 'rgba(42, 198, 132, 0.15)',
     togglebg: colors.lightGrey.$400,
 };
 

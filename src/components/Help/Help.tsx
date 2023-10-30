@@ -22,6 +22,7 @@ type HelpProps = {
         hovered?: string;
         disabled?: string;
     };
+    offset?: Array<number>;
 };
 
 export const Help: FC<HelpProps> = ({
@@ -35,6 +36,7 @@ export const Help: FC<HelpProps> = ({
     isOpenContent = undefined,
     sizeIcon = '16px',
     colors = {},
+    offset: _offset,
 }) => {
     colors.hovered = colors.hovered || 'help.hover';
     colors.active = colors.active || 'help.active';
@@ -52,6 +54,9 @@ export const Help: FC<HelpProps> = ({
     }, [direction, align]);
 
     const offset = useMemo(() => {
+        if (_offset) {
+            return _offset;
+        }
         const offsetY = 8;
 
         switch (align) {
@@ -62,7 +67,7 @@ export const Help: FC<HelpProps> = ({
             default:
                 return [0, offsetY];
         }
-    }, [align]);
+    }, [align, _offset]);
 
     const currentСolorOnHover = React.useMemo(() => {
         const currentColor = isDisabledIcon ? colors.disabled : colors.hovered;
@@ -92,6 +97,8 @@ export const Help: FC<HelpProps> = ({
             <Flex
                 alignItems="center"
                 cursor="pointer"
+                position="relative"
+                zIndex={1}
                 sx={{
                     ':hover': currentСolorOnHover,
                 }}

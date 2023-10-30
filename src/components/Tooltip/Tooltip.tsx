@@ -167,7 +167,6 @@ export const Tooltip: FC<TooltipProps> = ({
                     onTouchStart={handleTouch}
                 />
             ) : null}
-            {child}
             <Popper
                 anchorEl={anchorEl as any}
                 arrowEl={arrowRef as any}
@@ -206,6 +205,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     <PopperArrow ref={setArrowRef as Ref<HTMLDivElement>} />
                 )}
             </Popper>
+            {child}
         </div>
     );
 };

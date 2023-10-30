@@ -97,6 +97,8 @@ export const Help: FC<HelpProps> = ({
             <Flex
                 alignItems="center"
                 cursor="pointer"
+                position="relative"
+                zIndex={1}
                 sx={{
                     ':hover': currentСolorOnHover,
                 }}

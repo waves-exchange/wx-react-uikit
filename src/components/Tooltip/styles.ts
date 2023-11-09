@@ -106,10 +106,13 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
 
     return {
         '[data-popper-arrow]': {
+            position: 'absolute',
+            overflow: 'hidden',
+        },
+        '[data-popper-arrow] div': {
             color,
             border: `${arrowSizeNum}px solid`,
             borderColor: 'currentColor',
-            position: 'absolute',
         },
 
         "&[data-popper-placement^='top']": {
@@ -119,6 +122,9 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
 
         "&[data-popper-placement^='top'] [data-popper-arrow]": {
             top: `calc(100% + ${borderWidth}px)`,
+            height: `${arrowSizeNum}px`,
+        },
+        "&[data-popper-placement^='top'] [data-popper-arrow] div": {
             borderColor: 'currentColor transparent transparent transparent',
         },
 
@@ -129,7 +135,11 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
 
         "&[data-popper-placement^='bottom'] [data-popper-arrow]": {
             bottom: `calc(100% + ${borderWidth}px)`,
+            height: `${arrowSizeNum}px`,
+        },
+        "&[data-popper-placement^='bottom'] [data-popper-arrow] div": {
             borderColor: 'transparent transparent currentColor transparent',
+            transform: 'translateY(-50%)',
         },
 
         "&[data-popper-placement^='left']": {
@@ -139,6 +149,9 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
 
         "&[data-popper-placement^='left'] [data-popper-arrow]": {
             left: `calc(100% + ${borderWidth}px)`,
+            width: `${arrowSizeNum}px`,
+        },
+        "&[data-popper-placement^='left'] [data-popper-arrow] div": {
             borderColor: 'transparent transparent transparent currentColor',
         },
 
@@ -149,7 +162,11 @@ export const getPopperArrowStyle: GetPopperArrowStyle = ({
 
         "&[data-popper-placement^='right'] [data-popper-arrow]": {
             right: `calc(100% + ${borderWidth}px)`,
+            width: `${arrowSizeNum}px`,
+        },
+        "&[data-popper-placement^='right'] [data-popper-arrow] div": {
             borderColor: 'transparent currentColor transparent transparent',
+            transform: 'translateX(-50%)',
         },
     };
 };

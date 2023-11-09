@@ -1,16 +1,16 @@
 import React, {
     FC,
-    useRef,
-    useCallback,
     forwardRef,
+    useCallback,
     useLayoutEffect,
     useMemo,
+    useRef,
 } from 'react';
 import {
-    createPopper,
+    Instance,
     Options,
     VirtualElement,
-    Instance,
+    createPopper,
 } from '@popperjs/core';
 import { Box, BoxProps } from '../Box/Box';
 import { mergeOptions } from './helpers';
@@ -98,5 +98,9 @@ export const Popper: FC<Popper> = ({
 };
 
 export const PopperArrow = forwardRef<HTMLDivElement>((props, ref) => {
-    return <div x-arrow="" data-popper-arrow={true} ref={ref} />;
+    return (
+        <div x-arrow="" data-popper-arrow={true} ref={ref}>
+            <div />
+        </div>
+    );
 });

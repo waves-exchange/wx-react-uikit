@@ -80,7 +80,7 @@ stories.add('simple', () => {
                                 </Box>
                             )}
                             variant="info"
-                            placement="bottom"
+                            placement="left"
                         >
                             <Button {...commonAnchorProps}>
                                 info tooltip left
@@ -92,7 +92,7 @@ stories.add('simple', () => {
                             isOpen={true}
                             label="Lorem ipsum dolor sit amet"
                             variant="error"
-                            placement="top"
+                            placement="right"
                         >
                             <Button {...commonAnchorProps}>
                                 error tooltip
@@ -102,7 +102,7 @@ stories.add('simple', () => {
                         <Tooltip
                             label="Lorem ipsum dolor sit amet"
                             variant="error"
-                            placement="top"
+                            placement="right"
                         >
                             <Button {...commonAnchorProps}>
                                 error tooltip left

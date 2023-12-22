@@ -57,6 +57,31 @@ export const variants: Record<
         lineHeight: '$24',
         fontWeight: '$700',
     },
+    heading1Mobile: {
+        fontSize: '$48',
+        lineHeight: '$56',
+        fontWeight: '$700',
+    },
+    heading2Mobile: {
+        fontSize: '$32',
+        lineHeight: '$40',
+        fontWeight: '$700',
+    },
+    heading3Mobile: {
+        fontSize: '$24',
+        lineHeight: '$32',
+        fontWeight: '$700',
+    },
+    heading4Mobile: {
+        fontSize: '$20',
+        lineHeight: '$24',
+        fontWeight: '$700',
+    },
+    heading5Mobile: {
+        fontSize: '$16',
+        lineHeight: '$24',
+        fontWeight: '$700',
+    },
     button1: {
         fontSize: '$16',
         lineHeight: '$24',

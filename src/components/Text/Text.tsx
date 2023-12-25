@@ -56,7 +56,7 @@ const getStyleFabric =
 
         const getValidKey = (i: number): string => findVariantKey(i) || 'body1';
 
-        return breakpoints.map((bp, i) => {
+        return (breakpoints || []).map((bp, i) => {
             return variants[getValidKey(i)][property];
         });
     };

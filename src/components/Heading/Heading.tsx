@@ -1,7 +1,5 @@
 import React, { ElementType, FC } from 'react';
-import { TTextVariant, Text } from '../Text/Text';
-
-import { TTextProps } from '../Text/Text';
+import { TTextProps, Text } from '../Text/Text';
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -13,7 +11,11 @@ export const Heading: FC<HeadingProps> = ({ level, children, ...rest }) => (
     <Text
         as={`h${String(level)}` as ElementType}
         m={0}
-        variant={`heading${level}` as TTextVariant}
+        variant={[
+            `heading${level}Mobile`,
+            `heading${level}Mobile`,
+            `heading${level}`,
+        ]}
         {...rest}
     >
         {children}

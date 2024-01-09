@@ -78,7 +78,7 @@ export const variants: Record<
         fontWeight: '$700',
     },
     heading5Mobile: {
-        fontSize: '$16',
+        fontSize: '$20',
         lineHeight: '$24',
         fontWeight: '$700',
     },

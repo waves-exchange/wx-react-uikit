@@ -36,21 +36,49 @@ stories.add('Bottom Left', () => (
             height="100%"
             justifyContent="center"
             alignItems="center"
-            flexDirection="row"
+            flexDirection="column"
             p="16px"
             backgroundColor="darkGrey.$800"
         >
-            <Text
-                mr="10px"
-                fontSize="15px"
-                fontFamily="Roboto"
-                color="basic.$500"
-            >
-                Set a single password for all your Waves.Exchange accounts.
-            </Text>
-            <Help direction="bottom" align="left">
-                {box}
-            </Help>
+            <Flex flexDirection="row">
+                <Text
+                    mr="10px"
+                    fontSize="15px"
+                    fontFamily="Roboto"
+                    color="basic.$500"
+                >
+                    Set a single password for all your Waves.Exchange accounts.
+                </Text>
+                <Help direction="bottom" align="left">
+                    {box}
+                </Help>
+            </Flex>
+            <Flex flexDirection="row">
+                <Text
+                    mr="10px"
+                    fontSize="15px"
+                    fontFamily="Roboto"
+                    color="basic.$500"
+                >
+                    Set a single password for all your Waves.Exchange accounts.
+                </Text>
+                <Help direction="bottom" align="left">
+                    {box}
+                </Help>
+            </Flex>
+            <Flex flexDirection="row">
+                <Text
+                    mr="10px"
+                    fontSize="15px"
+                    fontFamily="Roboto"
+                    color="basic.$500"
+                >
+                    Set a single password for all your Waves.Exchange accounts.
+                </Text>
+                <Help direction="bottom" align="left">
+                    {box}
+                </Help>
+            </Flex>
         </Flex>
     </ThemeProvider>
 ));

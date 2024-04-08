@@ -19,7 +19,7 @@ export const variants = {
             border: '1px solid',
             borderColor: 'iconsec',
             bg: 'rgba(0, 0, 0, .7)',
-            color: 'text',
+            color: 'standrard.$0',
             fontSize: '12px',
             lineHeight: '16px',
         },

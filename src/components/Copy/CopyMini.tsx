@@ -67,9 +67,7 @@ export const CopyMini: FC<CopyMiniProps> = ({
                 sx={{
                     cursor: 'pointer',
                     ':hover': {
-                        '& > svg': {
-                            color: state === 'copied' ? 'textpositive' : 'icon',
-                        },
+                        opacity: state === 'copied' ? 1 : 0.8,
                     },
                 }}
                 display="inline-flex"
@@ -79,14 +77,15 @@ export const CopyMini: FC<CopyMiniProps> = ({
                 ml={-4}
                 borderRadius="$4"
                 alignItems="center"
-                color={state === 'copied' ? 'textpositive' : 'icon'}
+                color={state === 'copied' ? 'textpositive' : 'textsec'}
+                transition="0.3s"
                 {...(typeof wrapperStyles === 'function'
                     ? wrapperStyles(state)
                     : wrapperStyles)}
             >
                 <Icon
                     data-testid={iconTestId}
-                    color={state === 'copied' ? 'textpositive' : 'iconsec'}
+                    color={state === 'copied' ? 'textpositive' : 'icon'}
                     icon={state === 'copied' ? iconCheck : iconCopy}
                     mr={label ? '10px' : 0}
                     iconSize={iconSize}

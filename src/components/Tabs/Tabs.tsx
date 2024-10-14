@@ -114,8 +114,8 @@ export type TabProps = BoxProps & {
 };
 
 export const Tab: FC<TabProps> = ({
-    selected,
-    disabled,
+    selected = false,
+    disabled = false,
     children,
     variant = 'border',
     ...rest
@@ -133,11 +133,6 @@ export const Tab: FC<TabProps> = ({
             {children}
         </Box>
     );
-};
-
-Tab.defaultProps = {
-    selected: false,
-    disabled: false,
 };
 
 type TabPanelsProps = BoxProps & {};
